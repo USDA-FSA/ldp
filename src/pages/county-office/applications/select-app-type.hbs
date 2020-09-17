@@ -1,0 +1,167 @@
+{{#> ../layouts/base TITLE='LDP - Application - Commodity' NAV_USER_COU=true NAV2_ACTIVE=true BASE_ROOT='../../' }}
+
+{{#*inline "main-block"}}
+
+<div class="fsa-section">
+  <div class="fsa-section__bd">
+
+    {{> ../components/stepped-tabs/stepped-tabs-application-cou STEP3=true }}
+
+    <h1>Select Application Type</h1>
+
+    {{> ../includes/application-data
+          PRODUCER_NAME='STICKS RIVER FARMS'
+          COMMODITY='CORN'
+          CLASS='YELLOW'
+          APP_NUMBER=''
+          APP_STATUS=''
+          APP_TYPE=''
+        }}
+
+    <div class="fsa-divider fsa-m-b--s"></div>
+
+    <div class="fsa-m-t--m">
+      <div class="fsa-grid">
+
+        <div class="fsa-grid__1/1 fsa-grid__1/2@m">
+
+          <div class="fsa-m-t--s">
+            <span class="fsa-m-r--l fsa-text-size--4">
+              <input class="fsa-radio" id="a1" type="radio" name="g1" value="1">
+              <label for="a1">Farm Stored</label>
+            </span>
+          </div>
+
+          <div class="fsa-m-t--s">
+            <span class="fsa-m-r--l fsa-text-size--4">
+              <input class="fsa-radio" id="a3" type="radio" name="g1" value="3">
+              <label for="a3">Warehouse Stored</label>
+            </span>
+          </div>
+
+          <div class="fsa-m-t--s">
+            <span class="fsa-m-r--l fsa-text-size--4">
+              <input class="fsa-radio" id="a4" type="radio" name="g1" value="4">
+              <label for="a4">Open Storage</label>
+            </span>
+          </div>
+
+          <div class="fsa-m-t--s">
+            <span class="fsa-m-r--l fsa-text-size--4">
+              <input class="fsa-radio" id="a2" type="radio" name="g1" value="2">
+              <label for="a2">Sold/Fed/Delivered</label>
+            </span>
+          </div>
+
+          <div class="fsa-m-t--s">
+            <span class="fsa-m-r--l fsa-text-size--4">
+              <input class="fsa-radio" id="a5" type="radio" name="g1" value="5">
+              <label for="a5">Irrevocable Module Lock-in</label>
+            </span>
+          </div>
+
+          <div class="fsa-m-t--s">
+            <span class="fsa-m-r--l fsa-text-size--4">
+              <input class="fsa-radio" id="a6" type="radio" name="g1" value="6">
+              <label for="a6">Gin-Direct</label>
+            </span>
+          </div>
+
+        </div>
+        <div class="fsa-grid__1/1 fsa-grid__1/2@m">
+          <div class="fsa-m-t--s">
+            <span class="fsa-m-r--l fsa-text-size--4">
+              <input class="fsa-radio" id="a7" type="radio" name="g1" value="7">
+              <label for="a7">Irrevocable Post-Ginning</label>
+            </span>
+          </div>
+
+          <div class="fsa-m-t--s">
+            <span class="fsa-m-r--l fsa-text-size--4">
+              <input class="fsa-radio" id="a8" type="radio" name="g1" value="8">
+              <label for="a8">Lost Beneficial Interest-Cotton</label>
+            </span>
+          </div>
+
+          <div class="fsa-m-t--s">
+            <span class="fsa-m-r--l fsa-text-size--4">
+              <input class="fsa-radio" id="a9" type="radio" name="g1" value="9">
+              <label for="a9">Wool / Mohair</label>
+            </span>
+          </div>
+
+          <div class="fsa-m-t--s">
+            <span class="fsa-m-r--l fsa-text-size--4">
+              <input class="fsa-radio" id="a10" type="radio" name="g1" value="10">
+              <label for="a10">Unshorn Pelts</label>
+            </span>
+          </div>
+
+          <div class="fsa-m-t--s">
+            <span class="fsa-m-r--l fsa-text-size--4">
+              <input class="fsa-radio" id="a11" type="radio" name="g1" value="11">
+              <label for="a11">Graze-Out</label>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="fsa-grid fsa-m-t--m">
+      <div class="fsa-grid__1/1 fsa-grid__1/2@m">
+        <div id="request-date">
+          <div class="fsa-field">
+            <label class="fsa-field__label" for="UNIQUE-ID-request-date">Request Date <span
+                class="fsa-field__label-desc">Required</span></label>
+            <input class="fsa-input fsa-field__item" id="UNIQUE-ID-request-date" placeholder="MM/DD/YYYY"
+              aria-describedby="UNIQUE-ID-request-date-help" aria-required="true" name="UNIQUE-ID-request-date"
+              type="text" value="">
+          </div>
+        </div>
+      </div>
+      <div class="fsa-grid__1/1 fsa-grid__1/2@m">
+        <div id="request-date">
+          <div class="fsa-field">
+            <label class="fsa-field__label" for="UNIQUE-ID-request-date">Date Documents Received <span
+                class="fsa-field__label-desc">Required</span></label>
+            <input class="fsa-input fsa-field__item" id="UNIQUE-ID-request-date" placeholder="MM/DD/YYYY"
+              aria-describedby="UNIQUE-ID-request-date-help" aria-required="true" name="UNIQUE-ID-request-date"
+              type="text" value="">
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+<div class="fsa-section">
+  <div class="fsa-section__bd">
+
+    {{> ../components/stepped-control/stepped-control-application-cou
+          CURRENT_STEP="5"
+          TOTAL_STEPS="8"
+          BACK_URL=""
+          BACK_LABEL="Back"
+          CONTINUE_URL="./app-type/farm-stored_ext_"
+          CONTINUE_LABEL="Continue"
+          USE_GROWL_ON_CANCEL=true  
+          GROWL_ID="growl__cancel-application"      
+        }}
+
+  </div>
+</div>
+
+
+{{/inline}}
+
+{{#*inline "hidden-block"}}
+<!-- HIDDEN - FOR MODALS/GROWL CONTENT -->
+{{> ../components/growl/growl-cancel-application GROWL_ID="growl__cancel-application" }}
+{{> ../includes/hidden }}
+<!-- /HIDDEN -->
+{{/inline}}
+
+
+{{/../layouts/base }}

@@ -1,0 +1,56 @@
+<div>
+  <div tabindex="0" id="modal__producer-edit-producer" class="fsa-modal fsa-modal--top" role="dialog" aria-hidden="true">
+    <div class="fsa-modal__dialog">
+      <div class="fsa-modal__content">
+        <button class="fsa-modal__close" data-behavior="close-modal" aria-controls="modal__remittance-collection-history"><img class="fsa-modal__close-icon" src="img/close.svg" alt="close"></button>
+          <h1 class="fsa-modal__title">Edit Producer</h1>
+          
+          <div class="fsa-m-t--s">
+            <div class="fsa-m-b--m fsa-m-t--l">
+							<span class="fsa-text-size--3">Producer: <strong>LONNIE L LONESON</strong></span> 
+						</div>
+						
+            <div class="fsa-field">
+              <label class="fsa-field__label" for="spinbox-example">Share <span class="fsa-field__label-desc">Required</span></label>
+              <div class="fsa-field__item">
+                <div class="fsa-spinbox">
+                  <div class="fsa-spinbox__number">
+                    <input class="fsa-input fsa-spinbox__input" id="add-producer-share-percent" aria-describedby="add-producer-share-percent-help" name="add-producer-share-percent" type="number" value="37.50" step="0.01">
+                  </div>
+                  <div class="fsa-spinbox__actions" aria-hidden="true">
+                    <button tabindex="-1" class="fsa-spinbox__btn fsa-spinbox__btn--increment" type="button" data-behavior="spinbox-spin" title="Increase"></button>
+                    <button tabindex="-1" class="fsa-spinbox__btn fsa-spinbox__btn--decrement" type="button" data-behavior="spinbox-spin" title="Decrease"></button>
+                  </div>
+                </div>
+              </div>
+              <span class="fsa-field__help" id="add-producer-share-percent-help">This value should be a percentage.</span>
+            </div>
+
+						<div class="fsa-m-t--m">
+              <p>
+                <span class="fsa-m-r--l fsa-text-size--4">Primary Contact?</span>
+                <span>
+                  <input class="fsa-radio" id="m1" type="radio" name="groupm1" value="yes">
+                  <label for="m1">Yes</label>
+                </span>
+                <span>
+                  <input class="fsa-radio" id="m2" type="radio" name="groupm1" value="no">
+                  <label for="m2">No</label>
+                </span>
+              </p>       
+            </div>
+
+            <div class="fsa-m-t--l">
+              <button role="button" data-behavior="close-modal" type="button" class="fsa-btn fsa-btn--primary">Update</button>   
+              <button role="button" data-behavior="close-modal" type="button" class="fsa-btn fsa-btn--secondary">Cancel</button>
+              <button role="button" onclick="window.history.go(-1); return false;" data-behavior="close-modal" type="button" class="fsa-btn fsa-btn--tertiary">Delete Producer</button>
+            </div>
+
+
+          </div>
+
+      </div>
+    </div>
+  </div>
+
+</div>

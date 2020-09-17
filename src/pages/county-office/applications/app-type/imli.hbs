@@ -1,0 +1,63 @@
+{{#> ../layouts/base TITLE='LDP - Application - Commodity' NAV_USER_COU=true NAV2_ACTIVE=true BASE_ROOT='../../../' }}
+
+  {{#*inline "main-block"}}
+
+    <div class="fsa-section">
+      <div class="fsa-section__bd">
+
+        {{> ../components/stepped-tabs/stepped-tabs-application-cou STEP3=true }}
+
+				<h1>Irrevocable Module Lock-In</h1>
+			
+				{{> ../includes/application-data
+          COMMODITY='CORN'
+          CLASS='YELLOW'
+          APP_NUMBER='832934'
+          APP_STATUS='DRAFT'
+          APP_TYPE='FARM STORED'
+        }}
+				
+				<div class="fsa-divider fsa-m-b--s"></div>
+
+				<div class="fsa-m-t--m">
+          <span class="fsa-m-r--l fsa-text-size--4">
+						<input class="fsa-radio" id="a1" type="radio" name="g1" value="1">
+						<label for="t2-1">Farm Stored</label>
+					</span>
+				</div>
+
+        
+
+
+			</div>
+    </div>
+
+
+		<div class="fsa-section">
+      <div class="fsa-section__bd">        
+				
+				{{> ../components/stepped-control/stepped-control-application-cou
+          CURRENT_STEP="5"
+          TOTAL_STEPS="8"
+          BACK_URL=""
+          BACK_LABEL="Back"
+          CONTINUE_URL="LINK_ext_"
+          CONTINUE_LABEL="Continue"
+          USE_GROWL_ON_CANCEL=true  
+          GROWL_ID="growl__cancel-application"      
+        }}
+
+      </div>
+    </div>
+		
+
+  {{/inline}}
+
+  {{#*inline "hidden-block"}}
+    <!-- HIDDEN - FOR MODALS/GROWL CONTENT -->
+    {{> ../components/growl/growl-cancel-application GROWL_ID="growl__cancel-application" }}
+    {{> ../includes/hidden }}
+    <!-- /HIDDEN -->
+  {{/inline}}
+
+{{/../layouts/base }}

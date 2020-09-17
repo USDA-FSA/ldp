@@ -1,0 +1,172 @@
+{{#> ../layouts/base TITLE='LDP - Applications' NAV_USER_COU=true NAV2_ACTIVE=true BASE_ROOT='../../' }}
+
+{{#*inline "main-block"}}
+
+<div class="fsa-section">
+	<div class="fsa-section__bd">
+
+		{{> ../components/stepped-tabs/stepped-tabs-application-cou STEP1=true }}
+
+		<h1>Select Producer</h1>
+
+		{{> ../includes/application-data
+			PRODUCER_NAME='STICKS RIVER FARMS'
+			COMMODITY=''
+			CLASS=''
+			APP_NUMBER=''
+			APP_STATUS=''
+			APP_TYPE=''
+		}}
+
+		<div class="fsa-divider fsa-m-b--s"></div>
+
+
+			<div class="fsa-level fsa-m-t--m">
+				<div class="fsa-level__item--align-top">
+					<span>
+						<input class="fsa-radio" id="g1a" type="radio" name="g1" value="yes">
+						<label for="g1a">Yes</label>
+					</span>
+					<span>
+						<input class="fsa-radio" id="g1b" type="radio" name="g1" value="no">
+						<label for="g1b">No</label>
+					</span>
+				</div>
+				<div class="fsa-level__item--grow-even fsa-level__item--align-top fsa-text-size--4">
+					Is the quantity of the request eligible to be pledged as collateral for a CCC loan?
+				</div>
+			</div>
+
+
+
+			<div class="fsa-level fsa-m-t--m">
+				<div class="fsa-level__item--align-top">
+					<span>
+						<input class="fsa-radio" id="g2a" type="radio" name="g2" value="yes">
+						<label for="g2a">Yes</label>
+					</span>
+					<span>
+						<input class="fsa-radio" id="g2b" type="radio" name="g2" value="no">
+						<label for="g2b">No</label>
+					</span>
+				</div>
+				<div class="fsa-level__item--grow-even fsa-level__item--align-top fsa-text-size--4">
+					Is the producer (or entity) listed the only one with an interest in the quantity for this request?
+				</div>
+			</div>
+
+
+
+			<div class="fsa-level fsa-m-t--m">
+				<div class="fsa-level__item--align-top">
+					<span>
+						<input class="fsa-radio" id="g3a" type="radio" name="g3" value="yes">
+						<label for="g3a">Yes</label>
+					</span>
+					<span>
+						<input class="fsa-radio" id="g3b" type="radio" name="g3" value="no">
+						<label for="g3b">No</label>
+					</span>
+				</div>
+				<div class="fsa-level__item--grow-even fsa-level__item--align-top fsa-text-size--4">
+					Does the producer requesting this LDP have TITLE, control and risk of loss (beneficial interest) in accordance with 7 CFR Part 1421 at the time of this LDP request?
+				</div>
+			</div>
+
+
+
+			<div class="fsa-level fsa-m-t--m">
+				<div class="fsa-level__item--align-top">
+					<span>
+						<input class="fsa-radio" id="g4a" type="radio" name="g4" value="yes">
+						<label for="g4a">Yes</label>
+					</span>
+					<span>
+						<input class="fsa-radio" id="g4b" type="radio" name="g4" value="no">
+						<label for="g4b">No</label>
+					</span>
+				</div>
+				<div class="fsa-level__item--grow-even fsa-level__item--align-top fsa-text-size--4">
+					Has the producer requesting this LDP entered into a	contract or option to purchase either verbally or in writing?
+				</div>
+			</div>
+
+
+			<div class="fsa-level fsa-m-t--m">
+				<div class="fsa-level__item--align-top">
+					<span>
+						<input class="fsa-radio" id="g5a" type="radio" name="g5" value="yes">
+						<label for="g5a">Yes</label>
+					</span>
+					<span>
+						<input class="fsa-radio" id="g5b" type="radio" name="g5" value="no">
+						<label for="g5b">No</label>
+					</span>
+				</div>
+				<div class="fsa-level__item--grow-even fsa-level__item--align-top fsa-text-size--4">
+					Was the quantity of this request produced by the producer requesting this LDP and has not been purchased or acquired directly or indirectly from another source?
+				</div>
+			</div>
+
+
+
+			<div class="fsa-level fsa-m-t--m">
+				<div class="fsa-level__item--align-top">
+					<span>
+						<input class="fsa-radio" id="g6a" type="radio" name="g6" value="yes">
+						<label for="g6a">Yes</label>
+					</span>
+					<span>
+						<input class="fsa-radio" id="g6b" type="radio" name="g6" value="no">
+						<label for="g6b">No</label>
+					</span>
+				</div>
+				<div class="fsa-level__item--grow-even fsa-level__item--align-top fsa-text-size--4">
+					Is this the only LDP requested for this quantity?
+				</div>
+			</div>
+
+
+			<div class="fsa-level fsa-m-t--m">
+				<div class="fsa-level__item--align-top">
+					<span>
+						<input class="fsa-radio" id="g7a" type="radio" name="g7" value="yes" onclick="setNextPage('producer-terms-2_ext_')">
+						<label for="g7a">Yes</label>
+					</span>
+					<span>
+						<input class="fsa-radio" id="g7b" type="radio" name="g7" value="no" onclick="setNextPage('select-commodity_ext_')">
+						<label for="g7b">No</label>
+					</span>
+				</div>
+				<div class="fsa-level__item--grow-even fsa-level__item--align-top fsa-text-size--4">
+					Are you or any co-applicant delinquent on any federal non-tax debt?
+				</div>
+			</div>
+
+
+
+		{{> ../components/stepped-control/stepped-control-application-cou
+			CURRENT_STEP="2"
+			TOTAL_STEPS="8"
+			BACK_URL=""
+			BACK_LABEL="Back"
+			CONTINUE_URL=""
+			CONTINUE_LABEL="Continue"
+			USE_GROWL_ON_CANCEL=true  
+			GROWL_ID="growl__cancel-application"      
+		}}
+
+	</div>
+</div>
+
+
+{{/inline}}
+
+{{#*inline "hidden-block"}}
+<!-- HIDDEN - FOR MODALS/GROWL CONTENT -->
+{{> ../components/growl/growl-cancel-application GROWL_ID="growl__cancel-application" }}
+{{> ../includes/hidden }}
+<!-- /HIDDEN -->
+{{/inline}}
+
+{{/../layouts/base }}

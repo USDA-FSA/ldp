@@ -1,0 +1,28 @@
+{{#> ../layouts/base TITLE='LDP - Home' NAV_USER_COU=true NAV1_ACTIVE=true  BASE_ROOT='../' }}
+
+{{#*inline "main-block"}}
+
+<div class="fsa-section">
+	<div class="fsa-section__bd">
+
+		<h1>SCIMS</h1>
+
+		<div class="fsa-alert fsa-alert--success" role="alert">
+			<div class="fsa-alert__body">
+				<h3 class="fsa-alert__heading">SCIMS Process</h3>
+				<p class="fsa-alert__text">The User will be taken to SCIMS where they make a Producer selection, and are then taken back to the LDP application.</p>
+			</div>
+		</div>
+
+		<div class="fsa-m-t--m">
+			<a role="button" onclick="Router.to('index-producer-selected_ext_'); return false;" href="" class="fsa-btn fsa-btn--primary" type="button">
+				<span class="fsa-stepped-control__btn-label">Continue</span>
+			</a>
+		</div>
+
+	</div>
+</div>
+
+{{/inline}}
+
+{{/../layouts/base }}

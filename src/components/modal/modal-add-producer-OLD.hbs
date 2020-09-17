@@ -1,0 +1,123 @@
+<div>
+  <div tabindex="0" id="modal__producer-add-producer" class="fsa-modal fsa-modal--top" role="dialog" aria-hidden="true">
+    <div class="fsa-modal__dialog">
+      <div class="fsa-modal__content">
+        <button class="fsa-modal__close" data-behavior="close-modal" aria-controls="modal__remittance-collection-history"><img class="fsa-modal__close-icon" src="img/close.svg" alt="close"></button>
+          <h1 class="fsa-modal__title">Add Producer</h1>
+          
+          <div class="fsa-m-t--s">
+            
+            <div class="fsa-m-b--m">
+							{{#if MODAL_URL_1 }}
+              <a href="{{ MODAL_URL_1 }}" role="button" type="button" class="fsa-btn fsa-btn--secondary">Set As Dairy Operation</a> 
+							{{/if}}
+              {{#if MODAL_URL_2 }}
+              <a href="{{ MODAL_URL_2 }}" role="button" type="button" class="fsa-btn fsa-btn--secondary">Select From SCIMS</a>
+              {{/if}}
+						</div>
+
+
+						<div class="fsa-field">
+							<label class="fsa-field__label" for="UNIQUE-ID-check-number">Signature Date <span class="fsa-field__label-desc">Required</span></label>
+							<input class="fsa-input fsa-field__item" id="UNIQUE-ID-check-number" placeholder="MM/DD/YYYY" aria-describedby="UNIQUE-ID-check-number-help" aria-required="true" name="UNIQUE-ID-check-number" type="text" value="">
+						</div>
+
+
+            <div class="fsa-field">
+              <label class="fsa-field__label" for="spinbox-example">Share <span class="fsa-field__label-desc">Required</span></label>
+              <div class="fsa-field__item">
+                <div class="fsa-spinbox">
+                  <div class="fsa-spinbox__number">
+                    <input class="fsa-input fsa-spinbox__input" id="add-producer-share-percent" aria-describedby="add-producer-share-percent-help" name="add-producer-share-percent" type="number" value="" step="5">
+                  </div>
+                  <div class="fsa-spinbox__actions" aria-hidden="true">
+                    <button tabindex="-1" class="fsa-spinbox__btn fsa-spinbox__btn--increment" type="button" data-behavior="spinbox-spin" title="Increase"></button>
+                    <button tabindex="-1" class="fsa-spinbox__btn fsa-spinbox__btn--decrement" type="button" data-behavior="spinbox-spin" title="Decrease"></button>
+                  </div>
+                </div>
+              </div>
+              <span class="fsa-field__help" id="add-producer-share-percent-help">This value should be a percentage.</span>
+            </div>
+
+
+
+						<div class="fsa-m-t--m">
+              <p>
+                <span class="fsa-m-r--l fsa-text-size--4">Commensurate?</span>
+                <span>
+                  <input class="fsa-radio" id="m1" type="radio" name="groupm1" value="yes">
+                  <label for="m1">Yes</label>
+                </span>
+                <span>
+                  <input class="fsa-radio" id="m2" type="radio" name="groupm1" value="no">
+                  <label for="m2">No</label>
+                </span>
+              </p>       
+            </div>
+
+            <div class="fsa-m-t--m">
+              <p>
+                <span class="fsa-m-r--l fsa-text-size--4">Participating?</span>
+                <span>
+                  <input class="fsa-radio" id="m3" type="radio" name="groupm2" value="yes">
+                  <label for="m3">Yes</label>
+                </span>
+                <span>
+                  <input class="fsa-radio" id="m4" type="radio" name="groupm2" value="no">
+                  <label for="m4">No</label>
+                </span>
+              </p>       
+            </div>
+
+            <div class="fsa-m-t--m">
+              <p>
+                <span class="fsa-m-r--l fsa-text-size--4">Refused Payment?</span>
+                <span>
+                  <input class="fsa-radio" id="m5" type="radio" name="groupm3" value="yes">
+                  <label for="m5">Yes</label>
+                </span>
+                <span>
+                  <input class="fsa-radio" id="m6" type="radio" name="groupm3" value="no">
+                  <label for="m6">No</label>
+                </span>
+              </p>       
+            </div>
+
+            <div class="fsa-m-t--m">
+              <p>
+                <span class="fsa-m-r--l fsa-text-size--4">Point of Contract?</span>
+                <span>
+                  <input class="fsa-radio" id="m7" type="radio" name="groupm4" value="yes">
+                  <label for="m7">Yes</label>
+                </span>
+                <span>
+                  <input class="fsa-radio" id="m8" type="radio" name="groupm4" value="no">
+                  <label for="m8">No</label>
+                </span>
+              </p>       
+            </div>
+
+            <div class="fsa-m-t--l">
+              <button role="button" type="button" class="fsa-btn fsa-btn--primary">Add Producer</button>    
+              <button role="button" data-behavior="close-modal" type="button" class="fsa-btn fsa-btn--secondary">Cancel</button>
+            </div>
+
+
+          </div>
+
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- 
+  <div class="fsa-grid">
+              <div class="fsa-grid__1/1 fsa-grid__1/2@m">
+                <span class="fsa-text-size--3">Remaining Ballance Due: <strong>$290.00</strong></span>
+              </div>
+              <div class="fsa-grid__1/1 fsa-grid__1/2@m">
+                <span class="fsa-text-size--3">Amount Paid: <strong>$0.00</strong></span>
+              </div>
+            </div>
+ -->

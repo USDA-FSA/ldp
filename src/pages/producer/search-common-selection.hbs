@@ -1,0 +1,79 @@
+{{#> ../layouts/common-selection TITLE='Common Selection'  BASE_ROOT='../' }}
+
+  {{#*inline "main-block"}}
+
+    <div class="fsa-section">
+      <div class="fsa-section__bd">
+        
+        <h1>Producer Search</h1>
+			
+					<div class="fsa-m-t--m">
+						<div class="fsa-grid">
+							
+							<div class="fsa-grid__1/1 fsa-grid__3/12@m">
+
+								<div class="fsa-field">
+									<label class="fsa-field__label" for="UNIQUE-ID-select-program-year">Program Year <span class="fsa-field__label-desc">Required</span></label>
+									<select class="fsa-select fsa-field__item " id="UNIQUE-ID-select-program-year" aria-describedby="UNIQUE-ID-select-program-year-help" aria-required="true" name="UNIQUE-ID-select-program-year">
+										<option value="">Select program year</option>
+                    <option value="2019">2020</option>
+										<option value="2019">2019</option>
+										<option value="2018">2018</option>
+										<option value="2017">2017</option>
+										<option value="2016">2016</option>
+										<option value="2015">2015</option>
+										<option value="2014">2014</option>
+									</select>
+									<!--<span class="fsa-field__help" id="UNIQUE-ID-select-program-year-help">Instructional message here</span>-->
+								</div>
+								{{> ../components/select/select-state SELECT_ID="UNIQUE-ID-select-state" HELP_ID="UNIQUE-ID-select-state-help" }}
+								{{> ../components/select/select-county SELECT_ID="UNIQUE-ID-select-county" HELP_ID="UNIQUE-ID-select-county-help" STATE_CA=true }}
+								<div class="fsa-m-t--m">
+									<ul class="fsa-form-list" aria-label="toggle show all states">
+										<li>
+											<span>
+												<input class="fsa-checkbox" id="UNIQUE-ID-show-all-states-counties" type="checkbox" name="pies" value="show-all-states-counties" checked="">
+												<label for="UNIQUE-ID-show-all-states-counties">Show all States and Counties</label>
+											</span>
+										</li>
+										<li>
+											<span>
+												<input class="fsa-checkbox" id="UNIQUE-ID-remember-states-counties" type="checkbox" name="pies" value="remember-states-counties">
+												<label for="UNIQUE-ID-remember-states-counties">Remember State and County Selected</label>
+											</span>
+										</li>
+									</ul>
+								</div>
+							</div>
+							
+							<div class="fsa-grid__1/1 fsa-grid__1/12@m"></div>
+							<div class="fsa-grid__1/1 fsa-grid__8/12@m">
+								
+								
+							</div>
+						</div>
+					</div>
+
+          <div class="fsa-m-t--m">
+					  <a role="button" onclick="Router.to('index-producer-selection_ext_'); return false;" href="" class="fsa-btn fsa-btn--primary" type="button">
+						  <span class="fsa-stepped-control__btn-label">Select</span>
+						</a>
+						<a role="button" onclick="Router.to('index_ext_'); return false;" href="" class="fsa-btn fsa-btn--secondary" type="button">
+						  <span class="fsa-stepped-control__btn-label">Cancel</span>
+						</a>
+					</div>
+
+			</div>
+    </div>
+
+
+  {{/inline}}
+
+  {{#*inline "hidden-block"}}
+    <!-- HIDDEN - FOR MODALS/GROWL CONTENT -->
+    {{> ../includes/hidden }}
+    <!-- /HIDDEN -->
+  {{/inline}}
+
+
+{{/../layouts/common-selection }}

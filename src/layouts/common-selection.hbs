@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<!--[if lt IE 9]><html class="lt-ie9"><![endif]-->
+<!--[if gt IE 8]><!-->
+<html lang="en">
+<!--<![endif]-->
+{{> ../includes/head TITLE=TITLE }}
+<body>
+  {{> ../includes/skipnav }}
+  {{> ../includes/fsa-browser-upgrade }}
+  {{> ../components/whiteout/whiteout }}
+  
+  {{#> header-block}}
+  <header>
+    {{> ../components/tophat/tophat }}
+    {{> ../components/header-app/header-app APP_ABR="CS" APP_FULL_NAME="Common Selection" }}
+  </header>
+  {{/header-block}}
+
+  
+
+  <main id="main-content" tabindex="-1">
+  {{#> main-block}}
+  <!-- BASE main-block -->
+  {{/main-block}}
+  </main>
+
+  {{#> footer-block}}
+  <footer>
+    
+  </footer>
+  {{/footer-block}}
+
+  {{#> hidden-block}}
+  <!-- BASE hidden-block -->
+  {{/hidden-block}}
+
+  {{#> scripts-all-block}}
+  <!-- BASE scripts-all-block -->
+  {{> ../includes/scripts }}
+  {{/scripts-all-block}}
+
+  {{#> scripts-block}}
+  <!-- BASE scripts-block -->
+  {{/scripts-block}}
+
+</body>
+
+</html>

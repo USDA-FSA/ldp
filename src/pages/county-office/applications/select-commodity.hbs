@@ -1,0 +1,121 @@
+{{#> ../layouts/base TITLE='LDP - Application - Commodity' NAV_USER_COU=true NAV2_ACTIVE=true BASE_ROOT='../../' }}
+
+{{#*inline "main-block"}}
+
+<div class="fsa-section">
+	<div class="fsa-section__bd">
+
+		{{> ../components/stepped-tabs/stepped-tabs-application-cou STEP2=true }}
+
+		<h1>Select Commodity</h1>
+
+		{{> ../includes/application-data
+			PRODUCER_NAME='STICKS RIVER FARMS'
+			COMMODITY=''
+			CLASS=''
+			APP_NUMBER=''
+			APP_STATUS=''
+			APP_TYPE=''
+		}}
+
+		<div class="fsa-divider fsa-m-b--s"></div>
+
+		<div class="fsa-m-t--m">
+			<span class="fsa-m-r--l fsa-text-size--4">Commodity Name: </span>
+			<span>
+				<div class="fsa-field">
+
+					<select onchange="setCommodity(this.value)" class="fsa-select fsa-field__item" id="UNIQUE-ID-commodity" aria-describedby="percentage-help"
+						aria-required="true" name="UNIQUE-ID-commodity">
+						<option value="x" selected>Select One</option>
+						<option value="Corn">Corn</option>
+						<option value="Flax">Flax</option>
+						<option value="Soy Bean">Soybeans</option>
+						<option value="Wheat">Wheat</option>
+						<option value="Triticale">Triticale</option>
+					</select>
+				</div>
+			</span>
+		</div>
+
+		<div class="fsa-m-t--s">
+			<span class="fsa-m-r--l fsa-text-size--4">Commodity Class: </span>
+			<span>
+				<div class="fsa-field">
+
+					<select onchange="setClass(this.value)" disabled class="fsa-select fsa-field__item" id="UNIQUE-ID-class" aria-describedby="percentage-help"
+						aria-required="true" name="UNIQUE-ID-class">
+					</select>
+				</div>
+			</span>
+		</div>
+
+	</div>
+</div>
+
+
+<div class="fsa-section">
+	<div class="fsa-section__bd">
+
+		{{> ../components/stepped-control/stepped-control-application-cou
+          CURRENT_STEP="4"
+          TOTAL_STEPS="8"
+          BACK_URL=""
+          BACK_LABEL="Back"
+          CONTINUE_URL=""
+          CONTINUE_LABEL="Continue"
+          USE_GROWL_ON_CANCEL=true  
+          GROWL_ID="growl__cancel-application"      
+        }}
+
+	</div>
+</div>
+
+
+{{/inline}}
+
+{{#*inline "hidden-block"}}
+<!-- HIDDEN - FOR MODALS/GROWL CONTENT -->
+{{> ../components/growl/growl-cancel-application GROWL_ID="growl__cancel-application" }}
+{{> ../includes/hidden }}
+<!-- /HIDDEN -->
+{{/inline}}
+
+{{#*inline "scripts-block"}}
+<!-- page-level scripts -->
+<script>
+	function setCommodity(commodity){
+		console.log('setCommodity',commodity);
+		Store.actions.setCommodity(commodity);
+		
+		var classSelect = document.getElementById('UNIQUE-ID-class');
+		classSelect.innerHTML = '';
+
+		if(commodity != 'x'){
+			if(commodity=='Corn'){
+				classSelect.options.add( new Option('Yellow', 'yellow') )
+				classSelect.options.add( new Option('White', 'white') )
+			} else if(commodity=='Triticale'){
+				classSelect.options.add( new Option('Rye', 'rye') )
+				classSelect.options.add( new Option('Wheat', 'wheat') )
+			} else {
+				classSelect.options.add( new Option('class 1', 10) )
+				classSelect.options.add( new Option('class 2', 20) )
+				classSelect.options.add( new Option('class 3', 20) )
+				classSelect.options.add( new Option('class 4', 20) )
+			}
+			classSelect.disabled = false;
+		} else {
+			classSelect.disabled = true;
+		}
+	}
+
+	function setClass(comClass){
+		console.log('setCommodityClass',comClass)
+		Store.actions.setCommodityClass(comClass)
+	}
+</script>
+<!-- /page-level scripts -->
+{{/inline}}
+
+{{/../layouts/base }}

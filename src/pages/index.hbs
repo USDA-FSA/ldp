@@ -1,0 +1,51 @@
+{{#> ../layouts/base TITLE='LDP - Home' NAV1_ACTIVE=true }}
+
+  {{#*inline "main-block"}}
+
+    <div class="fsa-section">
+      <div class="fsa-section__bd">
+        
+        <h1>LDP Prototype Start</h1>
+
+          
+
+          <p class="fsa-text--lead">
+            BEGIN PROCESS FLOW BY SELECTING USER BELOW
+          </p>
+          
+					<div class="fsa-m-t--l">
+
+						<a role="button" onclick="Router.to('county-office/index_ext_'); return false;" href="" class="fsa-btn fsa-btn--secondary" type="button">
+						  <span class="fsa-stepped-control__btn-label">County Office User</span>
+						</a>
+
+						<a role="button" onclick="Router.to('producer/index_ext_'); return false;" href="" class="fsa-btn fsa-btn--secondary" type="button">
+						  <span class="fsa-stepped-control__btn-label">Producer</span>
+						</a>
+
+					</div>
+
+			</div>
+		</div>
+
+
+  {{/inline}}
+
+  {{#*inline "hidden-block"}}
+    <!-- HIDDEN - FOR MODALS/GROWL CONTENT -->
+    {{> ../includes/hidden }}
+    <!-- /HIDDEN -->
+  {{/inline}}
+
+  {{#*inline "scripts-block"}}
+  <script>
+    window.onload = (evt) => {
+      // clear Storage
+      Store.actions.deleteAllData();
+    }
+  </script>
+
+  {{/inline}}
+
+
+{{/../layouts/base }}

@@ -1,0 +1,81 @@
+{{#> ../layouts/base TITLE='LDP - Applications' NAV_USER_COU=true NAV2_ACTIVE=true BASE_ROOT='../../' }}
+
+{{#*inline "main-block"}}
+
+<div class="fsa-section">
+	<div class="fsa-section__bd">
+
+		{{> ../components/stepped-tabs/stepped-tabs-application-cou STEP1=true }}
+
+		<h1>Select Producer</h1>
+
+		{{> ../includes/application-data
+			PRODUCER_NAME='STICKS RIVER FARMS'
+			COMMODITY=''
+			CLASS=''
+			APP_NUMBER=''
+			APP_STATUS=''
+			APP_TYPE=''
+		}}
+
+		<div class="fsa-divider fsa-m-b--s"></div>
+
+
+			<div id="q8" class="fsa-level fsa-m-t--m">
+				<div class="fsa-level__item--align-top">
+					<span>
+						<input class="fsa-radio" id="g8a" type="radio" name="g8" value="yes">
+						<label for="g8a">Yes</label>
+					</span>
+					<span>
+						<input class="fsa-radio" id="g8b" type="radio" name="g8" value="no">
+						<label for="g8b">No</label>
+					</span>
+				</div>
+				<div class="fsa-level__item--grow-even fsa-level__item--align-top fsa-text-size--4">
+					Has a payment plan been	submitted?
+				</div>
+			</div>
+
+
+
+			<div id="q9" class="fsa-field fsa-m-t--m">
+				<label class="fsa-field__label" for="UNIQUE-ID-88s8SUGg">Please provide details of the payment plan: </label>
+				<textarea class="fsa-textarea fsa-field__item" placeholder="" id="UNIQUE-ID-88s8SUGg"
+					aria-describedby="lorem-88s8SUGg-help-4" aria-required="true" name="UNIQUE-ID-88s8SUGg"></textarea>
+				<span class="fsa-field__help" id="lorem-88s8SUGg-help-4">
+					Instructional message here
+				</span>
+			</div>
+
+
+		{{> ../components/stepped-control/stepped-control-application-cou
+			CURRENT_STEP="3"
+			TOTAL_STEPS="8"
+			BACK_URL=""
+			BACK_LABEL="Back"
+			CONTINUE_URL="select-commodity_ext_"
+			CONTINUE_LABEL="Continue"
+			USE_GROWL_ON_CANCEL=true  
+			GROWL_ID="growl__cancel-application"      
+		}}
+
+	</div>
+</div>
+
+
+{{/inline}}
+
+{{#*inline "hidden-block"}}
+<!-- HIDDEN - FOR MODALS/GROWL CONTENT -->
+{{> ../components/growl/growl-cancel-application GROWL_ID="growl__cancel-application" }}
+{{> ../includes/hidden }}
+<!-- /HIDDEN -->
+{{/inline}}
+
+{{#*inline "scripts-block"}}
+	<!-- SCRIPTS CONTENT -->
+	<!-- /SCRIPTS -->
+{{/inline}}
+
+{{/../layouts/base }}

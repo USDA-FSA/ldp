@@ -1,0 +1,41 @@
+{{#> ../layouts/base TITLE='LDP - Home' NAV_USER_COU=true NAV1_ACTIVE=true BASE_ROOT='../' }}
+
+{{#*inline "main-block"}}
+
+<div class="fsa-section">
+	<div class="fsa-section__bd">
+
+		<h1>Dashboard</h1>
+
+		{{> ../includes/application-data STATUS='' COMMODITY='' }}
+
+		<div class="fsa-m-t--l">
+
+			<a role="button" onclick="Router.to('cs-search_ext_'); return false;" href="" class="fsa-btn fsa-btn--secondary" type="button">
+				<span class="fsa-stepped-control__btn-label">Set County &amp; State</span>
+			</a>
+
+			<a role="button" onclick="Router.to('applications/index_ext_'); return false;" href="" class="fsa-btn fsa-btn--secondary" type="button">
+				<span class="fsa-stepped-control__btn-label">View Applications</span>
+			</a>
+
+			<a role="button" onclick="Router.to('agreements/index_ext_'); return false;" href="" class="fsa-btn fsa-btn--secondary" type="button">
+				<span class="fsa-stepped-control__btn-label">View Agreements</span>
+			</a>
+
+		</div>
+
+	</div>
+</div>
+
+
+{{/inline}}
+
+{{#*inline "hidden-block"}}
+<!-- HIDDEN - FOR MODALS/GROWL CONTENT -->
+{{> ../includes/hidden }}
+<!-- /HIDDEN -->
+{{/inline}}
+
+
+{{/../layouts/base }}

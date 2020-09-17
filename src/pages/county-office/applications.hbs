@@ -1,0 +1,75 @@
+{{#> ../layouts/base TITLE='LDP - Applications' NAV_USER_COU=true NAV2_ACTIVE=true BASE_ROOT='../' }}
+
+{{#*inline "main-block"}}
+
+<div class="fsa-section">
+	<div class="fsa-section__bd">
+
+		<h1>Applications</h1>
+
+		{{> ../includes/operation-data }}
+
+		<table class="fsa-table fsa-table--borderless">
+			<caption class="sr-only">Caption that is hidden visually, but read by screenreader</caption>
+			<thead>
+				<tr>
+					<th scope="col">Select</th>
+					<th scope="col"><button class="fsa-table__sort" type="button">Producer</button></th>
+					<th scope="col" class="fsa-text-align--right"><button class="fsa-table__sort fsa-table__sort--descending"
+							type="button">Share %</button></th>
+					<th scope="col" class="fsa-text-align--right">Agreement Status</th>
+					<th scope="col" class="fsa-text-align--right">Primary Contact</button></th>
+					<th scope="col" class="fsa-text-align--right">Actions</button></th>
+				</tr>
+			</thead>
+			<tbody>
+
+				<tr>
+					<td>
+						<span>
+							<input class="fsa-radio" id="r1" type="radio" name="group1" value="1">
+							<label for="r1"></label>
+						</span>
+					</td>
+					<td class="fsa-text-align--right">DAVID D DAVISON</td>
+					<td class="fsa-text-align--right">60%</td>
+					<td class="fsa-text-align--right">
+						<span class="fsa-label fsa-label--success">Agreement on File</span>
+					</td>
+					<td class="fsa-text-align--right">Yes</td>
+					<td class="fsa-text-align--right">
+						<button
+							role="button"
+							type="button"
+							aria-behavior="modal-show"
+							data-behavior="open-modal"
+							aria-controls="modal__producer-edit-producer"
+							aria-expanded="false"
+							class="fsa-btn fsa-btn--secondary fsa-btn--small">
+							Edit
+						</button>
+					</td>
+				</tr>
+
+			</tbody>
+		</table>
+
+		<div class="fsa-m-t--m">
+			<a role="button" onclick="Router.to('view-application_ext_'); return false;" href="" class="fsa-btn fsa-btn--primary" type="button">
+				<span class="fsa-stepped-control__btn-label">View Application</span>
+			</a>
+			<a role="button" onclick="Router.to('view-application_ext_'); return false;" href="" class="fsa-btn fsa-btn--secondary" type="button">
+				<span class="fsa-stepped-control__btn-label">?? Revise Application ??</span>
+			</a>
+		</div>
+
+
+	</div>
+</div>
+
+
+{{/inline}}
+
+
+
+{{/../layouts/base }}

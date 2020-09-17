@@ -1,0 +1,35 @@
+{{#> ../layouts/base TITLE='LDP - Home' NAV_USER_COU=true NAV1_ACTIVE=true  BASE_ROOT='../' }}
+
+  {{#*inline "main-block"}}
+
+    <div class="fsa-section">
+      <div class="fsa-section__bd">
+        
+        <h1>Dashboard</h1>
+
+        <p class="fsa-text--lead">
+          Loan Deficiency Payments (LDPs) are direct payments made in lieu of a marketing assistance loan when the CCC determined value, which is based on the current local price in a country, is below the applicable county loan rate. The payment is the difference between the two rates times the eligible quantity. For a commodity to be eligible for an LDP, the producers must have a beneficial interest in the commodity, in addition to other eligibility requirements. For more details, click on the Program Information links below.
+        </p>
+          
+        <div class="fsa-m-t--l">
+
+          <a role="button" onclick="Router.to('cs-search_ext_'); return false;" href="" class="fsa-btn fsa-btn--secondary" type="button">
+            <span class="fsa-stepped-control__btn-label">Set State &amp; County</span>
+          </a>
+
+          <!--
+          <a role="button" href="cs-search_ext_" class="fsa-btn fsa-btn--secondary" type="button">
+            <span class="fsa-stepped-control__btn-label">Set County &amp; State</span>
+          </a>
+          -->
+
+        </div>
+
+			</div>
+		</div>
+
+
+  {{/inline}}
+
+
+{{/../layouts/base }}

@@ -1,0 +1,16 @@
+<div class="fsa-growl-container fsa-growl-container--centered">
+  <div class="fsa-growl fsa-growl--success fsa-growl--centered" id="{{ ON_SUBMIT_GROWL_ID }}" aria-hidden="true" tabindex="0" role="dialog">
+    <div class="fsa-growl__hd">
+      {{!-- This is normally a <button> element, but can also be an <a> --}}
+      {{!-- It's an <a> since we're diverting to another view --}}
+      <a class="fsa-growl__close" href="{{ URL_PREFIX }}{{ ON_SUBMIT_URL }}"><img class="fsa-growl__close-icon" src="img/close.svg" alt="close"></a>
+      <h2 class="fsa-growl__title">Process Completed</h2>
+    </div>
+    <div class="fsa-growl__bd">
+      <p>You have completed the entire process.</p>
+      <p>
+        <a class="fsa-btn fsa-btn--secondary fsa-btn--small" href="{{ URL_PREFIX }}{{ ON_SUBMIT_URL }}">Okay</a>
+      </p>
+    </div>
+  </div>
+</div>

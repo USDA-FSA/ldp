@@ -1,17 +1,42 @@
 <div class="fsa-grid">
 	<div class="fsa-grid__1/1 fsa-grid__1/3@m">
-		<p class="fsa-text-size--3">Year: <strong>2020</strong></p>
-		<p class="fsa-text-size--3">State: <strong>South Dakota (46)</strong></p>
-		<p class="fsa-text-size--3">County: <strong>Codington (029)</strong></p>
+		<p class="fsa-text-size--3">Year: <strong><span class="fsa-text-allcaps">2020</span></strong></p>
+		<p class="fsa-text-size--3">State: <strong><span class="fsa-text-allcaps">South Dakota (46)</span></strong></p>
+		<p class="fsa-text-size--3">County: <strong><span class="fsa-text-allcaps">Codington (029)</span></strong></p>
 	</div>
 	<div class="fsa-grid__1/1 fsa-grid__1/3@m">
-		<p class="fsa-text-size--3">Producer: <strong>{{ PRODUCER_NAME }}</strong></p>
-		<p class="fsa-text-size--3">Commodity: <strong>{{ COMMODITY }}</strong></p>
-		<p class="fsa-text-size--3">Class: <strong>{{ CLASS }}</strong></p>
+		<p class="fsa-text-size--3">Producer: <strong><span class="fsa-text-allcaps" data-producer-name="{{ PRODUCER_NAME }}">{{ PRODUCER_NAME }}</span></strong></p>
+		<p class="fsa-text-size--3">Commodity: <strong><span class="fsa-text-allcaps" data-commodity="{{ COMMODITY }}"></span>{{ COMMODITY }}</span></strong></p>
+		<p class="fsa-text-size--3">Class: <strong><span class="fsa-text-allcaps" data-commodity-class="{{ COMMODITY_CLASS }}"></span>{{ COMMODITY_CLASS }}</span></strong></p>
 	</div>
 	<div class="fsa-grid__1/1 fsa-grid__1/3@m">
-		<p class="fsa-text-size--3">Application Type: <strong>{{ APP_TYPE }}</strong></p>
-		<p class="fsa-text-size--3">Application Number: <strong>{{ APP_NUMBER }}</strong></p>
-		<p class="fsa-text-size--3">Application Status: <strong>{{ APP_STATUS }}</strong></p>
+		<p class="fsa-text-size--3">Application Type: <strong><span class="fsa-text-allcaps" data-app-type="{{ APP_TYPE }}"></span>{{ APP_TYPE }}</span></strong></p>
+		<p class="fsa-text-size--3">Application Number: <strong><span class="fsa-text-allcaps" data-app-number="{{ APP_NUMBER }}"></span>{{ APP_NUMBER }}</span></strong></p>
+		<p class="fsa-text-size--3">Application Status: <strong><span class="fsa-text-allcaps" data-app-status="{{ APP_STATUS }}"></span>{{ APP_STATUS }}</span></strong></p>
+		<p class="fsa-text-size--3">Reference Information: <strong><span class="fsa-text-allcaps" data-ref-info="{{ REF_INFO }}"></span>{{ REF_INFO }}</span></strong></p>
 	</div>
 </div>
+
+<script>
+	window.onload = (evt) => {
+		//console.log('body dataset',document.body.dataset)
+		
+		let keys = Object.values( Store.getters.getKeys() )
+		
+		let nodes = document.querySelectorAll('span');
+
+		nodes.forEach( (node) => {
+			keys.forEach( (key) => {
+
+				let val = node.dataset[key];
+				console.log('val<> ',val)
+				if(val == ''){
+					
+					node.textContent = localStorage.getItem(key) || '';
+				}
+			})
+		})
+
+		
+	}
+</script>

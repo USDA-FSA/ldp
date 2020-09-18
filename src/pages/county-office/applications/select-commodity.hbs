@@ -12,10 +12,11 @@
 		{{> ../includes/application-data
 			PRODUCER_NAME='STICKS RIVER FARMS'
 			COMMODITY=''
-			CLASS=''
+			COMMODITY_CLASS=''
 			APP_NUMBER=''
 			APP_STATUS=''
 			APP_TYPE=''
+			REF_INFO=''
 		}}
 
 		<div class="fsa-divider fsa-m-b--s"></div>
@@ -48,6 +49,13 @@
 					</select>
 				</div>
 			</span>
+		</div>
+
+		<div class="fsa-m-t--s"></div>
+			<div class="fsa-field">
+				<label class="fsa-field__label" for="UNIQUE-ID-REF-INFO">Reference Information: </label>
+				<input onchange="setRef(this.value)" class="fsa-input fsa-field__item" id="UNIQUE-ID-REF-INFO" aria-describedby="UNIQUE-ID-REF-INFO-help" aria-required="true" name="UNIQUE-ID-REF-INFO" type="text" value="">
+			</div>
 		</div>
 
 	</div>
@@ -85,7 +93,7 @@
 <!-- page-level scripts -->
 <script>
 	function setCommodity(commodity){
-		console.log('setCommodity',commodity);
+
 		Store.actions.setCommodity(commodity);
 		
 		var classSelect = document.getElementById('UNIQUE-ID-class');
@@ -111,10 +119,15 @@
 	}
 
 	function setClass(comClass){
-		console.log('setCommodityClass',comClass)
 		Store.actions.setCommodityClass(comClass)
 	}
+
+	function setRef(data){
+		Store.actions.setRefInfo(data)
+	}
+	
 </script>
+
 <!-- /page-level scripts -->
 {{/inline}}
 

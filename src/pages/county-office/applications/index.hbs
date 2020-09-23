@@ -35,7 +35,7 @@
 				<tr>
 					<td>
 						<span>
-							<input class="fsa-radio" id="r1" type="radio" name="group1" value="1">
+							<input onclick="setProducer('DAVID D DAVISON')" class="fsa-radio" id="r1" type="radio" name="group1" value="1">
 							<label for="r1"></label>
 						</span>
 					</td>
@@ -51,7 +51,7 @@
 				<tr>
 					<td>
 						<span>
-							<input class="fsa-radio" id="r2" type="radio" name="group1" value="2">
+							<input onclick="setProducer('STICKS RIVER FARM')" class="fsa-radio" id="r2" type="radio" name="group1" value="2">
 							<label for="r2"></label>
 						</span>
 					</td>
@@ -86,10 +86,14 @@
 
 {{/inline}}
 
-{{#*inline "hidden-block"}}
-<!-- HIDDEN - FOR MODALS/GROWL CONTENT -->
-{{> ../includes/hidden }}
-<!-- /HIDDEN -->
+{{#*inline "scripts-block"}}
+<!-- page-level scripts -->
+<script>
+	function setProducer(data){
+		Store.actions.setProducerName(data);
+	}
+</script>
+<!-- /page-level scripts -->
 {{/inline}}
 
 

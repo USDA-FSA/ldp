@@ -2,7 +2,7 @@
   <div tabindex="0" id="modal__producer-agreement" class="fsa-modal fsa-modal--top" role="dialog" aria-hidden="true">
     <div class="fsa-modal__dialog">
       <div class="fsa-modal__content">
-        <button class="fsa-modal__close" data-behavior="close-modal" aria-controls="modal__remittance-collection-history"><img class="fsa-modal__close-icon" src="img/close.svg" alt="close"></button>
+        <button class="fsa-modal__close" data-behavior="close-modal" aria-controls="modal__remittance-collection-history"><img class="fsa-modal__close-icon" src="{{BASE_ROOT}}img/close.svg" alt="close"></button>
           <h1 class="fsa-modal__title">LDP Agreement Acceptance</h1>
           
           <div class="fsa-m-t--s">
@@ -14,54 +14,37 @@
               <div class="fsa-grid__1/2">
 
                 <div class="fsa-field">
-                  <label class="fsa-field__label" for="UNIQUE-ID-check-number">Producer Signature <span class="fsa-field__label-desc">Required</span></label>
-                  <input class="fsa-input fsa-field__item" id="UNIQUE-ID-check-number" aria-describedby="UNIQUE-ID-check-number-help" aria-required="true" name="UNIQUE-ID-check-number" type="text" value="">
+                  <label class="fsa-field__label" for="UNIQUE-ID-1">Producer Signature <span class="fsa-field__label-desc">Required</span></label>
+                  <input class="fsa-input fsa-field__item" id="UNIQUE-ID-1" aria-describedby="UNIQUE-ID-1-help" aria-required="true" name="UNIQUE-ID-1" type="text" value="">
                 </div>
 
                 <div class="fsa-field">
-                  <label class="fsa-field__label" for="UNIQUE-ID-check-number">Producer Title/Relationship <span class="fsa-field__label-desc">Required</span></label>
-                  <input class="fsa-input fsa-field__item" id="UNIQUE-ID-check-number" aria-describedby="UNIQUE-ID-check-number-help" aria-required="true" name="UNIQUE-ID-check-number" type="text" value="">
+                  <label class="fsa-field__label" for="UNIQUE-ID-2">Producer Title/Relationship <span class="fsa-field__label-desc">Required</span></label>
+                  <input class="fsa-input fsa-field__item" id="UNIQUE-ID-2" aria-describedby="UNIQUE-ID-2-help" aria-required="true" name="UNIQUE-ID-2" type="text" value="">
                 </div>
 
                 <div class="fsa-field">
-                  <label class="fsa-field__label" for="UNIQUE-ID-check-number">Signature Date <span class="fsa-field__label-desc">Required</span></label>
-                  <input class="fsa-input fsa-field__item" id="UNIQUE-ID-check-number" placeholder="MM/DD/YYYY" aria-describedby="UNIQUE-ID-check-number-help" aria-required="true" name="UNIQUE-ID-check-number" type="text" value="">
+                  <label class="fsa-field__label" for="UNIQUE-ID-3">Signature Date <span class="fsa-field__label-desc">Required</span></label>
+                  <input class="fsa-input fsa-field__item" id="UNIQUE-ID-3" placeholder="MM/DD/YYYY" aria-describedby="UNIQUE-ID-3-help" aria-required="true" name="UNIQUE-ID-3" type="text" value="">
                 </div>
 
               </div>
               
               <div class="fsa-grid__1/2">
-              <!--
-                <div class="fsa-m-t--m">
-                  <p>
-                    <span class="fsa-m-r--l fsa-text-size--4">Agreement on File?</span>
-                    <span><label class="fsa-label fsa-label--alert">NO</label></span>
-                  </p>
-                  <p>
-                    <span>
-                      Currently, there is no Agreement on File. Please file an agreement by selecting the button below.
-                    </span>
-                  </p>
-                  <p>
-                    <span>
-                      <button role="button" data-behavior="close-modal" type="button" class="fsa-btn fsa-btn--secondary">File Agreement</button>
-                    </span>
-                  </p>
-                </div>
-                -->
+
                 <div class="fsa-field">
-                  <label class="fsa-field__label" for="UNIQUE-ID-check-number">CCC Representative <span class="fsa-field__label-desc">Required</span></label>
-                  <input class="fsa-input fsa-field__item" id="UNIQUE-ID-check-number" aria-describedby="UNIQUE-ID-check-number-help" aria-required="true" name="UNIQUE-ID-check-number" type="text" value="">
+                  <label class="fsa-field__label" for="UNIQUE-ID-4">CCC Representative <span class="fsa-field__label-desc">Required</span></label>
+                  <input class="fsa-input fsa-field__item" id="UNIQUE-ID-4" aria-describedby="UNIQUE-ID-4-help" aria-required="true" name="UNIQUE-ID-4" type="text" value="">
                 </div>
 
                 <div class="fsa-field">
-                  <label class="fsa-field__label" for="UNIQUE-ID-check-number">CCC Representative Title <span class="fsa-field__label-desc">Required</span></label>
-                  <input class="fsa-input fsa-field__item" id="UNIQUE-ID-check-number" aria-describedby="UNIQUE-ID-check-number-help" aria-required="true" name="UNIQUE-ID-check-number" type="text" value="">
+                  <label class="fsa-field__label" for="UNIQUE-ID-5">CCC Representative Title <span class="fsa-field__label-desc">Required</span></label>
+                  <input class="fsa-input fsa-field__item" id="UNIQUE-ID-5" aria-describedby="UNIQUE-ID-5-help" aria-required="true" name="UNIQUE-ID-5" type="text" value="">
                 </div>
 
                 <div class="fsa-field">
-                  <label class="fsa-field__label" for="UNIQUE-ID-check-number">Signature Date <span class="fsa-field__label-desc">Required</span></label>
-                  <input class="fsa-input fsa-field__item" id="UNIQUE-ID-check-number" placeholder="MM/DD/YYYY" aria-describedby="UNIQUE-ID-check-number-help" aria-required="true" name="UNIQUE-ID-check-number" type="text" value="">
+                  <label class="fsa-field__label" for="UNIQUE-ID-6">Signature Date <span class="fsa-field__label-desc">Required</span></label>
+                  <input class="fsa-input fsa-field__item" id="UNIQUE-ID-6" placeholder="MM/DD/YYYY" aria-describedby="UNIQUE-ID-6-help" aria-required="true" name="UNIQUE-ID-6" type="text" value="">
                 </div>
               </div>
             </div>

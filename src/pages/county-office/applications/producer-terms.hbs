@@ -10,7 +10,7 @@
 		<h1>Select Producer</h1>
 
 		{{> ../includes/application-data
-			PRODUCER_NAME='STICKS RIVER FARMS'
+			PRODUCER_NAME=''
 			COMMODITY=''
 			COMMODITY_CLASS=''
 			APP_NUMBER=''
@@ -130,11 +130,11 @@
 			<div class="fsa-level fsa-m-t--m">
 				<div class="fsa-level__item--align-top">
 					<span>
-						<input class="fsa-radio" id="g7a" type="radio" name="g7" value="yes" onclick="setNextPage('producer-terms-2_ext_')">
+						<input class="fsa-radio" id="g7a" type="radio" name="g7" value="yes" onclick="next('producer-terms-2_ext_')">
 						<label for="g7a">Yes</label>
 					</span>
 					<span>
-						<input class="fsa-radio" id="g7b" type="radio" name="g7" value="no" onclick="setNextPage('select-commodity_ext_')">
+						<input class="fsa-radio" id="g7b" type="radio" name="g7" value="no" onclick="next('select-commodity_ext_')">
 						<label for="g7b">No</label>
 					</span>
 				</div>
@@ -150,7 +150,7 @@
 			TOTAL_STEPS="8"
 			BACK_URL=""
 			BACK_LABEL="Back"
-			CONTINUE_URL=""
+			DISABLED=true
 			CONTINUE_LABEL="Continue"
 			USE_GROWL_ON_CANCEL=true  
 			GROWL_ID="growl__cancel-application"      
@@ -164,9 +164,17 @@
 
 {{#*inline "hidden-block"}}
 <!-- HIDDEN - FOR MODALS/GROWL CONTENT -->
-{{> ../components/growl/growl-cancel-application GROWL_ID="growl__cancel-application" }}
-{{> ../includes/hidden }}
+{{> ../components/growl/growl-cancel-application GROWL_ID="growl__cancel-application" BASE_ROOT="../../" }}
 <!-- /HIDDEN -->
 {{/inline}}
+
+{{#*inline "scripts-block"}}
+  <script>
+    function next(page){
+			setNextPage(page)
+			enableButton('sc-continue')
+		}
+  </script>
+  {{/inline}}
 
 {{/../layouts/base }}

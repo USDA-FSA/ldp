@@ -33,18 +33,17 @@
 
   {{#*inline "hidden-block"}}
     <!-- HIDDEN - FOR MODALS/GROWL CONTENT -->
-    {{> ../includes/hidden }}
+    {{> ../includes/hidden BASE_ROOT="" }}
     <!-- /HIDDEN -->
   {{/inline}}
 
   {{#*inline "scripts-block"}}
   <script>
-    window.onload = (evt) => {
+    window.addEventListener("load", (evt) => {
       // clear Storage
       Store.actions.deleteAllData();
-    }
+    });
   </script>
-
   {{/inline}}
 
 

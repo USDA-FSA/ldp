@@ -55,9 +55,14 @@
 
   {{#*inline "hidden-block"}}
     <!-- HIDDEN - FOR MODALS/GROWL CONTENT -->
-    {{> ../components/growl/growl-cancel-application GROWL_ID="growl__cancel-application" }}
-    {{> ../includes/hidden }}
+    {{> ../components/growl/growl-cancel-application GROWL_ID="growl__cancel-application" BASE_ROOT="../../../" }}
     <!-- /HIDDEN -->
+  {{/inline}}
+
+  {{#*inline "scripts-block"}}
+  <script>
+    window.onload = (evt) => { Store.actions.nextPage('link_ext_') }
+  </script>
   {{/inline}}
 
 {{/../layouts/base }}

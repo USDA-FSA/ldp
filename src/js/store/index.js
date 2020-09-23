@@ -38,7 +38,9 @@ const Store = (() => {
     setAppStatus(data){ mutations.APP_STATUS(data) },
     setRefInfo(data){ mutations.REF_INFO(data) },
     deleteKey(data){ mutations.DELETE_KEY(data) },
-    deleteAllData(){ mutations.DELETE_STORE() }
+    deleteAllData(){ mutations.DELETE_STORE() },
+    enableButton(id){ mutations.ENABLE_BUTTON(id) },
+    disableButton(id){ mutations.DISABLE_BUTTON(id) }
     
   };
   
@@ -60,7 +62,13 @@ const Store = (() => {
       for (let key in keys) {
         localStorage.removeItem(key);
       }
-    }
+    },
+    ENABLE_BUTTON(id){
+      document.getElementById(id).removeAttribute('disabled')
+    },
+    DISABLE_BUTTON(id){
+      document.getElementById(id).setAttribute('disabled', 'disabled')
+    },
   }
 
   return {

@@ -10,7 +10,7 @@
 		<h1>Select Commodity</h1>
 
 		{{> ../includes/application-data
-			PRODUCER_NAME='STICKS RIVER FARMS'
+			PRODUCER_NAME=''
 			COMMODITY=''
 			COMMODITY_CLASS=''
 			APP_NUMBER=''
@@ -70,7 +70,7 @@
           TOTAL_STEPS="8"
           BACK_URL=""
           BACK_LABEL="Back"
-          CONTINUE_URL=""
+          DISABLED=true
           CONTINUE_LABEL="Continue"
           USE_GROWL_ON_CANCEL=true  
           GROWL_ID="growl__cancel-application"      
@@ -84,8 +84,7 @@
 
 {{#*inline "hidden-block"}}
 <!-- HIDDEN - FOR MODALS/GROWL CONTENT -->
-{{> ../components/growl/growl-cancel-application GROWL_ID="growl__cancel-application" }}
-{{> ../includes/hidden }}
+{{> ../components/growl/growl-cancel-application GROWL_ID="growl__cancel-application" BASE_ROOT="../../" }}
 <!-- /HIDDEN -->
 {{/inline}}
 
@@ -101,12 +100,15 @@
 
 		if(commodity != 'x'){
 			if(commodity=='Corn'){
+				classSelect.options.add( new Option('Select One', 'x') )
 				classSelect.options.add( new Option('Yellow', 'yellow') )
 				classSelect.options.add( new Option('White', 'white') )
 			} else if(commodity=='Triticale'){
+				classSelect.options.add( new Option('Select One', 'x') )
 				classSelect.options.add( new Option('Rye', 'rye') )
 				classSelect.options.add( new Option('Wheat', 'wheat') )
 			} else {
+				classSelect.options.add( new Option('Select One', 'x') )
 				classSelect.options.add( new Option('class 1', 10) )
 				classSelect.options.add( new Option('class 2', 20) )
 				classSelect.options.add( new Option('class 3', 20) )
@@ -119,16 +121,23 @@
 	}
 
 	function setClass(comClass){
-		Store.actions.setCommodityClass(comClass)
+
+		if(comClass != 'x'){
+			Store.actions.setCommodityClass(comClass)
+			setNextPage('select-app-type_ext_')
+			enableButton('sc-continue')
+		}
+		
 	}
 
 	function setRef(data){
 		Store.actions.setRefInfo(data)
 	}
-	
+
 </script>
 
 <!-- /page-level scripts -->
 {{/inline}}
+
 
 {{/../layouts/base }}

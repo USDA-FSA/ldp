@@ -10,7 +10,7 @@
 		<h1>Select Producer</h1>
 
 		{{> ../includes/application-data
-			PRODUCER_NAME='STICKS RIVER FARMS'
+			PRODUCER_NAME=''
 			COMMODITY=''
 			COMMODITY_CLASS=''
 			APP_NUMBER=''
@@ -109,7 +109,6 @@
           TOTAL_STEPS="8"
           BACK_URL=""
           BACK_LABEL="Back"
-          CONTINUE_URL="producer-terms_ext_"
           CONTINUE_LABEL="Continue"
           USE_GROWL_ON_CANCEL=true  
           GROWL_ID="growl__cancel-application"      
@@ -124,12 +123,19 @@
 
 {{#*inline "hidden-block"}}
 <!-- HIDDEN - FOR MODALS/GROWL CONTENT -->
-{{> ../components/growl/growl-cancel-application GROWL_ID="growl__cancel-application" }}
-{{> ../components/modal/modal-edit-producer }}
-{{> ../components/modal/modal-edit-producer-agreement }}
-{{> ../components/modal/modal-add-producer MODAL_URL_1="new-contract-producer-add1_ext_" MODAL_URL_2="new-contract-producer-add2_ext_" }}
-{{> ../includes/hidden }}
+{{> ../components/growl/growl-cancel-application GROWL_ID="growl__cancel-application" BASE_ROOT="../../" }}
+{{> ../components/modal/modal-edit-producer BASE_ROOT="../../" }}
+{{> ../components/modal/modal-edit-producer-agreement BASE_ROOT="../../" }}
+{{> ../components/modal/modal-add-producer BASE_ROOT="../../" }}
 <!-- /HIDDEN -->
+{{/inline}}
+
+{{#*inline "scripts-block"}}
+<script>
+	window.addEventListener("load", (evt) => {
+		setNextPage('producer-terms_ext_')
+	})
+</script>
 {{/inline}}
 
 

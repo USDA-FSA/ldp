@@ -16,27 +16,3 @@
 		<p class="fsa-text-size--3">Reference Information: <strong><span class="fsa-text-allcaps" data-ref-info="{{ REF_INFO }}"></span>{{ REF_INFO }}</span></strong></p>
 	</div>
 </div>
-
-<script>
-	window.onload = (evt) => {
-		//console.log('body dataset',document.body.dataset)
-		
-		let keys = Object.values( Store.getters.getKeys() )
-		
-		let nodes = document.querySelectorAll('span');
-
-		nodes.forEach( (node) => {
-			keys.forEach( (key) => {
-
-				let val = node.dataset[key];
-				console.log('val<> ',val)
-				if(val == ''){
-					
-					node.textContent = localStorage.getItem(key) || '';
-				}
-			})
-		})
-
-		
-	}
-</script>

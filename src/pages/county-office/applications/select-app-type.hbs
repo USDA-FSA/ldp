@@ -10,102 +10,84 @@
     <h1>Select Application Type</h1>
 
     {{> ../includes/application-data
-          PRODUCER_NAME=''
-          COMMODITY=''
-          COMMODITY_CLASS=''
-          APP_NUMBER=''
-          APP_STATUS=''
-          APP_TYPE=''
-        }}
+      PRODUCER_NAME=''
+      COMMODITY=''
+      COMMODITY_CLASS=''
+      APP_NUMBER=''
+      APP_STATUS=''
+      APP_TYPE=''
+    }}
 
     <div class="fsa-divider fsa-m-b--s"></div>
 
     <div class="fsa-m-t--m">
-      <div class="fsa-grid">
 
-        <div class="fsa-grid__1/1 fsa-grid__1/2@m">
-
-          <div class="fsa-m-t--s">
-            <span class="fsa-m-r--l fsa-text-size--4">
-              <input class="fsa-radio" id="a1" type="radio" name="g1" value="1">
-              <label for="a1">Farm Stored</label>
-            </span>
-          </div>
-
-          <div class="fsa-m-t--s">
-            <span class="fsa-m-r--l fsa-text-size--4">
-              <input class="fsa-radio" id="a3" type="radio" name="g1" value="3">
-              <label for="a3">Warehouse Stored</label>
-            </span>
-          </div>
-
-          <div class="fsa-m-t--s">
-            <span class="fsa-m-r--l fsa-text-size--4">
-              <input class="fsa-radio" id="a4" type="radio" name="g1" value="4">
-              <label for="a4">Open Storage</label>
-            </span>
-          </div>
-
-          <div class="fsa-m-t--s">
-            <span class="fsa-m-r--l fsa-text-size--4">
-              <input class="fsa-radio" id="a2" type="radio" name="g1" value="2">
-              <label for="a2">Sold/Fed/Delivered</label>
-            </span>
-          </div>
-
-          <div class="fsa-m-t--s">
-            <span class="fsa-m-r--l fsa-text-size--4">
-              <input class="fsa-radio" id="a5" type="radio" name="g1" value="5">
-              <label for="a5">Irrevocable Module Lock-in</label>
-            </span>
-          </div>
-
-          <div class="fsa-m-t--s">
-            <span class="fsa-m-r--l fsa-text-size--4">
-              <input class="fsa-radio" id="a6" type="radio" name="g1" value="6">
-              <label for="a6">Gin-Direct</label>
-            </span>
-          </div>
-
-        </div>
-        <div class="fsa-grid__1/1 fsa-grid__1/2@m">
-          <div class="fsa-m-t--s">
-            <span class="fsa-m-r--l fsa-text-size--4">
-              <input class="fsa-radio" id="a7" type="radio" name="g1" value="7">
-              <label for="a7">Irrevocable Post-Ginning</label>
-            </span>
-          </div>
-
-          <div class="fsa-m-t--s">
-            <span class="fsa-m-r--l fsa-text-size--4">
-              <input class="fsa-radio" id="a8" type="radio" name="g1" value="8">
-              <label for="a8">Lost Beneficial Interest-Cotton</label>
-            </span>
-          </div>
-
-          <div class="fsa-m-t--s">
-            <span class="fsa-m-r--l fsa-text-size--4">
-              <input class="fsa-radio" id="a9" type="radio" name="g1" value="9">
-              <label for="a9">Wool / Mohair</label>
-            </span>
-          </div>
-
-          <div class="fsa-m-t--s">
-            <span class="fsa-m-r--l fsa-text-size--4">
-              <input class="fsa-radio" id="a10" type="radio" name="g1" value="10">
-              <label for="a10">Unshorn Pelts</label>
-            </span>
-          </div>
-
-          <div class="fsa-m-t--s">
-            <span class="fsa-m-r--l fsa-text-size--4">
-              <input class="fsa-radio" id="a11" type="radio" name="g1" value="11">
-              <label for="a11">Graze-Out</label>
-            </span>
-          </div>
-        </div>
+      <div hidden data-application-type="Farm Stored" class="fsa-m-t--s">
+        <span class="fsa-m-r--l fsa-text-size--4">
+          <input onclick="next(this.value)" class="fsa-radio" id="a1" type="radio" name="g1" value="Farm Stored">
+          <label for="a1">Farm Stored</label>
+        </span>
       </div>
+
+      <div hidden data-application-type="Warehouse Stored" class="fsa-m-t--s">
+        <span class="fsa-m-r--l fsa-text-size--4">
+          <input onclick="next(this.value)" class="fsa-radio" id="a3" type="radio" name="g1" value="Warehouse Stored">
+          <label for="a3">Warehouse Stored</label>
+        </span>
+      </div>
+
+      <div hidden data-application-type="Open Storage" class="fsa-m-t--s">
+        <span class="fsa-m-r--l fsa-text-size--4">
+          <input onclick="next(this.value)" class="fsa-radio" id="a4" type="radio" name="g1" value="Open Storage">
+          <label for="a4">Open Storage</label>
+        </span>
+      </div>
+
+      <div hidden data-application-type="Sold / Fed / Delivered" class="fsa-m-t--s">
+        <span class="fsa-m-r--l fsa-text-size--4">
+          <input onclick="next(this.value)" class="fsa-radio" id="a2" type="radio" name="g1" value="Sold / Fed / Delivered">
+          <label for="a2">Sold / Fed / Delivered</label>
+        </span>
+      </div>
+
+      <div hidden data-application-type="Irrevocable Module Lock-In" class="fsa-m-t--s">
+        <span class="fsa-m-r--l fsa-text-size--4">
+          <input onclick="next(this.value)" class="fsa-radio" id="a5" type="radio" name="g1" value="Irrevocable Module Lock-In">
+          <label for="a5">Irrevocable Module Lock-in</label>
+        </span>
+      </div>
+
+      <div hidden data-application-type="Gin-Direct" class="fsa-m-t--s">
+        <span class="fsa-m-r--l fsa-text-size--4">
+          <input onclick="next(this.value)" class="fsa-radio" id="a6" type="radio" name="g1" value="Gin-Direct">
+          <label for="a6">Gin-Direct</label>
+        </span>
+      </div>
+
+
+      <div hidden data-application-type="Irrevocable Post-Ginning" class="fsa-m-t--s">
+        <span class="fsa-m-r--l fsa-text-size--4">
+          <input onclick="next(this.value)" class="fsa-radio" id="a7" type="radio" name="g1" value="Irrevocable Post-Ginning">
+          <label for="a7">Irrevocable Post-Ginning</label>
+        </span>
+      </div>
+
+      <div hidden data-application-type="Lost Beneficial Interest" class="fsa-m-t--s">
+        <span class="fsa-m-r--l fsa-text-size--4">
+          <input onclick="next(this.value)" class="fsa-radio" id="a8" type="radio" name="g1" value="Lost Beneficial Interest">
+          <label for="a8">Lost Beneficial Interest</label>
+        </span>
+      </div>
+
+      <div hidden data-application-type="Graze-Out" class="fsa-m-t--s">
+        <span class="fsa-m-r--l fsa-text-size--4">
+          <input onclick="next(this.value)" class="fsa-radio" id="a11" type="radio" name="g1" value="Graze-Out">
+          <label for="a11">Graze-Out</label>
+        </span>
+      </div>
+
     </div>
+
 
     <div class="fsa-grid fsa-m-t--m">
       <div class="fsa-grid__1/1 fsa-grid__1/2@m">
@@ -124,7 +106,7 @@
           <div class="fsa-field">
             <label class="fsa-field__label" for="UNIQUE-ID-docs-received-date">Date Documents Received <span
                 class="fsa-field__label-desc">Required</span></label>
-            <input class="fsa-input fsa-field__item" id="UNIQUE-ID-docs-received-date" placeholder="MM/DD/YYYY"
+            <input disabled="disabled" class="fsa-input fsa-field__item" id="UNIQUE-ID-docs-received-date" placeholder="MM/DD/YYYY"
               aria-describedby="UNIQUE-ID-docs-received-date-help" aria-required="true" name="UNIQUE-ID-docs-received-date"
               type="text" value="">
           </div>
@@ -165,9 +147,42 @@
 {{#*inline "scripts-block"}}
 	<!-- SCRIPTS CONTENT -->
 	<script>
-    window.addEventListener("load", (evt) => {
-      setNextPage('./app-type/farm-stored_ext_')
-    });
+    window.addEventListener('load', (evt) => {
+      let appTypes = JSON.parse( Store.getters.appTypes() );
+      appTypes.forEach( (data) => {
+        let elem = document.querySelector(`[data-application-type="${data}"]`);
+        elem.removeAttribute('hidden');
+      })
+    })
+
+    function next(val){      
+      let page = val.split(' ').join('-').toLowerCase();
+
+      if(val=='Sold / Fed / Delivered'){
+        page = 'sold-fed-delivered'
+        disableRequestDate();
+      } else {
+        enableRequestDate();
+      }
+
+      let appNum = Math.ceil(Math.random() * 1500) + 60000;
+      console.log('app num',appNum)
+      Store.actions.setAppNumber(appNum);
+      Store.actions.setAppStatus('Draft');
+      Store.actions.setAppType(val);
+
+      setNextPage(`./app-type/${page}_ext_`)
+      enableButton('sc-continue')
+    }
+
+    function enableRequestDate(){
+      document.getElementById('UNIQUE-ID-request-date').removeAttribute('disabled')
+    }
+    
+    function disableRequestDate(){
+      document.getElementById('UNIQUE-ID-request-date').setAttribute('disabled', 'disabled')
+    }
+    
 	</script>
 	<!-- /SCRIPTS -->
 {{/inline}}

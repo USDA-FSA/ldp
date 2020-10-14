@@ -1,0 +1,65 @@
+<div>
+  <div tabindex="0" id="modal__edit-storage" class="fsa-modal fsa-modal--top" role="dialog" aria-hidden="true">
+    <div class="fsa-modal__dialog">
+      <div class="fsa-modal__content">
+        <button class="fsa-modal__close" data-behavior="close-modal" aria-controls="modal__remittance-collection-history"><img class="fsa-modal__close-icon" src="{{BASE_ROOT}}img/close.svg" alt="close"></button>
+          <h1 class="fsa-modal__title">Edit Storage</h1>
+          
+          <div class="fsa-m-t--s">
+						
+            
+
+            {{> ../components/select/select-state SELECT_ID="UNIQUE-ID-select-state" HELP_ID="UNIQUE-ID-select-state-help" }}
+					  {{> ../components/select/select-county SELECT_ID="UNIQUE-ID-select-county" HELP_ID="UNIQUE-ID-select-county-help" STATE_CA=true }}
+
+            <div class="fsa-field">
+              <label class="fsa-field__label" for="spinbox-example">LDP Rate <span class="fsa-field__label-desc">Required</span></label>
+              <div class="fsa-field__item">
+                <div class="fsa-spinbox">
+                  <div class="fsa-spinbox__number">
+                    <input class="fsa-input fsa-spinbox__input" id="add-producer-share-percent" aria-describedby="add-producer-share-percent-help" name="add-producer-share-percent" type="number" value="" step="0.01">
+                  </div>
+                  <div class="fsa-spinbox__actions" aria-hidden="true">
+                    <button tabindex="-1" class="fsa-spinbox__btn fsa-spinbox__btn--increment" type="button" data-behavior="spinbox-spin" title="Increase"></button>
+                    <button tabindex="-1" class="fsa-spinbox__btn fsa-spinbox__btn--decrement" type="button" data-behavior="spinbox-spin" title="Decrease"></button>
+                  </div>
+                </div>
+              </div>
+              <span class="fsa-field__help" id="add-producer-share-percent-help">This value is in BU</span>
+            </div>
+
+            <div class="fsa-m-t--s">
+              <div class="fsa-field">
+                <label class="fsa-field__label" for="UNIQUE-ID-Storage-location">Storage Location Details: </label>
+                <input class="fsa-input fsa-field__item" id="UNIQUE-ID-Storage-location" aria-describedby="UNIQUE-ID-Storage-location-help" aria-required="true" name="UNIQUE-ID-Storage-location" type="text" value="">
+              </div>
+            </div>
+
+            <div class="fsa-field">
+              <label class="fsa-field__label" for="UNIQUE-ID-select-source">Source of Quantity <span
+                  class="fsa-field__label-desc">Required</span></label>
+              <select class="fsa-select fsa-field__item " id="UNIQUE-ID-select-source"
+                aria-describedby="UNIQUE-ID-select-source-help" aria-required="true"
+                name="UNIQUE-ID-select-source">
+                <option value="">Select Source</option>
+                <option value="Certified">Certified</option>
+                <option value="Measurement Service">Measurement Service</option>
+                <option value="Production Evidence">Production Evidence</option>
+              </select>
+              <!--<span class="fsa-field__help" id="UNIQUE-ID-select-source-help">Instructional message here</span>-->
+            </div>
+
+            <div class="fsa-m-t--l">
+              <button role="button" data-behavior="close-modal" type="button" class="fsa-btn fsa-btn--primary">Update</button>   
+              <button role="button" data-behavior="close-modal" type="button" class="fsa-btn fsa-btn--secondary">Cancel</button>
+              <button role="button" data-behavior="close-modal" type="button" class="fsa-btn fsa-btn--tertiary">Delete Storage</button>
+            </div>
+
+
+          </div>
+
+      </div>
+    </div>
+  </div>
+
+</div>

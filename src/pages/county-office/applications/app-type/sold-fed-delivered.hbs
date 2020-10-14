@@ -7,14 +7,15 @@
 
         {{> ../components/stepped-tabs/stepped-tabs-application-cou STEP3=true }}
 
-				<h1>Wool and Mohair</h1>
+				<h1>Sold / Fed / Delivered</h1>
 			
 				{{> ../includes/application-data
-          COMMODITY='CORN'
-          COMMODITY_CLASS='YELLOW'
-          APP_NUMBER='832934'
-          APP_STATUS='DRAFT'
-          APP_TYPE='FARM STORED'
+          PRODUCER_NAME=''
+          COMMODITY=''
+          COMMODITY_CLASS=''
+          APP_NUMBER=''
+          APP_STATUS=''
+          APP_TYPE=''
         }}
 				
 				<div class="fsa-divider fsa-m-b--s"></div>
@@ -26,9 +27,6 @@
 					</span>
 				</div>
 
-        
-
-
 			</div>
     </div>
 
@@ -37,7 +35,7 @@
       <div class="fsa-section__bd">        
 				
 				{{> ../components/stepped-control/stepped-control-application-cou
-          CURRENT_STEP="5"
+          CURRENT_STEP="6"
           TOTAL_STEPS="8"
           BACK_URL=""
           BACK_LABEL="Back"
@@ -61,7 +59,7 @@
 
   {{#*inline "scripts-block"}}
   <script>
-    window.onload = (evt) => { Store.actions.nextPage('link_ext_') }
+    window.addEventListener('load', (evt) =>{ setNextPage('link_ext_') } );    
   </script>
   {{/inline}}
 

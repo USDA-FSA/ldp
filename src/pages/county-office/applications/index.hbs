@@ -68,15 +68,15 @@
 		</table>
 
 		<div class="fsa-m-t--m">
-			<a role="button" onclick="Router.to('../index-producer-selected_ext_'); return false;" href="" class="fsa-btn fsa-btn--secondary" type="button">
-				<span class="fsa-stepped-control__btn-label">Back</span>
-			</a>
-			<a role="button" onclick="Router.to('select-producer_ext_'); return false;" href="" class="fsa-btn fsa-btn--secondary" type="button">
-				<span class="fsa-stepped-control__btn-label">Select Application</span>
-			</a>
-			<a role="button" onclick="Router.to('new-application_ext_'); return false;" href="" class="fsa-btn fsa-btn--secondary" type="button">
-				<span class="fsa-stepped-control__btn-label">New Application</span>
-			</a>
+			<button onclick="Router.to('../index-producer-selected_ext_')" class="fsa-btn fsa-btn--secondary" type="button">
+				Back
+			</button>
+			<button onclick="Router.to('select-producer_ext_')" class="fsa-btn fsa-btn--secondary" type="button">
+				Select Application
+			</button>
+			<button disabled="disabled" onclick="Router.to('new-application_ext_')" class="fsa-btn fsa-btn--secondary" type="button">
+				New Application
+			</button>
 		</div>
 
 

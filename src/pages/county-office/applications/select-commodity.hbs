@@ -29,11 +29,6 @@
 					<select onchange="setCommodity(this.value)" class="fsa-select fsa-field__item" id="UNIQUE-ID-commodity" aria-describedby="percentage-help"
 						aria-required="true" name="UNIQUE-ID-commodity">
 						<option value="x" selected>Select One</option>
-						<option value="Corn">Corn</option>
-						<option value="Flax">Flax</option>
-						<option value="Soy Bean">Soybeans</option>
-						<option value="Wheat">Wheat</option>
-						<option value="Triticale">Triticale</option>
 					</select>
 				</div>
 			</span>
@@ -46,12 +41,13 @@
 
 					<select onchange="setClass(this.value)" disabled class="fsa-select fsa-field__item" id="UNIQUE-ID-class" aria-describedby="percentage-help"
 						aria-required="true" name="UNIQUE-ID-class">
+						<option value="x" selected>Select One</option>
 					</select>
 				</div>
 			</span>
 		</div>
 
-		<div class="fsa-m-t--s"></div>
+		<div class="fsa-m-t--s">
 			<div class="fsa-field">
 				<label class="fsa-field__label" for="UNIQUE-ID-REF-INFO">Reference Information: </label>
 				<input onchange="setRef(this.value)" class="fsa-input fsa-field__item" id="UNIQUE-ID-REF-INFO" aria-describedby="UNIQUE-ID-REF-INFO-help" aria-required="true" name="UNIQUE-ID-REF-INFO" type="text" value="">
@@ -91,43 +87,64 @@
 {{#*inline "scripts-block"}}
 <!-- page-level scripts -->
 <script>
+	let commodityList = [];
+	let classList = [];
+	let commoditySelect = document.getElementById('UNIQUE-ID-commodity');
+
+	window.addEventListener('load', (evt) => {
+
+		let crops = Store.actions.getCrops().then( (res) => {
+			commodityList = JSON.parse( Store.getters.crops() );
+			commodityList.forEach( (data) => {
+				commoditySelect.options.add( new Option(data.commodityName, data.commodityName) )
+			})
+		});
+		
+	});
+
+	function setAppTypes(commName){
+		let commodity = commodityList.filter( (data) => data.commodityName == commName )
+		console.log('setAppTypes', commodity[0].appTypes)
+		Store.actions.setAppTypes(commodity[0].appTypes)
+	}
+
 	function setCommodity(commodity){
 
+		disableButton('sc-continue')
 		Store.actions.setCommodity(commodity);
+		setAppTypes(commodity)
 		
-		var classSelect = document.getElementById('UNIQUE-ID-class');
+		let classSelect = document.getElementById('UNIQUE-ID-class');
 		classSelect.innerHTML = '';
 
-		if(commodity != 'x'){
-			if(commodity=='Corn'){
-				classSelect.options.add( new Option('Select One', 'x') )
-				classSelect.options.add( new Option('Yellow', 'yellow') )
-				classSelect.options.add( new Option('White', 'white') )
-			} else if(commodity=='Triticale'){
-				classSelect.options.add( new Option('Select One', 'x') )
-				classSelect.options.add( new Option('Rye', 'rye') )
-				classSelect.options.add( new Option('Wheat', 'wheat') )
-			} else {
-				classSelect.options.add( new Option('Select One', 'x') )
-				classSelect.options.add( new Option('class 1', 10) )
-				classSelect.options.add( new Option('class 2', 20) )
-				classSelect.options.add( new Option('class 3', 20) )
-				classSelect.options.add( new Option('class 4', 20) )
-			}
-			classSelect.disabled = false;
-		} else {
+		if(commodity == 'x'){
 			classSelect.disabled = true;
+		} else {
+			
+			classSelect.options.add( new Option('Select One', 'x') )
+
+			commodityList.forEach( obj => {
+				if( obj.commodityName == commodity) classList = obj.commodityClasses;
+			})
+			
+			console.log('classList', classList )
+
+			classList.forEach( (data) => {
+				classSelect.options.add( new Option(data, data) )
+			})
+
+			classSelect.disabled = false;
 		}
 	}
 
 	function setClass(comClass){
-
 		if(comClass != 'x'){
 			Store.actions.setCommodityClass(comClass)
+			let page = document.getElementById('UNIQUE-ID-commodity').value
+			
 			setNextPage('select-app-type_ext_')
 			enableButton('sc-continue')
 		}
-		
 	}
 
 	function setRef(data){

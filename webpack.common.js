@@ -296,6 +296,10 @@ module.exports = new Promise(
         addToPlugins(
           new CopyWebpackPlugin([
             {
+              from: './src/data/',
+              to: './data/'
+            },
+            {
               from: './src/img/',
               to: './img/'
             },

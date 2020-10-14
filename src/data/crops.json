@@ -1,0 +1,346 @@
+[
+  {
+    "commodityName": "Barley",
+    "commodityCode": 2200,
+    "commodityClasses": [
+      "Barley (Hulless)",
+      "Barley (with Hull)"
+    ],
+    "appTypes": [
+      "Farm Stored",
+      "Warehouse Stored",
+      "Open Storage",
+      "Sold / Fed / Delivered"
+    ]
+  },
+  {
+    "commodityName": "Canola",
+    "commodityCode": 9999,
+    "commodityClasses": [
+      "Barley (Hulless)",
+      "Barley (with Hull)"
+    ],
+    "appTypes": [
+      "Farm Stored",
+      "Warehouse Stored",
+      "Open Storage",
+      "Sold / Fed / Delivered"
+    ]
+  },
+  {
+    "commodityName": "Chickpeas",
+    "commodityCode": 5100,
+    "commodityClasses": [
+      "Chickpeas (Small)",
+      "Chickpeas (Large)"
+    ],
+    "appTypes": [
+      "Farm Stored",
+      "Warehouse Stored",
+      "Open Storage",
+      "Sold / Fed / Delivered"
+    ]
+  },
+  {
+    "commodityName": "Corn",
+    "commodityCode": 2000,
+    "commodityClasses": [
+      "Waxy",
+      "White",
+      "Yellow"
+    ],
+    "appTypes": [
+      "Farm Stored",
+      "Warehouse Stored",
+      "Open Storage",
+      "Sold / Fed / Delivered"
+    ]
+  },
+  {
+    "commodityName": "Cotton",
+    "commodityCode": 2000,
+    "commodityClasses": [
+      "Upland"
+    ],
+    "appTypes": [
+      "Irrevocable Module Lock-In",
+      "Gin-Direct",
+      "Irrevocable Post-Ginning",
+      "Lost Beneficial Interest"
+    ]
+  },
+  {
+    "commodityName": "Crambe",
+    "commodityCode": 9999,
+    "commodityClasses": [
+      "Class Name"
+    ],
+    "appTypes": [
+      "Farm Stored",
+      "Warehouse Stored",
+      "Open Storage",
+      "Sold / Fed / Delivered"
+    ]
+  },
+  {
+    "commodityName": "Dry Peas",
+    "commodityCode": 4600,
+    "commodityClasses": [
+      "Green",
+      "Miscellanceous",
+      "Mixed",
+      "Mottled",
+      "Wrinkled Seed",
+      "Yellow Variety"
+    ],
+    "appTypes": [
+      "Farm Stored",
+      "Warehouse Stored",
+      "Open Storage",
+      "Sold / Fed / Delivered"
+    ]
+  },
+  {
+    "commodityName": "Flax",
+    "commodityCode": 9999,
+    "commodityClasses": [
+      "Common",
+      "Lewis/Wild Blue",
+      "Linola"
+    ],
+    "appTypes": [
+      "Farm Stored",
+      "Warehouse Stored",
+      "Open Storage",
+      "Sold / Fed / Delivered"
+    ]
+  },
+  {
+    "commodityName": "Grain Sorghum",
+    "commodityCode": 2700,
+    "commodityClasses": [
+      "Mixed",
+      "Sorghum",
+      "Tannin",
+      "White"
+    ],
+    "appTypes": [
+      "Farm Stored",
+      "Warehouse Stored",
+      "Open Storage",
+      "Sold / Fed / Delivered"
+    ]
+  },
+  {
+    "commodityName": "Honey",
+    "commodityCode": 8204,
+    "commodityClasses": [
+      "Non-Table",
+      "Table"
+    ],
+    "appTypes": [
+      "Farm Stored",
+      "Warehouse Stored",
+      "Open Storage",
+      "Sold / Fed / Delivered"
+    ]
+  },
+  {
+    "commodityName": "Lentils",
+    "commodityCode": 9999,
+    "commodityClasses": [
+      "Lentils"
+    ],
+    "appTypes": [
+      "Farm Stored",
+      "Warehouse Stored",
+      "Open Storage",
+      "Sold / Fed / Delivered"
+    ]
+  },
+  {
+    "commodityName": "Mustard",
+    "commodityCode": 7600,
+    "commodityClasses": [
+      "Brown",
+      "Oriential",
+      "Mixed",
+      "Yellow"
+    ],
+    "appTypes": [
+      "Farm Stored",
+      "Warehouse Stored",
+      "Open Storage",
+      "Sold / Fed / Delivered"
+    ]
+  },
+  {
+    "commodityName": "Oats",
+    "commodityCode": 2300,
+    "commodityClasses": [
+      "Oats (Hulless)",
+      "Oats (with Hull)"
+    ],
+    "appTypes": [
+      "Farm Stored",
+      "Warehouse Stored",
+      "Open Storage",
+      "Sold / Fed / Delivered"
+    ]
+  }, 
+  {
+    "commodityName": "Peanuts",
+    "commodityCode": 4210,
+    "commodityClasses": [
+      "Runner Peanuts",
+      "Southeast Spanish Peanuts",
+      "Southwest Spanish Peanuts",
+      "Valencia Peanuts",
+      "Virginia Peanuts"
+    ],
+    "appTypes": [
+      "Farm Stored",
+      "Warehouse Stored",
+      "Open Storage",
+      "Sold / Fed / Delivered"
+    ]
+  },
+  {
+    "commodityName": "Rapeseed",
+    "commodityCode": 9999,
+    "commodityClasses": [
+      "Rapeseed"
+    ],
+    "appTypes": [
+      "Farm Stored",
+      "Warehouse Stored",
+      "Open Storage",
+      "Sold / Fed / Delivered"
+    ]
+  },
+  {
+    "commodityName": "Rice",
+    "commodityCode": 9500,
+    "commodityClasses": [
+      "Long Grain",
+      "Medium Grain",
+      "Short Grain"
+    ],
+    "appTypes": [
+      "Farm Stored",
+      "Warehouse Stored",
+      "Open Storage",
+      "Sold / Fed / Delivered"
+    ]
+  },
+  {
+    "commodityName": "Soybean",
+    "commodityCode": 2600,
+    "commodityClasses": [
+      "Mixed",
+      "Yellow"
+    ],
+    "appTypes": [
+      "Farm Stored",
+      "Warehouse Stored",
+      "Open Storage",
+      "Sold / Fed / Delivered"
+    ]
+  },
+  {
+    "commodityName": "Sunflower Oil",
+    "commodityCode": 7100,
+    "commodityClasses": [
+      "Sunflower Oil"
+    ],
+    "appTypes": [
+      "Farm Stored",
+      "Warehouse Stored",
+      "Open Storage",
+      "Sold / Fed / Delivered"
+    ]
+  },
+  {
+    "commodityName": "Sunflower Seed",
+    "commodityCode": 7800,
+    "commodityClasses": [
+      "Sunflower Seed"
+    ],
+    "appTypes": [
+      "Farm Stored",
+      "Warehouse Stored",
+      "Open Storage",
+      "Sold / Fed / Delivered"
+    ]
+  },
+  {
+    "commodityName": "Triticale",
+    "commodityCode": 9999,
+    "commodityClasses": [
+      "Rye",
+      "Wheat"
+    ],
+    "appTypes": [
+      "Graze-Out"
+    ]
+  },
+  {
+    "commodityName": "Wheat",
+    "commodityCode": 1000,
+    "commodityClasses": [
+      "Durum",
+      "Hard Red Spring",
+      "Hard Red Winter",
+      "Hard White Wheat",
+      "Soft Red Winter",
+      "Soft White Wheat"
+    ],
+    "appTypes": [
+      "Farm Stored",
+      "Warehouse Stored",
+      "Open Storage",
+      "Sold / Fed / Delivered"
+    ]
+  },
+  {
+    "commodityName": "Wool",
+    "commodityCode": 4850,
+    "commodityClasses": [
+      "Graded",
+      "Nongraded"
+    ],
+    "appTypes": [
+      "Farm Stored",
+      "Warehouse Stored",
+      "Open Storage",
+      "Sold / Fed / Delivered"
+    ]
+  },
+  {
+    "commodityName": "Mohair",
+    "commodityCode": 4860,
+    "commodityClasses": [
+      "Mohair"
+    ],
+    "appTypes": [
+      "Farm Stored",
+      "Warehouse Stored",
+      "Open Storage",
+      "Sold / Fed / Delivered"
+    ]
+  },
+  {
+    "commodityName": "Pelt",
+    "commodityCode": 4870,
+    "commodityClasses": [
+      "Unshorn Pelts"
+    ],
+    "appTypes": [
+      "Farm Stored",
+      "Warehouse Stored",
+      "Open Storage",
+      "Sold / Fed / Delivered"
+    ]
+  }
+  
+]

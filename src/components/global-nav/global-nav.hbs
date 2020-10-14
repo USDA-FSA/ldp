@@ -6,7 +6,7 @@
         <!-- Menu Item 1 -->
         <li class="fsa-nav-global__list-item">
           <a class="fsa-nav-global__link {{#if NAV1_ACTIVE }}fsa-nav-global__link--active{{/if}}"
-            {{#if NAV1_ACTIVE }}href="/index_ext_"{{else}}href="index-producer-selection_ext_"{{/if}}
+            {{#if NAV1_ACTIVE }}href="{{BASE_ROOT}}index_ext_"{{else}}href="index-producer-selection_ext_"{{/if}}
             aria-current="page">
             <span class="fsa-nav-global__text">Home</span>
           </a>
@@ -67,37 +67,27 @@
               <div class="fsa-nav-global__sub-menu-group">
                 <h3 class="fsa-nav-global__sub-menu-title" id="UNIQUE-ID-ERTSScSS6">County Office - User</h3>
                 <ul class="fsa-nav-global__sub-menu-list" aria-labelledby="UNIQUE-ID-ERTSScSS6">
-                  <li class="fsa-nav-global__sub-menu-item"><a class="fsa-nav-global__sub-menu-link" href="/county-office/index_ext_">Dashboard</a></li>
-                  <li class="fsa-nav-global__sub-menu-item"><a class="fsa-nav-global__sub-menu-link" href="/county-office/applications/app-type/farm-stored_ext_">Farm Stored</a></li>
-                  <li class="fsa-nav-global__sub-menu-item"><a class="fsa-nav-global__sub-menu-link" href="/county-office/applications/app-type/sold-fed-del_ext_">Sold/Fed/Delivered</a></li>
-                  <li class="fsa-nav-global__sub-menu-item"><a class="fsa-nav-global__sub-menu-link" href="/county-office/applications/app-type/warehouse-stored_ext_">Warehouse Stored</a></li>
-                  <li class="fsa-nav-global__sub-menu-item"><a class="fsa-nav-global__sub-menu-link" href="/county-office/applications/app-type/open-storage_ext_">Open Storage</a></li>
-                  <li class="fsa-nav-global__sub-menu-item"><a class="fsa-nav-global__sub-menu-link" href="/county-office/applications/app-type/imli_ext_">Irrevocable Module Lock-In</a></li>
-                  <li class="fsa-nav-global__sub-menu-item"><a class="fsa-nav-global__sub-menu-link" href="/county-office/applications/app-type/gin-direct_ext_">Gin-Direct</a></li>
-                  <li class="fsa-nav-global__sub-menu-item"><a class="fsa-nav-global__sub-menu-link" href="/county-office/applications/app-type/ipg_ext_">Irrevocable Post-Ginning</a></li>
-                  <li class="fsa-nav-global__sub-menu-item"><a class="fsa-nav-global__sub-menu-link" href="/county-office/applications/app-type/lbic_ext_">Lost Beneficial Interest-Cotton</a></li>
-                  <li class="fsa-nav-global__sub-menu-item"><a class="fsa-nav-global__sub-menu-link" href="/county-office/applications/app-type/wool-mohair_ext_">Wool and Mohair</a></li>
-                  <li class="fsa-nav-global__sub-menu-item"><a class="fsa-nav-global__sub-menu-link" href="/county-office/applications/app-type/unshorn-pelts_ext_">Unshorn Pelts</a></li>
-                  <li class="fsa-nav-global__sub-menu-item"><a class="fsa-nav-global__sub-menu-link" href="/county-office/applications/app-type/graze-out_ext_">Graze-Out</a></li>
+                  <li class="fsa-nav-global__sub-menu-item"><a class="fsa-nav-global__sub-menu-link" href="{{BASE_ROOT}}county-office/index_ext_">Dashboard</a></li>
+                  <li class="fsa-nav-global__sub-menu-item"><a class="fsa-nav-global__sub-menu-link" href="{{BASE_ROOT}}county-office/applications/producer-terms_ext_">Producer Terms</a></li>
+                  <li class="fsa-nav-global__sub-menu-item"><a class="fsa-nav-global__sub-menu-link" href="{{BASE_ROOT}}county-office/applications/select-app-type_ext_">Select Application Type</a></li>
                 </ul>
               </div>
               <div class="fsa-nav-global__sub-menu-group">
                 <h3 class="fsa-nav-global__sub-menu-title" id="UNIQUE-ID-ERTSScSS6">Producer - User</h3>
                 <ul class="fsa-nav-global__sub-menu-list" aria-labelledby="UNIQUE-ID-ERTSScSS6">
-                  <li class="fsa-nav-global__sub-menu-item"><a class="fsa-nav-global__sub-menu-link" href="/producer/index_ext_">Dashboard</a></li>
+                  <li class="fsa-nav-global__sub-menu-item"><a class="fsa-nav-global__sub-menu-link" href="{{BASE_ROOT}}producer/index_ext_">Dashboard</a></li>
                 </ul>
               </div>
               <div class="fsa-nav-global__sub-menu-group">
                 <h3 class="fsa-nav-global__sub-menu-title" id="UNIQUE-ID-WWTSScOI6">Jump to</h3>
                 <ul class="fsa-nav-global__sub-menu-list" aria-labelledby="UNIQUE-ID-WWTSScOI6">
-                  <li class="fsa-nav-global__sub-menu-item"><a class="fsa-nav-global__sub-menu-link" href="/county-office/applications/producer-terms_ext_">Producer Terms</a></li>
-                  <li class="fsa-nav-global__sub-menu-item"><a class="fsa-nav-global__sub-menu-link" href="/county-office/applications/select-app-type_ext_">Select Application Type</a></li>
+                  <li class="fsa-nav-global__sub-menu-item"><a class="fsa-nav-global__sub-menu-link" href="{{BASE_ROOT}}link_ext_">Overview</a></li>
                 </ul>
               </div>
               <div class="fsa-nav-global__sub-menu-group">
                 <h3 class="fsa-nav-global__sub-menu-title" id="UNIQUE-ID-ERTSS30I6">Unused</h3>
                 <ul class="fsa-nav-global__sub-menu-list" aria-labelledby="UNIQUE-ID-ERTSS30I6">
-                  <li class="fsa-nav-global__sub-menu-item"><a class="fsa-nav-global__sub-menu-link" href="link_ext_">Overview</a></li>
+                  <li class="fsa-nav-global__sub-menu-item"><a class="fsa-nav-global__sub-menu-link" href="{{BASE_ROOT}}link_ext_">Overview</a></li>
                 </ul>
               </div>
 
@@ -119,7 +109,7 @@
         <!-- Menu Item 1 -->
         <li class="fsa-nav-global__list-item">
           <a class="fsa-nav-global__link {{#if NAV1_ACTIVE }}fsa-nav-global__link--active{{/if}}"
-            {{#if NAV1_ACTIVE }}href="index_ext_"{{else}}href="index-producer-selection_ext_"{{/if}}
+            {{#if NAV1_ACTIVE }}href="{{BASE_ROOT}}index_ext_"{{else}}href="index-producer-selection_ext_"{{/if}}
             aria-current="page">
             <span class="fsa-nav-global__text">Home</span>
           </a>

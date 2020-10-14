@@ -38,7 +38,7 @@
 				<tr>
 					<td>
 						<span>
-							<input class="fsa-radio" id="r1" type="radio" name="group1" value="2">
+							<input onclick="setProducer('LONNIE L LONESON')" class="fsa-radio" id="r1" type="radio" name="group1" value="2">
 							<label for="r1"></label>
 						</span>
 					</td>
@@ -57,7 +57,7 @@
 				<tr>
 					<td>
 						<span>
-							<input class="fsa-radio" id="r2" type="radio" name="group1" value="2">
+							<input onclick="setProducer('STICKS RIVER DAIRY')" class="fsa-radio" id="r2" type="radio" name="group1" value="2">
 							<label for="r2"></label>
 						</span>
 					</td>
@@ -135,6 +135,10 @@
 	window.addEventListener("load", (evt) => {
 		setNextPage('producer-terms_ext_')
 	})
+
+	function setProducer(producer){
+		Store.actions.setProducerName(producer)
+	}
 </script>
 {{/inline}}
 

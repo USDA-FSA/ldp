@@ -1,43 +1,112 @@
-{{#> ../layouts/base TITLE='LDP - Application - Commodity' NAV_USER_COU=true NAV2_ACTIVE=true BASE_ROOT='../../../' }}
+{{#> ../layouts/base TITLE='LDP - Application - Commodity' NAV_USER_COU=true NAV4_ACTIVE=true BASE_ROOT='../../../' }}
 
-  {{#*inline "main-block"}}
+{{#*inline "main-block"}}
 
-    <div class="fsa-section">
-      <div class="fsa-section__bd">
+<div class="fsa-section">
+  <div class="fsa-section__bd">
 
-        {{> ../components/stepped-tabs/stepped-tabs-application-cou STEP3=true }}
+    {{> ../components/stepped-tabs/stepped-tabs-application-cou STEP3=true }}
 
-				<h1>Farm Stored</h1>
-			
-				{{> ../includes/application-data
-          COMMODITY='CORN'
-          COMMODITY_CLASS='YELLOW'
-          APP_NUMBER='832934'
-          APP_STATUS='DRAFT'
-          APP_TYPE='FARM STORED'
+    <h1>Farm Stored Location</h1>
+
+    {{> ../includes/application-data
+          PRODUCER_NAME=''
+          COMMODITY=''
+          COMMODITY_CLASS=''
+          APP_NUMBER=''
+          APP_STATUS=''
+          APP_TYPE=''
         }}
-				
-				<div class="fsa-divider fsa-m-b--s"></div>
 
-				<div class="fsa-m-t--m">
-          <span class="fsa-m-r--l fsa-text-size--4">
-						<input class="fsa-radio" id="a1" type="radio" name="g1" value="1">
-						<label for="t2-1">Farm Stored</label>
-					</span>
-				</div>
+    <table class="fsa-table fsa-table--borderless">
+      <caption class="sr-only">Caption that is hidden visually, but read by screenreader</caption>
+      <thead>
+        <tr>
+          <th scope="col" class="fsa-text-align--right">State</th>
+          <th scope="col" class="fsa-text-align--right">County</th>
+          <th scope="col" class="fsa-text-align--right">Requested Quantity</th>
+          <th scope="col" class="fsa-text-align--right">Excess Moisture Adjustment</th>
+          <th scope="col" class="fsa-text-align--right">Net Requested Quantity</th>
+          <th scope="col" class="fsa-text-align--right">LDP Rate</th>
+          <th scope="col" class="fsa-text-align--right">Payment Amount</th>
+          <th scope="col" class="fsa-text-align--right">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="fsa-text-align--right">MA</td>
+          <td class="fsa-text-align--right">Northumberland</td>
+          <td class="fsa-text-align--right">2,420.17 BU</td>
+          <td class="fsa-text-align--right">N/A</td>
+          <td class="fsa-text-align--right">2,000.00 BU</td>
+          <td class="fsa-text-align--right">1.02</td>
+          <td class="fsa-text-align--right">$2,040.00</td>
+          <td class="fsa-table__cell fsa-text-align--right">
+            <button role="button" type="button" aria-behavior="modal-show" data-behavior="open-modal"
+              aria-controls="modal__edit-storage" aria-expanded="false"
+              class="fsa-btn fsa-btn--secondary fsa-btn--small">
+              Edit
+            </button>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <button role="button" type="button" aria-behavior="modal-show" data-behavior="open-modal"
+              aria-controls="modal__add-storage" aria-expanded="false"
+              class="fsa-btn fsa-btn--secondary fsa-btn--small">
+              Add Storage
+            </button>
+          </td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+      </tbody>
+    </table>
 
-        
+    <div class="fsa-m-t--m">
 
+      <div class="fsa-grid">
+        <div class="fsa-grid__1/1 fsa-grid__1/3@m">
+          <div class="fsa-m-t--s">
+            <div class="ldp-data-box">
+              <div class="ldp-data-box__title">Available Quantity</div>
+              <div class="ldp-data-box__bd ldp-data-box__bd--md">45,252.72 BU</div>
+            </div>
+          </div>
+        </div>
 
-			</div>
+        <div class="fsa-grid__1/1 fsa-grid__1/3@m">
+          <div class="fsa-m-t--s">
+            <div class="ldp-data-box">
+              <div class="ldp-data-box__title">Total Requested Quantity</div>
+              <div class="ldp-data-box__bd ldp-data-box__bd--md">7,611.44 BU</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="fsa-grid__1/1 fsa-grid__1/3@m">
+          <div class="fsa-m-t--s">
+            <div class="ldp-data-box">
+              <div class="ldp-data-box__title">Total Payment</div>
+              <div class="ldp-data-box__bd ldp-data-box__bd--md">$7,505.93</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
     </div>
 
+  </div>
+</div>
 
-		<div class="fsa-section">
-      <div class="fsa-section__bd">        
-				
-				{{> ../components/stepped-control/stepped-control-application-cou
-          CURRENT_STEP="5"
+
+<div class="fsa-section">
+  <div class="fsa-section__bd">
+
+    {{> ../components/stepped-control/stepped-control-application-cou
+          CURRENT_STEP="6"
           TOTAL_STEPS="8"
           BACK_URL=""
           BACK_LABEL="Back"
@@ -47,22 +116,227 @@
           GROWL_ID="growl__cancel-application"      
         }}
 
+  </div>
+</div>
+
+
+{{/inline}}
+
+{{#*inline "hidden-block"}}
+<!-- HIDDEN - FOR MODALS/GROWL CONTENT -->
+{{> ../components/growl/growl-cancel-application GROWL_ID="growl__cancel-application" BASE_ROOT="../../../" }}
+
+<!-- EDIT STORAGE MODAL -->
+<div>
+  <div tabindex="0" id="modal__edit-storage" class="fsa-modal fsa-modal--top" role="dialog" aria-hidden="true">
+    <div class="fsa-modal__dialog">
+      <div class="fsa-modal__content">
+        <button class="fsa-modal__close" data-behavior="close-modal" aria-controls="modal__edit-storage">
+          <img class="fsa-modal__close-icon" src="{{ "../../../" }}/img/close.svg" alt="close">
+        </button>
+        
+        <h1 class="fsa-modal__title">Edit Storage</h1>
+          
+          <div class="fsa-m-t--s">
+
+            {{> ../components/select/select-state SELECT_ID="UNIQUE-ID-select-state" HELP_ID="UNIQUE-ID-select-state-help" }}
+					  {{> ../components/select/select-county SELECT_ID="UNIQUE-ID-select-county" HELP_ID="UNIQUE-ID-select-county-help" STATE_CA=true }}
+
+            <div class="fsa-field">
+              <label class="fsa-field__label" for="spinbox-example">LDP Rate <span class="fsa-field__label-desc">Required</span></label>
+              <div class="fsa-field__item">
+                <div class="fsa-spinbox">
+                  <div class="fsa-spinbox__number">
+                    <input class="fsa-input fsa-spinbox__input" id="edit-storage-ldp-rate" aria-describedby="edit-storage-ldp-rate-help" name="edit-storage-ldp-rate" type="number" value="" step="0.01">
+                  </div>
+                  <div class="fsa-spinbox__actions" aria-hidden="true">
+                    <button tabindex="-1" class="fsa-spinbox__btn fsa-spinbox__btn--increment" type="button" data-behavior="spinbox-spin" title="Increase"></button>
+                    <button tabindex="-1" class="fsa-spinbox__btn fsa-spinbox__btn--decrement" type="button" data-behavior="spinbox-spin" title="Decrease"></button>
+                  </div>
+                </div>
+              </div>
+              <span class="fsa-field__help" id="edit-storage-ldp-rate-help">This value is in BU</span>
+            </div>
+
+            <div class="fsa-m-t--s">
+              <div class="fsa-field">
+                <label class="fsa-field__label" for="UNIQUE-ID-Storage-location">Storage Location Details: </label>
+                <input class="fsa-input fsa-field__item" id="UNIQUE-ID-Storage-location" aria-describedby="UNIQUE-ID-Storage-location-help" aria-required="true" name="UNIQUE-ID-Storage-location" type="text" value="">
+              </div>
+            </div>
+
+            <div class="fsa-field">
+              <label class="fsa-field__label" for="UNIQUE-ID-select-source">Source of Quantity <span
+                  class="fsa-field__label-desc">Required</span></label>
+              <select onchange="setSource(this.value)" class="fsa-select fsa-field__item " id="UNIQUE-ID-select-source"
+                aria-describedby="UNIQUE-ID-select-source-help" aria-required="true"
+                name="UNIQUE-ID-select-source">
+                <option value="x">Select Source</option>
+                <option value="source-certified">Certified</option>
+                <option value="source-service">Measurement Service</option>
+                <option value="source-evidence">Production Evidence</option>
+              </select>
+              <!--<span class="fsa-field__help" id="UNIQUE-ID-select-source-help">Instructional message here</span>-->
+            </div>
+            <!--<div class="fsa-divider"></div>-->
+
+            <div id="source-certified">
+              
+              <div class="fsa-m-t--s">
+                <div class="fsa-field">
+                  <label class="fsa-field__label" for="requested-quantity-certified">Requested Quantity: <span class="fsa-field__label-desc">Required</span></label>
+                  <input oninput="setQuantity(this.value, 'certified'); return false;" class="fsa-input fsa-field__item" id="requested-quantity-certified" aria-describedby="requested-quantity-certified-help" aria-required="true" name="requested-quantity-certified" type="text" value="">
+                </div>
+              </div>
+
+              <div class="fsa-field">
+                <label class="fsa-field__label" for="UNIQUE-ID-select-source-certified">Unit of Measure <span
+                    class="fsa-field__label-desc">Required</span></label>
+                <select class="fsa-select fsa-field__item " id="UNIQUE-ID-select-uom-certified"
+                  aria-describedby="UNIQUE-ID-select-source-certified-help" aria-required="true"
+                  name="UNIQUE-ID-select-source-certified">
+                  <option value="x">Select Unit</option>
+                  <option value="source-certified">LBS</option>
+                  <option value="source-service">BU</option>
+                </select>
+                <!--<span class="fsa-field__help" id="UNIQUE-ID-select-source-certified-help">Instructional message here</span>-->
+              </div>
+
+              <span class="fsa-divider"></span>
+
+              <div class="fsa-m-t--s">
+                <p class="fsa-text-size--3">Requested Quantity: <strong><span id="req-qnt-certified" class="fsa-text-allcaps"></span></strong></p>
+              </div>
+
+              <div class="fsa-m-t--s">
+                <p class="fsa-text-size--3">Net Requested Quantity: <strong><span id="net-req-qnt-certified" class="fsa-text-allcaps"></span></strong></p>
+              </div>
+              
+
+            </div>
+
+            <div id="source-service">
+              
+              <div class="fsa-m-t--s">
+                <div class="fsa-field">
+                  <label class="fsa-field__label" for="requested-quantity-service">Requested Quantity: <span class="fsa-field__label-desc">Required</span></label>
+                  <input oninput="setQuantity(this.value, 'service'); return false;" class="fsa-input fsa-field__item" id="requested-quantity-service" aria-describedby="requested-quantity-service-help" aria-required="true" name="requested-quantity-certified" type="text" value="">
+                </div>
+              </div>
+
+              <div class="fsa-field">
+                <label class="fsa-field__label" for="UNIQUE-ID-select-source-service">Unit of Measure <span
+                    class="fsa-field__label-desc">Required</span></label>
+                <select class="fsa-select fsa-field__item " id="UNIQUE-ID-select-uom-service"
+                  aria-describedby="UNIQUE-ID-select-source-service-help" aria-required="true"
+                  name="UNIQUE-ID-select-source-service">
+                  <option value="x">Select Unit</option>
+                  <option value="source-certified">LBS</option>
+                  <option value="source-service">BU</option>
+                </select>
+                <!--<span class="fsa-field__help" id="UNIQUE-ID-select-source-service-help">Instructional message here</span>-->
+              </div>
+
+              
+
+              <div class="fsa-m-t--s">
+                <p class="fsa-text-size--3"><input onchange="toggleNetSource()" class="fsa-checkbox" id="lorem-9683783" type="checkbox" name="lorem-9683783" value="lorem-9683783">
+                    <label for="lorem-9683783">Producer to set Specific Quanity</label>
+                  </span>
+                </p>
+              </div>
+
+              <div id="net-requested-quantity" class="fsa-m-t--s">
+                <div class="fsa-field">
+                  <label class="fsa-field__label" for="net-requested-quantity-service">Net Requested Quantity: <span class="fsa-field__label-desc">Required</span></label>
+                  <input oninput="setNetQuantity(this.value, 'service'); return false;" class="fsa-input fsa-field__item" id="net-requested-quantity-service" aria-describedby="net-requested-quantity-service-help" aria-required="true" name="net-requested-quantity-service" type="text" value="">
+                </div>
+              </div>
+
+              <span class="fsa-divider"></span>
+
+              <div class="fsa-m-t--s">
+                <p class="fsa-text-size--3">Requested Quantity: <strong><span id="req-qnt-service" class="fsa-text-allcaps"></span></strong></p>
+              </div>
+
+              <div class="fsa-m-t--s">
+                <p class="fsa-text-size--3">Net Requested Quantity: <strong><span id="net-req-qnt-service" class="fsa-text-allcaps"></span></strong></p>
+              </div>
+
+            </div>
+
+            <div id="source-evidence">
+              source-evidence
+            </div>
+
+
+            <div class="fsa-m-t--l">
+              <button role="button" data-behavior="close-modal" type="button" class="fsa-btn fsa-btn--primary">Update</button>   
+              <button role="button" data-behavior="close-modal" type="button" class="fsa-btn fsa-btn--secondary">Cancel</button>
+              <button role="button" data-behavior="close-modal" type="button" class="fsa-btn fsa-btn--tertiary">Delete Storage</button>
+            </div>
+
+
+          </div>
       </div>
     </div>
-		
+  </div>
+</div>
+<!-- / EDIT STORAGE MODAL -->
 
-  {{/inline}}
 
-  {{#*inline "hidden-block"}}
-    <!-- HIDDEN - FOR MODALS/GROWL CONTENT -->
-    {{> ../components/growl/growl-cancel-application GROWL_ID="growl__cancel-application" BASE_ROOT="../../../" }}
-    <!-- /HIDDEN -->
-  {{/inline}}
+<!-- /HIDDEN -->
+{{/inline}}
 
-  {{#*inline "scripts-block"}}
-  <script>
-    window.onload = (evt) => { Store.actions.nextPage('link_ext_') }
-  </script>
-  {{/inline}}
+{{#*inline "scripts-block"}}
+<script>
+  let isNRQvisible = false;
+  window.addEventListener('load', (evt) => { 
+    hideSources();
+    hideNRQ();
+    setNextPage('link_ext_')
+  }); 
+
+  function setSource(src){
+    hideSources();
+    if(src != 'x') document.getElementById(src).style.display = "inline";
+  }
+
+  function hideSources(){
+    document.getElementById("source-certified").style.display = "none";
+    document.getElementById("source-service").style.display = "none";
+    document.getElementById("source-evidence").style.display = "none";
+  }
+
+  function setQuantity(val, id){
+    document.getElementById("req-qnt-"+id).textContent = val;
+    document.getElementById("net-req-qnt-"+id).textContent = val;
+  }
+
+  function toggleNetSource(){
+    console.log('is',isNRQvisible)
+    if(isNRQvisible){
+      isNRQvisible = false;
+      hideNRQ();
+    } else {
+      showNRQ();
+      isNRQvisible = true;
+    }
+  }
+
+  function showNRQ(){
+    document.getElementById("net-requested-quantity").style.display = "inline";
+  }
+
+  function hideNRQ(){
+    document.getElementById("net-requested-quantity").style.display = "none";
+  }
+
+  function setNetQuantity(val, id){
+    document.getElementById("net-req-qnt-"+id).textContent = val;
+  }
+
+</script>
+{{/inline}}
 
 {{/../layouts/base }}

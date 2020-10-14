@@ -1,3 +1,4 @@
+import { service } from '../service/cropNames';
 
 const Store = (() => {
   
@@ -11,7 +12,9 @@ const Store = (() => {
     appType: 'appType',
     appNumber: 'appNumber',
     appStatus: 'appStatus',
-    refInfo: 'refInfo'
+    refInfo: 'refInfo',
+    crops: 'crops',
+    appTypes: 'appTypes'
   };
   
   const getters = {
@@ -24,7 +27,9 @@ const Store = (() => {
     appType: () => { return localStorage.getItem('appType') },
     appNumber: () => { return localStorage.getItem('appNumber') },
     appStatus: () => { return localStorage.getItem('appStatus') },
-    refInfo: () => { return localStorage.getItem('refInfo') }
+    refInfo: () => { return localStorage.getItem('refInfo') },
+    crops: () => { return localStorage.getItem('crops') },
+    appTypes: () => { return localStorage.getItem('appTypes') }
   };
   
   const actions = {
@@ -40,7 +45,24 @@ const Store = (() => {
     deleteKey(data){ mutations.DELETE_KEY(data) },
     deleteAllData(){ mutations.DELETE_STORE() },
     enableButton(id){ mutations.ENABLE_BUTTON(id) },
-    disableButton(id){ mutations.DISABLE_BUTTON(id) }
+    disableButton(id){ mutations.DISABLE_BUTTON(id) },
+
+    async getCrops(){
+      //console.log('getCrops')
+      return new Promise( (resolve) => {
+        service.getCrops( result => {
+          if (result.errors){
+             console.log('errors'. result.errors)
+          } else {
+            console.log('result',result)
+            mutations.CROPS(result.data);
+          }
+          resolve();
+        });
+      });
+    },
+
+    setAppTypes(data){ mutations.APP_TYPES(data) }
     
   };
   
@@ -69,6 +91,12 @@ const Store = (() => {
     DISABLE_BUTTON(id){
       document.getElementById(id).setAttribute('disabled', 'disabled')
     },
+    CROPS(data){
+      localStorage.setItem('crops', JSON.stringify(data))
+    },
+    APP_TYPES(data){
+      localStorage.setItem('appTypes', JSON.stringify(data))
+    }
   }
 
   return {

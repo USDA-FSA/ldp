@@ -1,20 +1,22 @@
 <!--<script src="some-file-on-server.js"></script>-->
 <script>
   // LOADING OF THE STORE
-	window.onload = (evt) => {
+	window.addEventListener('load', (evt) => {
+    
+    let reqDig = document.getElementById('__REQUESTDIGEST') != null ? document.getElementById('__REQUESTDIGEST').value : '';    
+    localStorage.setItem('reqDig', reqDig);
+
 		let keys = Object.values( Store.getters.getKeys() )
 		let nodes = document.querySelectorAll('span');
-    console.log('<LS CHECK>')
 		nodes.forEach( (node) => {
       keys.forEach( (key) => {
         if(node.dataset[key] == ''){
           let content = localStorage.getItem(key) || '';
-          console.log(key, content)
           node.textContent = content;
         }	
       })
     })
-	}
+	})
 
   function setNextPage(page){
     console.log('setNextPage',page)

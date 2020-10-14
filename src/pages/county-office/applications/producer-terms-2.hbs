@@ -76,7 +76,7 @@
 {{#*inline "scripts-block"}}
 	<!-- SCRIPTS CONTENT -->
 	<script>
-		window.onload = (evt) => { setNextPage('select-commodity_ext_') }
+		window.addEventListener('load', (evt) =>{ setNextPage('select-commodity_ext_') } );
 		
 		function next(){
 			enableButton('sc-continue')

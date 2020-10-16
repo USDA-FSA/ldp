@@ -1,7 +1,6 @@
 import { service } from '../service/cropNames';
 
 const Store = (() => {
-  
 
   const keys = {
     nextPage: 'nextPage',

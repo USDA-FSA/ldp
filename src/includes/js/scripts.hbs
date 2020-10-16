@@ -2,6 +2,8 @@
 <script>
   // LOADING OF THE STORE
 	window.addEventListener('load', (evt) => {
+
+    console.log('scrpts.hbs loaded')
     
     let reqDig = document.getElementById('__REQUESTDIGEST') != null ? document.getElementById('__REQUESTDIGEST').value : '';    
     localStorage.setItem('reqDig', reqDig);

@@ -1,0 +1,113 @@
+<script>
+  
+  let source = 'x';
+  let uom = 'bu';
+  let uomConst = 40;
+  let requestedQuantity = '';
+  let isNRQvisible = false;
+  let isMoistureVisible = false;
+
+  window.addEventListener('load', (evt) => {
+    hideSources();
+    hideNRQ();
+    hideMoisture();
+    setNextPage('link_ext_');
+  });
+
+  function openModal(val) {
+    hideSources();
+    document.getElementById('UNIQUE-ID-select-source').value = 'x';
+    document.getElementById("add-edit-modal").textContent = val + " Storage";
+    if (val == 'Add') {
+      document.getElementById('modal-delete').style.display = "none";
+      document.getElementById('modal-add-update').textContent = 'Add';
+    } else {
+      document.getElementById('modal-delete').style.display = "inline";
+      document.getElementById('modal-add-update').textContent = 'Update';
+    }
+  }
+
+  function setSource(src) {
+    hideSources();
+    source = src;
+    if (src != 'x') document.getElementById(src).style.display = "inline";
+    setQuantity(getRQ());
+  }
+
+  function hideSources() {
+    document.getElementById("source-certified").style.display = "none";
+    document.getElementById("source-service").style.display = "none";
+    document.getElementById("source-evidence").style.display = "none";
+  }
+
+  function setQuantity(val=null) {
+    val = val==null ? getRQ() : val;
+    setRQ(val);
+    setRequestedQuanity(val)
+    setNetRequestedQuanity(val)
+  }
+
+
+  function toggleNetSource() {
+    if (isNRQvisible) {
+      isNRQvisible = false;
+      hideNRQ();
+    } else {
+      showNRQ();
+      isNRQvisible = true;
+    }
+  }
+
+  function toggleMoisture() {
+    if (isMoistureVisible) {
+      isMoistureVisible = false;
+      hideMoisture();
+    } else {
+      showMoisture();
+      isMoistureVisible = true;
+    }
+  }
+
+  function showNRQ() {
+    document.getElementById("net-requested-quantity").style.display = "inline";
+  }
+
+  function hideNRQ() {
+    document.getElementById("net-requested-quantity").style.display = "none";
+  }
+
+  function showMoisture() {
+    document.getElementById("moisture-percentage").style.display = "inline";
+  }
+
+  function hideMoisture() {
+    document.getElementById("moisture-percentage").style.display = "none";
+  }
+
+
+  function setRQ(val) { requestedQuantity = val }
+
+  function getRQ() { return document.getElementById("requested-quantity").value }
+
+  function setUOM(m){
+    let req = getRQ();
+    let covUOM = convertUOM( req, m)
+    console.log('covUOM ??', covUOM)
+    setQuantity( covUOM )
+  }
+
+  function convertUOM(val, m){
+    return m == 'bu' ? val : val / uomConst;
+  }
+
+  function setRequestedQuanity(val){
+    let reqEl = document.getElementById("req-qnt-" + source);
+    if (reqEl!=null) reqEl.textContent = val;
+  }
+
+  function setNetRequestedQuanity(val){
+    let netEl = document.getElementById("net-req-qnt-" + source);
+    if (netEl!=null) netEl.textContent = val;
+  }
+
+</script>

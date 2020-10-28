@@ -1,11 +1,11 @@
-{{#> ../layouts/base TITLE='LDP - Application - Commodity' NAV_USER_COU=true NAV4_ACTIVE=true BASE_ROOT='../../../' }}
+{{#> ../layouts/base TITLE='LDP - Application - Location' NAV_USER_COU=true NAV4_ACTIVE=true BASE_ROOT='../../../' }}
 
 {{#*inline "main-block"}}
 
 <div class="fsa-section">
   <div class="fsa-section__bd">
 
-    {{> ../components/stepped-tabs/stepped-tabs-application-cou STEP3=true }}
+    {{> ../components/stepped-tabs/stepped-tabs-application-cou STEP4=true }}
 
     <h1>Farm Stored Location</h1>
 
@@ -50,17 +50,13 @@
           </td>
         </tr>
         <tr>
-          <td colspan="2">
+          <td colspan="8">
             <button onclick="openModal('Add')" role="button" type="button" aria-behavior="modal-show" data-behavior="open-modal"
               aria-controls="modal__storage" aria-expanded="false"
               class="fsa-btn fsa-btn--secondary fsa-btn--small">
               Add Storage
             </button>
           </td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
         </tr>
       </tbody>
     </table>
@@ -176,15 +172,15 @@
           </div>
 
           <div class="fsa-field">
-            <label class="fsa-field__label" for="UNIQUE-ID-select-source">Unit of Measure <span class="fsa-field__label-desc">Required</span></label>
-            <select class="fsa-select fsa-field__item " id="UNIQUE-ID-select-uom"
-              aria-describedby="UNIQUE-ID-select-source-help" aria-required="true"
-              name="UNIQUE-ID-select-source">
+            <label class="fsa-field__label" for="UNIQUE-ID-select-uom">Unit of Measure <span class="fsa-field__label-desc">Required</span></label>
+            <select onchange="setUOM(this.value)" class="fsa-select fsa-field__item " id="UNIQUE-ID-select-uom"
+              aria-describedby="UNIQUE-ID-select-uom-help" aria-required="true"
+              name="UNIQUE-ID-select-uom">
               <option value="x">Select Unit</option>
-              <option value="source-certified">LBS</option>
-              <option value="source">BU</option>
+              <option value="bu">BU</option>
+              <option value="lbs">LBS</option>
             </select>
-            <!--<span class="fsa-field__help" id="UNIQUE-ID-select-source-help">Instructional message here</span>-->
+            <!--<span class="fsa-field__help" id="UNIQUE-ID-select-uom-help">Instructional message here</span>-->
           </div>
 
           <div class="fsa-field">
@@ -201,23 +197,21 @@
             <!--<span class="fsa-field__help" id="UNIQUE-ID-select-source-help">Instructional message here</span>-->
           </div>
 
-          <!--<div class="fsa-divider"></div>-->
 
+          <!-- CERTIFIED -->
           <div id="source-certified">
-            
             <span class="fsa-divider"></span>
-
             <div class="fsa-m-t--s">
               <p class="fsa-text-size--3">Requested Quantity: <strong><span id="req-qnt-source-certified" class="fsa-text-allcaps"></span> BU</strong></p>
             </div>
-
             <div class="fsa-m-t--s">
               <p class="fsa-text-size--3">Net Requested Quantity: <strong><span id="net-req-qnt-source-certified" class="fsa-text-allcaps"></span> BU</strong></p>
             </div>
-            
-
           </div>
+          <!-- /CERTIFIED -->
 
+
+          <!-- SERVICE -->
           <div id="source-service">
 
             <div class="fsa-m-t--s">
@@ -227,11 +221,10 @@
               </p>
             </div>
             
-
             <div id="net-requested-quantity" class="fsa-m-t--s">
               <div class="fsa-field">
                 <label class="fsa-field__label" for="net-requested-quantity-service">Net Requested Quantity: <span class="fsa-field__label-desc">Required</span></label>
-                <input oninput="setNetQuantity(this.value, 'service'); return false;" class="fsa-input fsa-field__item" id="net-requested-quantity-service" aria-describedby="net-requested-quantity-service-help" aria-required="true" name="net-requested-quantity-service" type="text" value="">
+                <input oninput="setNetRequestedQuanity(this.value); return false;" class="fsa-input fsa-field__item" id="net-requested-quantity-service" aria-describedby="net-requested-quantity-service-help" aria-required="true" name="net-requested-quantity-service" type="text" value="">
                 <span class="fsa-field__help" id="edit-storage-ldp-rate-help">This value is in BU</span>
               </div>
             </div>
@@ -247,11 +240,13 @@
             </div>
 
           </div>
+          <!-- /SERVICE -->
 
+
+          <!-- EVIDENCE -->
           <div id="source-evidence">          
 
             <div class="fsa-m-t--s">
-              
               <div class="fsa-level">
                 <div>
                   <p class="fsa-text-size--3"><input onchange="toggleMoisture()" class="fsa-checkbox" id="moisture-toggle" type="checkbox" name="moisture-toggle" value="moisture-toggle">
@@ -279,7 +274,6 @@
               </div>
 
             </div>
-
             
             <span class="fsa-divider fsa-m-t--s"></span>
 
@@ -292,6 +286,7 @@
             </div>
 
           </div>
+          <!-- /EVIDENCE -->
 
 
           <div class="fsa-m-t--l">
@@ -313,103 +308,8 @@
 {{/inline}}
 
 {{#*inline "scripts-block"}}
-<script>
-  let source = 'x';
-  let requestedQuantity = '';
-  let isNRQvisible = false;
-  let isMoistureVisible = false;
 
-  window.addEventListener('load', (evt) => {
-    hideSources();
-    hideNRQ();
-    hideMoisture();
-    setNextPage('link_ext_');
-  });
-
-  function openModal(val) {
-    hideSources();
-    document.getElementById('UNIQUE-ID-select-source').value = 'x';
-    document.getElementById("add-edit-modal").textContent = val + " Storage";
-    if (val == 'Add') {
-      document.getElementById('modal-delete').style.display = "none";
-      document.getElementById('modal-add-update').textContent = 'Add';
-    } else {
-      document.getElementById('modal-delete').style.display = "inline";
-      document.getElementById('modal-add-update').textContent = 'Update';
-    }
-  }
-
-  function setSource(src) {
-    hideSources();
-    source = src;
-    if (src != 'x') document.getElementById(src).style.display = "inline";
-    setQuantity(getRQ());
-  }
-
-  function hideSources() {
-    document.getElementById("source-certified").style.display = "none";
-    document.getElementById("source-service").style.display = "none";
-    document.getElementById("source-evidence").style.display = "none";
-  }
-
-  function setQuantity(val) {
-    setRQ(val);
-    if (source!=null) {
-      document.getElementById("req-qnt-" + source).textContent = val;
-      document.getElementById("net-req-qnt-" + source).textContent = val;
-    }
-  }
-
-  function toggleNetSource() {
-    if (isNRQvisible) {
-      isNRQvisible = false;
-      hideNRQ();
-    } else {
-      showNRQ();
-      isNRQvisible = true;
-    }
-  }
-
-  function toggleMoisture() {
-    if (isMoistureVisible) {
-      isMoistureVisible = false;
-      hideMoisture();
-    } else {
-      showMoisture();
-      isMoistureVisible = true;
-    }
-  }
-
-  function showNRQ() {
-    document.getElementById("net-requested-quantity").style.display = "inline";
-  }
-
-  function hideNRQ() {
-    document.getElementById("net-requested-quantity").style.display = "none";
-  }
-
-  function showMoisture() {
-    document.getElementById("moisture-percentage").style.display = "inline";
-  }
-
-  function hideMoisture() {
-    document.getElementById("moisture-percentage").style.display = "none";
-  }
-
-  function setNetQuantity(val) {
-    document.getElementById("net-req-qnt-" + source).textContent = val;
-  }
-
-  function setRQ(val) {
-    requestedQuantity = val;
-  }
-
-  function getRQ() {
-    return requestedQuantity;
-  }
-
-</script>
-
+{{> ../includes/js/js-farm-stored }}
 
 {{/inline}}
 

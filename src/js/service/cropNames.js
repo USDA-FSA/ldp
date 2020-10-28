@@ -9,10 +9,10 @@ console.log('appRoot ...', appRoot);
 console.log('reqDig ...', reqDig);
 
 if(appRoot.indexOf('localhost') > -1){
-  URL = appRoot + '/data/crops.json';
+  URL = appRoot + '/data/crops.json.txt';
 } else if( appRoot.indexOf('sharepoint')) {
-  // DEV URL = "https://usdagcc.sharepoint.com/sites/FBC-UX/_layouts/15/download.aspx?UniqueId=0991a988349441fbbb64a54a43e6f069&e=wSU0Ka"
-  URL = "https://usdagcc.sharepoint.com/sites/FBC-UX/_layouts/15/download.aspx?UniqueId=20b4564e4e184872b0ce27af87dadfc3&e=kBEOgQ"
+  //URL = "https://usdagcc.sharepoint.com/sites/FBC-UX/_layouts/15/download.aspx?UniqueId=2d4753ff785b4174a4ac4b31f2caa0f8&e=YcK0XQ"
+  URL = 'https://usdagcc.sharepoint.com/sites/FBC-UX/XCut/8-Projects/LDP/DEV/data/crops.json.txt';
 }
 //console.log('URL', URL)
 /*

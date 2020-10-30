@@ -1,0 +1,43 @@
+<div>
+  <div tabindex="0" id="modal__scims" class="fsa-modal fsa-modal--top" role="dialog" aria-hidden="true">
+    <div class="fsa-modal__dialog">
+      <div class="fsa-modal__content">
+        <button class="fsa-modal__close" data-behavior="close-modal" aria-controls="modal__remittance-collection-history"><img class="fsa-modal__close-icon" src="{{BASE_ROOT}}img/close.svg" alt="close"></button>
+          
+          <h1 class="fsa-modal__title">SCIMS</h1>
+          
+          <div class="fsa-m-t--m">
+					
+            <div class="fsa-alert fsa-alert--success" role="alert">
+              <div class="fsa-alert__body">
+                <h3 class="fsa-alert__heading">SCIMS Process</h3>
+                <p class="fsa-alert__text">The <span id="userType"></span> will be taken to SCIMS where they make a Producer selection, and are then taken back to the LDP application.</p>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="fsa-m-t--l">
+            <button role="button" onclick="doNext()" data-behavior="close-modal" type="button" class="fsa-btn fsa-btn--primary">Continue</button>
+          </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+  let userFlow = '';
+  window.addEventListener('load', (evt)=>{
+
+    // check what User Flow is selected
+    let userFlow = Store.getters.userFlow();    
+
+    // set modal content and button behavior based on User
+    document.getElementById('userType').textContent = userFlow == 'cou' ? 'County Office User' : 'Producer';
+
+  })
+
+  function doNext(){
+    Router.to();
+  }
+</script>

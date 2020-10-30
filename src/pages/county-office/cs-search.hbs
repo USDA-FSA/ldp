@@ -60,7 +60,7 @@
 		</div>
 
 		<div class="fsa-m-t--m">
-			<button onclick="Router.to('scims_ext_')" class="fsa-btn fsa-btn--primary" type="button">
+			<button aria-behavior="modal-show" data-behavior="open-modal"	aria-controls="modal__scims" aria-expanded="false" class="fsa-btn fsa-btn--primary" type="button">
 				Select
 			</button>
 			<button onclick="Router.to('index_ext_')" class="fsa-btn fsa-btn--secondary" type="button">
@@ -73,5 +73,19 @@
 
 {{/inline}}
 
+{{#*inline "hidden-block"}}
+<!-- HIDDEN - FOR MODALS/GROWL CONTENT -->
+{{> ../components/modal/modal-scims BASE_ROOT="../" }}
+<!-- /HIDDEN -->
+{{/inline}}
+
+
+{{#*inline "scripts-block"}}
+<script>
+	window.addEventListener('load', (evt) => {
+		Store.actions.setNextPage('applications/index_ext_');
+	});
+</script>
+{{/inline}}
 
 {{/../layouts/common-selection }}

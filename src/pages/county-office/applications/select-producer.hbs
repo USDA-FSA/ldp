@@ -22,7 +22,6 @@
 			<caption class="sr-only">Caption that is hidden visually, but read by screenreader</caption>
 			<thead>
 				<tr>
-					<th scope="col">Select</th>
 					<th scope="col" class="fsa-text-align--right"><button class="fsa-table__sort fsa-table__sort--descending"
 							type="button">Producer</button>
 					</th>
@@ -36,12 +35,6 @@
 			<tbody>
 
 				<tr>
-					<td>
-						<span>
-							<input onclick="setProducer('LONNIE L LONESON')" class="fsa-radio" id="r1" type="radio" name="group1" value="2">
-							<label for="r1"></label>
-						</span>
-					</td>
 					<td class="fsa-text-align--right">LONNIE L LONESON</td>
 					<td class="fsa-text-align--right">62.50%</td>
 					<td class="fsa-text-align--right"><label class="fsa-label fsa-label--success">YES</label></td>
@@ -55,12 +48,6 @@
 					</td>
 				</tr>
 				<tr>
-					<td>
-						<span>
-							<input onclick="setProducer('STICKS RIVER DAIRY')" class="fsa-radio" id="r2" type="radio" name="group1" value="2">
-							<label for="r2"></label>
-						</span>
-					</td>
 					<td class="fsa-text-align--right">STICKS RIVER DAIRY</td>
 					<td class="fsa-text-align--right">37.50%</td>
 					<td class="fsa-text-align--right"><label class="fsa-label fsa-label--alert">NO</label></td>
@@ -93,7 +80,6 @@
 					<td></td>
 				</tr>
 				<tr>
-					<td></td>
 					<td></td>
 					<td class="fsa-text-align--right">TOTAL SHARES: <strong>100%</strong></td>
 					<td></td>
@@ -137,7 +123,7 @@
 	})
 
 	function setProducer(producer){
-		Store.actions.setProducerName(producer)
+		//Store.actions.setProducerName(producer)
 	}
 </script>
 {{/inline}}

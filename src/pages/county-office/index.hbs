@@ -16,9 +16,16 @@
           <!--<a role="button" onclick="Router.to('cs-search_ext_'); return false;" href="" class="fsa-btn fsa-btn--secondary" type="button">
             <span class="fsa-stepped-control__btn-label">Set State &amp; County</span>
           </a>-->
-          <button onclick="Router.to('cs-search_ext_')" class="fsa-btn fsa-btn--primary" type="button">
-					  Set State &amp; County
-					</button>
+          <span>
+            <button onclick="Router.to('cs-search_ext_')" class="fsa-btn fsa-btn--secondary" type="button">
+              Producer Dashboard
+            </button>
+          </span>
+          <span>
+            <button disabled onclick="Router.to('cs-search_ext_')" class="fsa-btn fsa-btn--secondary" type="button">
+              County Dashboard
+            </button>
+          </span>
 
           <!--
           <a role="button" href="cs-search_ext_" class="fsa-btn fsa-btn--secondary" type="button">
@@ -33,6 +40,16 @@
 
 
   {{/inline}}
+
+{{#*inline "scripts-block"}}
+<!-- page-level scripts -->
+<script>
+	window.addEventListener('load', (evt) => {
+		Store.actions.setProducerName('Sticks River Farms');
+	});
+</script>
+<!-- /page-level scripts -->
+{{/inline}}
 
 
 {{/../layouts/base }}

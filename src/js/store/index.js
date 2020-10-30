@@ -3,6 +3,7 @@ import { service } from '../service/cropNames';
 const Store = (() => {
 
   const keys = {
+    userFlow: 'userFlow',
     nextPage: 'nextPage',
     prevPage: 'prevPage',
     producerName: 'producerName',
@@ -18,6 +19,7 @@ const Store = (() => {
   
   const getters = {
     getKeys: () => { return keys },
+    userFlow: () => { return localStorage.getItem('userFlow') },
     nextPage: () => { return localStorage.getItem('nextPage') },
     prevPage: () => { return localStorage.getItem('prevPage') },
     producerName: () => { return localStorage.getItem('producerName') },
@@ -32,6 +34,7 @@ const Store = (() => {
   };
   
   const actions = {
+    setUserFlow(data){ mutations.USER_FLOW(data) },
     setNextPage(data){ mutations.NEXT_PAGE(data) },
     setPrevPage(data){ mutations.PREV_PAGE(data) },
     setProducerName(data){ mutations.PRODUCER_NAME(data) },
@@ -66,6 +69,7 @@ const Store = (() => {
   };
   
   const mutations = {
+    USER_FLOW(data){ localStorage.setItem('userFlow', data) },
     NEXT_PAGE(data){ localStorage.setItem('nextPage', data) },
     PREV_PAGE(data){ localStorage.setItem('prevPage', data) },
     PRODUCER_NAME(data){ localStorage.setItem('producerName', data) },

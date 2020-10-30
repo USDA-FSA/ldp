@@ -15,11 +15,11 @@
           
 					<div class="fsa-m-t--l">
 
-						<button onclick="Router.to('county-office/index_ext_')" class="fsa-btn fsa-btn--secondary" type="button">
+						<button onclick="doNext('cou')" class="fsa-btn fsa-btn--secondary" type="button">
 						  County Office User
 						</button>
 
-						<button disabled="disabled" onclick="Router.to('producer/index_ext_');" class="fsa-btn fsa-btn--secondary" type="button">
+						<button disabled="disabled" onclick="doNext('producer')" class="fsa-btn fsa-btn--secondary" type="button">
 						  Producer
 						</button>
 
@@ -43,6 +43,16 @@
       // clear Storage
       Store.actions.deleteAllData();
     });
+    function doNext(uf){
+      Store.actions.setUserFlow(uf)
+      if(uf == 'cou'){
+        Store.actions.setProducerName('Sticks River Farms');
+        Router.to('county-office/index_ext_');
+      } else if(uf == 'producer'){
+        Store.actions.setProducerName('Lonnie D Lonesome');
+        Router.to('producer/index_ext_');
+      }
+    }
   </script>
   {{/inline}}
 

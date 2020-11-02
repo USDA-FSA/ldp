@@ -12,7 +12,8 @@ if(appRoot.indexOf('localhost') > -1){
   URL = appRoot + '/data/crops.json.txt';
 } else if( appRoot.indexOf('sharepoint')) {
   //URL = "https://usdagcc.sharepoint.com/sites/FBC-UX/_layouts/15/download.aspx?UniqueId=2d4753ff785b4174a4ac4b31f2caa0f8&e=YcK0XQ"
-  URL = 'https://usdagcc.sharepoint.com/sites/FBC-UX/XCut/8-Projects/LDP/DEV/data/crops.json.txt';
+  if( appRoot.indexOf('DEV') ) URL = 'https://usdagcc.sharepoint.com/sites/FBC-UX/XCut/8-Projects/LDP/DEV/data/crops.json.txt';
+  else URL = 'https://usdagcc.sharepoint.com/sites/FBC-UX/XCut/8-Projects/LDP/PROD/data/crops.json.txt';
 }
 //console.log('URL', URL)
 /*

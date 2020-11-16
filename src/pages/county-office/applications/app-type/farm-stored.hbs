@@ -7,10 +7,10 @@
 
     {{> ../components/stepped-tabs/stepped-tabs-application-cou STEP4=true }}
 
-    <h1>Farm Stored Location</h1>
+    <h1>Farm Stored Quantity</h1>
 
     {{> ../includes/application-data
-          PRODUCER_NAME=''
+          PRIMARY_CONTACT=''
           COMMODITY=''
           COMMODITY_CLASS=''
           APP_NUMBER=''
@@ -290,7 +290,7 @@
 
 
           <div class="fsa-m-t--l">
-            <button id="modal-add-update" role="button" data-behavior="close-modal" type="button" class="fsa-btn fsa-btn--primary">Update</button>   
+            <button id="modal-add-update" disabled="disabled" role="button" data-behavior="close-modal" type="button" class="fsa-btn fsa-btn--primary">Update</button>   
             <button role="button" data-behavior="close-modal" type="button" class="fsa-btn fsa-btn--secondary">Cancel</button>
             <button id="modal-delete" role="button" data-behavior="close-modal" type="button" class="fsa-btn fsa-btn--tertiary">Delete Storage</button>
           </div>

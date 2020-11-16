@@ -7,7 +7,7 @@
 
     {{> ../components/stepped-tabs/stepped-tabs-application-cou STEP4=true }}
 
-    <h1>Sold/Fed/Delivered Quantity</h1>
+    <h1>Warehouse Quantity</h1>
 
     {{> ../includes/application-data
           PRIMARY_CONTACT=''
@@ -22,11 +22,11 @@
       <caption class="sr-only">Caption that is hidden visually, but read by screenreader</caption>
       <thead>
         <tr>
-          <th scope="col" class="fsa-text-align--right">Seal/Bin/Lot</th>
-          <th scope="col" class="fsa-text-align--right">Request Date</th>
-          <th scope="col" class="fsa-text-align--right">Requested Qty</th>
-          <th scope="col" class="fsa-text-align--right">Qty Adjustment</th>
-          <th scope="col" class="fsa-text-align--right">Net Requested Qty</th>
+          <th scope="col" class="fsa-text-align--right">State</th>
+          <th scope="col" class="fsa-text-align--right">County</th>
+          <th scope="col" class="fsa-text-align--right">Requested Quantity</th>
+          <th scope="col" class="fsa-text-align--right">Excess Moisture Adjustment</th>
+          <th scope="col" class="fsa-text-align--right">Net Requested Quantity</th>
           <th scope="col" class="fsa-text-align--right">LDP Rate</th>
           <th scope="col" class="fsa-text-align--right">Payment Amount</th>
           <th scope="col" class="fsa-text-align--right">Actions</th>
@@ -34,13 +34,13 @@
       </thead>
       <tbody>
         <tr>
-          <td class="fsa-text-align--right">11</td>
-          <td class="fsa-text-align--right">02/13/2021</td>
-          <td class="fsa-text-align--right">420.17 BU</td>
-          <td class="fsa-text-align--right">-6.51</td>
-          <td class="fsa-text-align--right">413.66 BU</td>
-          <td class="fsa-text-align--right">1.74</td>
-          <td class="fsa-text-align--right">$719.77</td>
+          <td class="fsa-text-align--right">MA</td>
+          <td class="fsa-text-align--right">Northumberland</td>
+          <td class="fsa-text-align--right">2,420.17 BU</td>
+          <td class="fsa-text-align--right">N/A</td>
+          <td class="fsa-text-align--right">2,000.00 BU</td>
+          <td class="fsa-text-align--right">1.02</td>
+          <td class="fsa-text-align--right">$2,040.00</td>
           <td class="fsa-table__cell fsa-text-align--right">
             <button onclick="openModal('Edit')" role="button" type="button" aria-behavior="modal-show" data-behavior="open-modal"
               aria-controls="modal__storage" aria-expanded="false"
@@ -183,16 +183,6 @@
             <!--<span class="fsa-field__help" id="UNIQUE-ID-select-uom-help">Instructional message here</span>-->
           </div>
 
-          
-          <div class="fsa-field">
-            <label class="fsa-field__label" for="UNIQUE-ID-sold-date">Date Commodity Sold <span
-                class="fsa-field__label-desc">Required</span></label>
-            <input class="fsa-input fsa-field__item" id="UNIQUE-ID-sold-date" placeholder="MM/DD/YYYY"
-              aria-describedby="UNIQUE-ID-sold-date-help" aria-required="true" name="UNIQUE-ID-sold-date"
-              type="text" value="">
-          </div>
-          
-
           <div class="fsa-field">
             <label class="fsa-field__label" for="UNIQUE-ID-select-source">Source of Quantity <span
                 class="fsa-field__label-desc">Required</span></label>
@@ -201,6 +191,7 @@
               name="UNIQUE-ID-select-source">
               <option value="x">Select Source</option>
               <option value="source-certified">Certified</option>
+              <option value="source-service">Measurement Service</option>
               <option value="source-evidence">Production Evidence</option>
             </select>
             <!--<span class="fsa-field__help" id="UNIQUE-ID-select-source-help">Instructional message here</span>-->
@@ -218,6 +209,39 @@
             </div>
           </div>
           <!-- /CERTIFIED -->
+
+
+          <!-- SERVICE -->
+          <div id="source-service">
+
+            <div class="fsa-m-t--s">
+              <p class="fsa-text-size--3"><input onchange="toggleNetSource()" class="fsa-checkbox" id="lorem-9683783" type="checkbox" name="lorem-9683783" value="lorem-9683783">
+                  <label for="lorem-9683783">Producer to set Specific Quantity</label>
+                </span>
+              </p>
+            </div>
+            
+            <div id="net-requested-quantity" class="fsa-m-t--s">
+              <div class="fsa-field">
+                <label class="fsa-field__label" for="net-requested-quantity-service">Net Requested Quantity: <span class="fsa-field__label-desc">Required</span></label>
+                <input oninput="setNetRequestedQuanity(this.value); return false;" class="fsa-input fsa-field__item" id="net-requested-quantity-service" aria-describedby="net-requested-quantity-service-help" aria-required="true" name="net-requested-quantity-service" type="text" value="">
+                <span class="fsa-field__help" id="edit-storage-ldp-rate-help">This value is in BU</span>
+              </div>
+            </div>
+
+            <span class="fsa-divider"></span>
+
+            <div class="fsa-m-t--s">
+              <p class="fsa-text-size--3">Requested Quantity: <strong><span id="req-qnt-source-service" class="fsa-text-allcaps"></span> BU</strong></p>
+            </div>
+
+            <div class="fsa-m-t--s">
+              <p class="fsa-text-size--3">Net Requested Quantity: <strong><span id="net-req-qnt-source-service" class="fsa-text-allcaps"></span> BU</strong></p>
+            </div>
+
+          </div>
+          <!-- /SERVICE -->
+
 
           <!-- EVIDENCE -->
           <div id="source-evidence">          
@@ -266,7 +290,7 @@
 
 
           <div class="fsa-m-t--l">
-            <button id="modal-add-update" role="button" data-behavior="close-modal" type="button" class="fsa-btn fsa-btn--primary">Update</button>   
+            <button id="modal-add-update" disabled="disabled" role="button" data-behavior="close-modal" type="button" class="fsa-btn fsa-btn--primary">Update</button>   
             <button role="button" data-behavior="close-modal" type="button" class="fsa-btn fsa-btn--secondary">Cancel</button>
             <button id="modal-delete" role="button" data-behavior="close-modal" type="button" class="fsa-btn fsa-btn--tertiary">Delete Storage</button>
           </div>
@@ -285,7 +309,7 @@
 
 {{#*inline "scripts-block"}}
 
-{{> ../includes/js/js-sold }}
+{{> ../includes/js/js-warehouse-stored }}
 
 {{/inline}}
 

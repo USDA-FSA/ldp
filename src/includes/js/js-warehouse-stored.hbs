@@ -1,0 +1,23 @@
+<script>
+  let source = 'x';
+  let uom = 'bu';
+  let uomConst = 40;
+
+  window.addEventListener('load', (evt) => {
+
+  });
+
+  function setSource(src) {
+    hideSources();
+    source = src;
+    if (src != 'x'){
+      document.getElementById(src).style.display = "inline";
+      enableButton('modal-add-update')
+    } else {
+      disableButton('modal-add-update')
+    }
+    setQuantity(getRQ());
+  }
+  
+
+</script>

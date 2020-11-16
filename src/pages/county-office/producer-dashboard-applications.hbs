@@ -1,20 +1,43 @@
-{{#> ../layouts/base TITLE='LDP - Applications' NAV_USER_COU=true NAV2_ACTIVE=true BASE_ROOT='../../' }}
+{{#> ../layouts/base TITLE='LDP - Applications' NAV_USER_COU=true NAV2_ACTIVE=true BASE_ROOT='../' }}
 
 {{#*inline "main-block"}}
 
 <div class="fsa-section">
 	<div class="fsa-section__bd">
 
-		<h1>Applications</h1>
+		<h1>Producer Dashboard</h1>
 
-		{{> ../includes/application-data
-			PRIMARY_CONTACT=''
-			COMMODITY=''
-			COMMODITY_CLASS=''
-			APP_NUMBER=''
-			APP_STATUS=''
-			APP_TYPE=''
-		}}
+<!--
+    <div class="fsa-m-t--s">
+      <span class="fsa-text-size--3">
+        Producer: <strong><span class="fsa-text-allcaps">SMITH, JOHN A</span></strong>
+      </span>
+    </div>
+    -->
+
+    
+    <div class="fsa-m-t--s fsa-content-tabs">
+      <ul class="fsa-content-tabs__list">
+        <li class="fsa-content-tabs__item">
+          <a role="button" class="fsa-content-tabs__label fsa-content-tabs__label--active" href="">
+            <span class="fsa-content-tabs__label-text">Applications</span>
+          </a>
+        </li>
+        <li class="fsa-content-tabs__item">
+          <a role="button" onclick="Router.to('producer-dashboard-agreement_ext_'); return false;" class="fsa-content-tabs__label" aria-current="step" href="">
+            <span class="fsa-content-tabs__label-text">Agreement</span>
+          </a>
+        </li>
+      </ul>
+      <div class="fsa-content-tabs__aside">
+        <span class="fsa-text-size--4">
+          Producer: <strong><span class="fsa-text-allcaps">SMITH, JOHN A</span></strong>
+        </span>
+      </div>
+    </div>
+
+
+		{{> ../includes/crop-state-county-selection	}}
 
 		<table class="fsa-table fsa-table--borderless">
 			<caption class="sr-only">Caption that is hidden visually, but read by screenreader</caption>
@@ -68,13 +91,10 @@
 		</table>
 
 		<div class="fsa-m-t--m">
-			<button onclick="Router.to('../cs-search_ext_')" class="fsa-btn fsa-btn--secondary" type="button">
-				Back
-			</button>
-			<button onclick="Router.to('select-producer_ext_')" class="fsa-btn fsa-btn--secondary" type="button">
+			<button onclick="Router.to('./applications/select-producer_ext_')" class="fsa-btn fsa-btn--secondary" type="button">
 				Select Application
 			</button>
-			<button disabled="disabled" onclick="Router.to('new-application_ext_')" class="fsa-btn fsa-btn--secondary" type="button">
+			<button disabled="disabled" onclick="Router.to('./applications/new-application_ext_')" class="fsa-btn fsa-btn--secondary" type="button">
 				New Application
 			</button>
 		</div>
@@ -90,7 +110,7 @@
 <!-- page-level scripts -->
 <script>
 	function setApplication(name, ldpNumber){
-		Store.actions.setPrimaryContact(name);
+		//Store.actions.setPrimaryContact(name);
 		Store.actions.setAppNumber(ldpNumber);
 	}
 </script>

@@ -1,0 +1,70 @@
+{{#> ../layouts/base TITLE='LDP - Applications' NAV_USER_COU=true NAV2_ACTIVE=true BASE_ROOT='../' }}
+
+{{#*inline "main-block"}}
+
+<div class="fsa-section">
+	<div class="fsa-section__bd">
+
+		<h1>Producer Dashboard</h1>
+
+<!--
+    <div class="fsa-m-t--s">
+      <span class="fsa-text-size--3">
+        Producer: <strong><span class="fsa-text-allcaps">SMITH, JOHN A</span></strong>
+      </span>
+    </div>
+    -->
+
+    
+    <div class="fsa-m-t--s fsa-content-tabs">
+      <ul class="fsa-content-tabs__list">
+        <li class="fsa-content-tabs__item">
+          <a role="button" onclick="Router.to('producer-dashboard-applications_ext_'); return false;" class="fsa-content-tabs__label" href="">
+            <span class="fsa-content-tabs__label-text">Applications</span>
+          </a>
+        </li>
+        <li class="fsa-content-tabs__item">
+          <a role="button" class="fsa-content-tabs__label fsa-content-tabs__label--active" aria-current="step" href="">
+            <span class="fsa-content-tabs__label-text">Agreement</span>
+          </a>
+        </li>
+      </ul>
+      <div class="fsa-content-tabs__aside">
+        <span class="fsa-text-size--4">
+          Producer: <strong><span class="fsa-text-allcaps">SMITH, JOHN A</span></strong>
+        </span>
+      </div>
+    </div>
+
+    <div class="fsa-m-t--m fsa-box">
+      Agreement details go here
+    </div>
+	
+
+		<div class="fsa-m-t--m">
+			
+			<button disabled="disabled" class="fsa-btn fsa-btn--secondary" type="button">
+				Create Agreement
+			</button>
+		</div>
+
+
+	</div>
+</div>
+
+
+{{/inline}}
+
+{{#*inline "scripts-block"}}
+<!-- page-level scripts -->
+<script>
+	function setApplication(name, ldpNumber){
+		Store.actions.setPrimaryContact(name);
+		Store.actions.setAppNumber(ldpNumber);
+	}
+</script>
+<!-- /page-level scripts -->
+{{/inline}}
+
+
+{{/../layouts/base }}

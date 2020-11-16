@@ -1,43 +1,47 @@
-{{#> ../layouts/base TITLE='LDP - Application - Commodity' NAV_USER_COU=true NAV2_ACTIVE=true BASE_ROOT='../../../' }}
+{{#> ../layouts/base TITLE='LDP - Application - Quantity' NAV_USER_COU=true NAV4_ACTIVE=true BASE_ROOT='../../../' }}
 
-  {{#*inline "main-block"}}
+{{#*inline "main-block"}}
 
-    <div class="fsa-section">
-      <div class="fsa-section__bd">
+<div class="fsa-section">
+  <div class="fsa-section__bd">
 
-        {{> ../components/stepped-tabs/stepped-tabs-application-cou STEP3=true }}
+    {{> ../components/stepped-tabs/stepped-tabs-application-cou STEP4=true }}
 
-				<h1>Warehouse Stored</h1>
-			
-				{{> ../includes/application-data
-          PRODUCER_NAME=''
+    <h1>Warehouse Quantity</h1>
+
+    {{> ../includes/application-data
+          PRIMARY_CONTACT=''
           COMMODITY=''
           COMMODITY_CLASS=''
           APP_NUMBER=''
           APP_STATUS=''
           APP_TYPE=''
         }}
-				
-				<div class="fsa-divider fsa-m-b--s"></div>
 
-				<div class="fsa-m-t--m">
-          <span class="fsa-m-r--l fsa-text-size--4">
-						<input class="fsa-radio" id="a1" type="radio" name="g1" value="1">
-						<label for="t2-1">Farm Stored</label>
-					</span>
-				</div>
+    <div class="fsa-m-t--m">
+      <div class="fsa-field">
+        <label class="fsa-field__label" for="UNIQUE-ID-select-source">Source of Quantity <span
+            class="fsa-field__label-desc">Required</span></label>
+        <select onchange="setSource(this.value)" class="fsa-select fsa-field__item " id="UNIQUE-ID-select-source"
+          aria-describedby="UNIQUE-ID-select-source-help" aria-required="true"
+          name="UNIQUE-ID-select-source">
+          <option value="x">Select Source</option>
+          <option value="source-certified">Certified</option>
+          <option value="source-evidence">Production Evidence</option>
+        </select>
+        <!--<span class="fsa-field__help" id="UNIQUE-ID-select-source-help">Instructional message here</span>-->
+      </div>
 
-        
-
-
-			</div>
     </div>
 
+  </div>
+</div>
 
-		<div class="fsa-section">
-      <div class="fsa-section__bd">        
-				
-				{{> ../components/stepped-control/stepped-control-application-cou
+
+<div class="fsa-section">
+  <div class="fsa-section__bd">
+
+    {{> ../components/stepped-control/stepped-control-application-cou
           CURRENT_STEP="6"
           TOTAL_STEPS="8"
           BACK_URL=""
@@ -48,22 +52,25 @@
           GROWL_ID="growl__cancel-application"      
         }}
 
-      </div>
-    </div>
-		
 
-  {{/inline}}
 
-  {{#*inline "hidden-block"}}
-    <!-- HIDDEN - FOR MODALS/GROWL CONTENT -->
-    {{> ../components/growl/growl-cancel-application GROWL_ID="growl__cancel-application" BASE_ROOT="../../../" }}
-    <!-- /HIDDEN -->
-  {{/inline}}
+  </div>
+</div>
 
-  {{#*inline "scripts-block"}}
-  <script>
-    window.addEventListener('load', (evt) =>{ setNextPage('link_ext_') } );    
-  </script>
-  {{/inline}}
+
+{{/inline}}
+
+{{#*inline "hidden-block"}}
+<!-- HIDDEN - FOR MODALS/GROWL CONTENT -->
+{{> ../components/growl/growl-cancel-application GROWL_ID="growl__cancel-application" BASE_ROOT="../../../" }}
+
+<!-- /HIDDEN -->
+{{/inline}}
+
+{{#*inline "scripts-block"}}
+
+{{> ../includes/js/js-warehouse-stored }}
+
+{{/inline}}
 
 {{/../layouts/base }}

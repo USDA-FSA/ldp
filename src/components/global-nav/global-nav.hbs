@@ -5,21 +5,25 @@
       <ul class="fsa-nav-global__list" aria-label="Primary Navigation" id="primary-navigation">
         <!-- Menu Item 1 -->
         <li class="fsa-nav-global__list-item">
-          <a class="fsa-nav-global__link {{#if NAV1_ACTIVE }}fsa-nav-global__link--active{{/if}}"
-            {{#if NAV1_ACTIVE }}href="{{BASE_ROOT}}index_ext_"{{else}}href="index-producer-selection_ext_"{{/if}}
+          <a role="button" class="fsa-nav-global__link {{#if NAV1_ACTIVE }}fsa-nav-global__link--active{{/if}}"
+            onclick="goTo('/index_ext_'); return false;"
+            href="#"
             aria-current="page">
             <span class="fsa-nav-global__text">Home</span>
           </a>
         </li>
         <!-- Menu Item 2 -->
         <li class="fsa-nav-global__list-item">
-          <a class="fsa-nav-global__link {{#if NAV2_ACTIVE }}fsa-nav-global__link--active{{/if}}" href="#">
+          <a role="button" class="fsa-nav-global__link {{#if NAV2_ACTIVE }}fsa-nav-global__link--active{{/if}}"
+            onclick="goTo('/county-office/producer-dashboard-applications_ext_'); return false;"
+            href="#">
             <span class="fsa-nav-global__text">Producer</span>
           </a>
         </li>
         
         <li class="fsa-nav-global__list-item">
-          <a class="fsa-nav-global__link {{#if NAV3_ACTIVE }}fsa-nav-global__link--active{{/if}}" href="#">
+          <a role="button" class="fsa-nav-global__link {{#if NAV3_ACTIVE }}fsa-nav-global__link--active{{/if}}"
+            href="#">
             <span class="fsa-nav-global__text">County</span>
           </a>
         </li>
@@ -35,16 +39,16 @@
             <div class="fsa-nav-global__sub-menu-bd">
               <ul class="fsa-nav-global__sub-menu-list" aria-labelledby="UNIQUE-ID-123456789">
                 <li class="fsa-nav-global__sub-menu-item">
-                  <a class="fsa-nav-global__sub-menu-link" href="#">Report One</a>
+                  <a role="button" class="fsa-nav-global__sub-menu-link" href="#">Report One</a>
                 </li>
                 <li class="fsa-nav-global__sub-menu-item">
-                  <a class="fsa-nav-global__sub-menu-link" href="#">Report Two</a>
+                  <a role="button" class="fsa-nav-global__sub-menu-link" href="#">Report Two</a>
                 </li>
                 <li class="fsa-nav-global__sub-menu-item">
-                  <a class="fsa-nav-global__sub-menu-link" href="#">Report Three</a>
+                  <a role="button" class="fsa-nav-global__sub-menu-link" href="#">Report Three</a>
                 </li>
                 <li class="fsa-nav-global__sub-menu-item">
-                  <a class="fsa-nav-global__sub-menu-link" href="#">Report Four</a>
+                  <a role="button" class="fsa-nav-global__sub-menu-link" href="#">Report Four</a>
                 </li>
               </ul>
             </div>
@@ -56,7 +60,8 @@
 
         <li class="fsa-nav-global__list-item">
 
-          <button class="fsa-nav-global__link {{#if NAV5_ACTIVE }}fsa-nav-global__link--active{{/if}} fsa-nav-global__link--has-sub-menu" type="button" aria-expanded="false" aria-controls="UNIQUE-ID-00000">
+          <button class="fsa-nav-global__link {{#if NAV5_ACTIVE }}fsa-nav-global__link--active{{/if}} fsa-nav-global__link--has-sub-menu"
+            type="button" aria-expanded="false" aria-controls="UNIQUE-ID-00000">
             <span class="fsa-nav-global__text" id="UNIQUE-ID-51423">* DEMO *</span>
           </button>
 
@@ -65,13 +70,19 @@
             <div class="fsa-nav-global__sub-menu-bd">
               <ul class="fsa-nav-global__sub-menu-list" aria-labelledby="UNIQUE-ID-51423">
                 <li class="fsa-nav-global__sub-menu-item">
-                  <a class="fsa-nav-global__sub-menu-link" href="{{BASE_ROOT}}county-office/index_ext_">Dashboard</a>
+                  <a role="button" class="fsa-nav-global__sub-menu-link"
+                    onclick="goTo('/county-office/index_ext_'); return false;"
+                    href="#">Dashboard</a>
                 </li>
                 <li class="fsa-nav-global__sub-menu-item">
-                  <a class="fsa-nav-global__sub-menu-link" href="{{BASE_ROOT}}county-office/applications/producer-terms_ext_">Producer Terms</a>
+                  <a role="button" class="fsa-nav-global__sub-menu-link"
+                    onclick="goTo('/county-office/applications/producer-terms_ext_'); return false;"
+                    href="#">Producer Terms</a>
                 </li>
                 <li class="fsa-nav-global__sub-menu-item">
-                  <a class="fsa-nav-global__sub-menu-link" href="{{BASE_ROOT}}county-office/applications/select-commodity_ext_">Select Commodity</a>
+                  <a role="button" class="fsa-nav-global__sub-menu-link"
+                    onclick="goTo('/county-office/applications/select-commodity_ext_'); return false;"
+                    href="#">Select Commodity</a>
                 </li>
               </ul>
             </div>
@@ -91,7 +102,7 @@
       <ul class="fsa-nav-global__list" aria-label="Primary Navigation" id="primary-navigation">
         <!-- Menu Item 1 -->
         <li class="fsa-nav-global__list-item">
-          <a class="fsa-nav-global__link {{#if NAV1_ACTIVE }}fsa-nav-global__link--active{{/if}}"
+          <a role="button" class="fsa-nav-global__link {{#if NAV1_ACTIVE }}fsa-nav-global__link--active{{/if}}"
             {{#if NAV1_ACTIVE }}href="{{BASE_ROOT}}index_ext_"{{else}}href="index-producer-selection_ext_"{{/if}}
             aria-current="page">
             <span class="fsa-nav-global__text">Home</span>
@@ -99,7 +110,7 @@
         </li>
         <!-- Menu Item 2 -->
         <li class="fsa-nav-global__list-item">
-          <a class="fsa-nav-global__link {{#if NAV2_ACTIVE }}fsa-nav-global__link--active{{/if}}" href="#">
+          <a role="button" class="fsa-nav-global__link {{#if NAV2_ACTIVE }}fsa-nav-global__link--active{{/if}}" href="#">
             <span class="fsa-nav-global__text">Producer</span>
           </a>
         </li>
@@ -109,3 +120,13 @@
   </div>
   {{/if}}
 </nav>
+
+<script>
+  let appRoot = '';
+  window.addEventListener('load', (evt) => {
+    appRoot = Store.getters.appRoot();
+  })
+  function goTo( val ){
+    Router.to( appRoot + val )
+  }
+</script>

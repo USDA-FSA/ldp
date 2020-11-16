@@ -46,10 +46,10 @@
     function doNext(uf){
       Store.actions.setUserFlow(uf)
       if(uf == 'cou'){
-        Store.actions.setProducerName('Sticks River Farms');
+        //Store.actions.setPrimaryContact('Sticks River Farms');
         Router.to('county-office/index_ext_');
       } else if(uf == 'producer'){
-        Store.actions.setProducerName('Lonnie D Lonesome');
+        Store.actions.setPrimaryContact('Lonnie D Lonesome');
         Router.to('producer/index_ext_');
       }
     }

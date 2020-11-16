@@ -25,12 +25,18 @@
       document.getElementById('modal-delete').style.display = "inline";
       document.getElementById('modal-add-update').textContent = 'Update';
     }
+    enableButton('sc-continue')
   }
 
   function setSource(src) {
     hideSources();
     source = src;
-    if (src != 'x') document.getElementById(src).style.display = "inline";
+    if (src != 'x'){
+      document.getElementById(src).style.display = "inline";
+      enableButton('modal-add-update')
+    } else {
+      disableButton('modal-add-update')
+    }
     setQuantity(getRQ());
   }
 

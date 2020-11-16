@@ -1,4 +1,5 @@
 import { service } from '../service/cropNames';
+import Utils from '../utils';
 
 const Store = (() => {
 
@@ -6,7 +7,7 @@ const Store = (() => {
     userFlow: 'userFlow',
     nextPage: 'nextPage',
     prevPage: 'prevPage',
-    producerName: 'producerName',
+    primaryContact: 'primaryContact',
     commodity: 'commodity',
     commodityClass: 'commodityClass',
     appType: 'appType',
@@ -19,10 +20,11 @@ const Store = (() => {
   
   const getters = {
     getKeys: () => { return keys },
+    appRoot: () => { return Utils.getAppRoot() },
     userFlow: () => { return localStorage.getItem('userFlow') },
     nextPage: () => { return localStorage.getItem('nextPage') },
     prevPage: () => { return localStorage.getItem('prevPage') },
-    producerName: () => { return localStorage.getItem('producerName') },
+    primaryContact: () => { return localStorage.getItem('primaryContact') },
     commodity: () => { return localStorage.getItem('commodity') },
     commodityClass: () => { return localStorage.getItem('commodityClass') },
     appType: () => { return localStorage.getItem('appType') },
@@ -37,7 +39,7 @@ const Store = (() => {
     setUserFlow(data){ mutations.USER_FLOW(data) },
     setNextPage(data){ mutations.NEXT_PAGE(data) },
     setPrevPage(data){ mutations.PREV_PAGE(data) },
-    setProducerName(data){ mutations.PRODUCER_NAME(data) },
+    setPrimaryContact(data){ mutations.PRIMARY_CONTACT(data) },
     setCommodity(data){ mutations.COMMODITY(data) },
     setCommodityClass(data){ mutations.COMMODITY_CLASS(data) },
     setAppType(data){ mutations.APP_TYPE(data) },
@@ -72,7 +74,7 @@ const Store = (() => {
     USER_FLOW(data){ localStorage.setItem('userFlow', data) },
     NEXT_PAGE(data){ localStorage.setItem('nextPage', data) },
     PREV_PAGE(data){ localStorage.setItem('prevPage', data) },
-    PRODUCER_NAME(data){ localStorage.setItem('producerName', data) },
+    PRIMARY_CONTACT(data){ localStorage.setItem('primaryContact', data) },
     COMMODITY(data){ localStorage.setItem('commodity', data) },
     COMMODITY_CLASS(data){ localStorage.setItem('commodityClass', data) },
     APP_TYPE(data){ localStorage.setItem('appType', data) },

@@ -10,7 +10,7 @@
 		<h1>Select Producer</h1>
 
 		{{> ../includes/application-data
-			PRODUCER_NAME=''
+			PRIMARY_CONTACT=''
 			COMMODITY=''
 			COMMODITY_CLASS=''
 			APP_NUMBER=''
@@ -120,11 +120,9 @@
 <script>
 	window.addEventListener("load", (evt) => {
 		setNextPage('producer-terms_ext_')
+		Store.actions.setPrimaryContact('LONNIE L LONESON')
 	})
 
-	function setProducer(producer){
-		//Store.actions.setProducerName(producer)
-	}
 </script>
 {{/inline}}
 

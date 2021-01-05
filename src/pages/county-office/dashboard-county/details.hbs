@@ -1,0 +1,113 @@
+{{#> ../layouts/base TITLE='LDP - Applications' NAV_USER_COU=true NAV2_ACTIVE=true BASE_ROOT='../' }}
+
+{{#*inline "main-block"}}
+
+<div class="fsa-section">
+	<div class="fsa-section__bd">
+
+		<h1>LDP Details</h1>
+
+
+    {{> ../includes/crop-state-county-selection	}}
+
+    
+    <div class="fsa-m-t--s fsa-content-tabs">
+      <ul class="fsa-content-tabs__list">
+        <li class="fsa-content-tabs__item">
+          <a role="button" class="fsa-content-tabs__label fsa-content-tabs__label--active" href="">
+            <span class="fsa-content-tabs__label-text">LDP Drafts</span>
+          </a>
+        </li>
+        <li class="fsa-content-tabs__item">
+          <a role="button" onclick="Router.to('dashboard-county-review_ext_'); return false;" class="fsa-content-tabs__label" aria-current="step" href="">
+            <span class="fsa-content-tabs__label-text">Pending Review</span>
+          </a>
+        </li>
+        <li class="fsa-content-tabs__item">
+          <a role="button" onclick="Router.to('producer-dashboard-agreement_ext_'); return false;" class="fsa-content-tabs__label" aria-current="step" href="">
+            <span class="fsa-content-tabs__label-text">Pending Approval</span>
+          </a>
+        </li>
+        <li class="fsa-content-tabs__item">
+          <a role="button" onclick="Router.to('producer-dashboard-agreement_ext_'); return false;" class="fsa-content-tabs__label" aria-current="step" href="">
+            <span class="fsa-content-tabs__label-text">Disbursed LDPs</span>
+          </a>
+        </li>
+      </ul>
+      <!--
+      <div class="fsa-content-tabs__aside">
+        <span class="fsa-text-size--4">
+          Producer: <strong><span class="fsa-text-allcaps">SMITH, JOHN A</span></strong>
+        </span>
+      </div>
+      -->
+    </div>
+		
+
+		<table class="fsa-table fsa-table--borderless">
+			<caption class="sr-only">Caption that is hidden visually, but read by screenreader</caption>
+			<thead>
+				<tr>
+					<th scope="col"><button class="fsa-table__sort" type="button">LDP Number</button></th>
+          <th scope="col" class="fsa-text-align--right">Primary Contact</th>					
+					<th scope="col" class="fsa-text-align--right">Commodity</th>
+					<th scope="col" class="fsa-text-align--right">LDP Type</th>
+					<th scope="col" class="fsa-text-align--right">Date</th>
+					<th scope="col" class="fsa-text-align--right">Status</th>
+					<th scope="col" class="fsa-text-align--right">Qty</th>
+					<th scope="col" class="fsa-text-align--right">Amount</th>
+          <th scope="col" class="fsa-text-align--right">Actions</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td class="fsa-text-align--right">542943</td>
+					<td class="fsa-text-align--right">SMITH, JOHN A</td>
+					<td class="fsa-text-align--right">Corn</td>
+					<td class="fsa-text-align--right">Sold/Fed/Delivered</td>
+					<td class="fsa-text-align--right">05/01/2020</td>
+					<td class="fsa-text-align--right">DISBURSED</td>
+					<td class="fsa-text-align--right">223 BU</td>
+					<td class="fsa-text-align--right">$432.78</td>
+          <td class="fsa-text-align--right"><button class="fsa-btn fsa-btn--secondary">Service LDP</button></td>
+				</tr>
+				<tr>
+					<td class="fsa-text-align--right">593827</td>
+					<td class="fsa-text-align--right">JEREMY T WILSON</td>
+					<td class="fsa-text-align--right">Flax</td>
+					<td class="fsa-text-align--right">Farm Stored</td>
+					<td class="fsa-text-align--right">8/15/2020</td>
+					<td class="fsa-text-align--right">DISBURSED</td>
+					<td class="fsa-text-align--right">487 BU</td>
+					<td class="fsa-text-align--right">$1,290.45</td>
+          <td class="fsa-text-align--right"><button class="fsa-btn fsa-btn--secondary">Service LDP</button></td>
+				</tr>
+			</tbody>
+		</table>
+
+		<div class="fsa-m-t--m">
+			<button onclick="Router.to('./applications/select-producer_ext_')" class="fsa-btn fsa-btn--secondary" type="button">
+				Create New LDP
+			</button>
+		</div>
+
+
+	</div>
+</div>
+
+
+{{/inline}}
+
+{{#*inline "scripts-block"}}
+<!-- page-level scripts -->
+<script>
+	function setApplication(name, ldpNumber){
+		//Store.actions.setPrimaryContact(name);
+		Store.actions.setAppNumber(ldpNumber);
+	}
+</script>
+<!-- /page-level scripts -->
+{{/inline}}
+
+
+{{/../layouts/base }}

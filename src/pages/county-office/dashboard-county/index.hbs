@@ -5,17 +5,17 @@
 <div class="fsa-section">
 	<div class="fsa-section__bd">
 
-		<h1>County Dashboard</h1>
+		<h1>County LDP Dashboard</h1>
 
 
     {{> ../includes/crop-state-county-selection	}}
 
-    
-    <div class="fsa-m-t--l fsa-content-tabs">
+    <div class="fsa-m-t--l fsa-content-tabs fsa-content-tabs--justified-equal">
+    <!-- <div class="fsa-m-t--l fsa-content-tabs"> -->
       <ul class="fsa-content-tabs__list">
         <li class="fsa-content-tabs__item">
           <a role="button" onclick="showRow(this, 'draft'); return false;" class="fsa-content-tabs__label fsa-content-tabs__label--active" href="">
-            <span class="fsa-content-tabs__label-text">LDP Drafts</span>
+            <span class="fsa-content-tabs__label-text">Draft LDPs</span>
           </a>
         </li>
         <li class="fsa-content-tabs__item">
@@ -36,11 +36,12 @@
       </ul>
       <!--
       <div class="fsa-content-tabs__aside">
-        <span class="fsa-text-size--4">
-          Producer: <strong><span class="fsa-text-allcaps">SMITH, JOHN A</span></strong>
-        </span>
+        <button onclick="Router.to('../cs-search_ext_')" class="fsa-btn fsa-btn--secondary" type="button">
+					Create New LDP
+				</button>
       </div>
-      -->
+			-->
+      
     </div>
 		
 
@@ -69,7 +70,18 @@
 					<td class="fsa-text-align--right"><span class="fsa-label fsa-label--success">DISBURSED</span></td>
 					<td class="fsa-text-align--right">223 BU</td>
 					<td class="fsa-text-align--right">$432.78</td>
-          <td class="fsa-text-align--right"><button onclick="setLDP('542943','SMITH, JOHN A')" class="fsa-btn fsa-btn--secondary">Service LDP</button></td>
+          <td class="fsa-text-align--right"><button onclick="serviceLDP('542943','SMITH, JOHN A')" class="fsa-btn fsa-btn--secondary fsa-btn--small">View Details</button></td>
+				</tr>
+				<tr data-ldp-status="disbursed">
+					<td class="fsa-text-align--right">567722</td>
+					<td class="fsa-text-align--right">SUMMERS JAN, C</td>
+					<td class="fsa-text-align--right">Chickpeas</td>
+					<td class="fsa-text-align--right">Warehouse Stored</td>
+					<td class="fsa-text-align--right">06/30/2020</td>
+					<td class="fsa-text-align--right"><span class="fsa-label fsa-label--success">DISBURSED</span></td>
+					<td class="fsa-text-align--right">493 BU</td>
+					<td class="fsa-text-align--right">$289.60</td>
+          <td class="fsa-text-align--right"><button onclick="serviceLDP('567722','SUMMERS JAN, C')" class="fsa-btn fsa-btn--secondary fsa-btn--small">View Details</button></td>
 				</tr>
 				<tr data-ldp-status="draft">
 					<td class="fsa-text-align--right">593827</td>
@@ -80,7 +92,18 @@
 					<td class="fsa-text-align--right"><span class="fsa-label fsa-label--neutral">DRAFT</span></td>
 					<td class="fsa-text-align--right">487 BU</td>
 					<td class="fsa-text-align--right">$1,290.45</td>
-          <td class="fsa-text-align--right"><button onclick="setLDP('593827','JEREMY T WILSON')" class="fsa-btn fsa-btn--secondary">Service LDP</button></td>
+          <td class="fsa-text-align--right"><button onclick="serviceLDP('593827','JEREMY T WILSON')" class="fsa-btn fsa-btn--secondary fsa-btn--small">Service LDP</button></td>
+				</tr>
+				<tr data-ldp-status="pending-review">
+					<td class="fsa-text-align--right">553299</td>
+					<td class="fsa-text-align--right">FRANKLIN FRANK, T</td>
+					<td class="fsa-text-align--right">Oats</td>
+					<td class="fsa-text-align--right">Sold/Fed/Delivered</td>
+					<td class="fsa-text-align--right">02/15/2020</td>
+					<td class="fsa-text-align--right"><span class="fsa-label fsa-label--warning">PENDING REVIEW</span></td>
+					<td class="fsa-text-align--right">693,012 BU</td>
+					<td class="fsa-text-align--right">$6,902.93</td>
+          <td class="fsa-text-align--right"><button onclick="reviewLDP('553299','FRANKLIN FRANK, T')" class="fsa-btn fsa-btn--secondary fsa-btn--small">Review LDP</button></td>
 				</tr>
 				<tr data-ldp-status="pending-review">
 					<td class="fsa-text-align--right">548392</td>
@@ -91,7 +114,7 @@
 					<td class="fsa-text-align--right"><span class="fsa-label fsa-label--warning">PENDING REVIEW</span></td>
 					<td class="fsa-text-align--right">432,331 BU</td>
 					<td class="fsa-text-align--right">$767.94</td>
-          <td class="fsa-text-align--right"><button onclick="setLDP('548392','ADAMS, BENJAMIN')" class="fsa-btn fsa-btn--secondary">Service LDP</button></td>
+          <td class="fsa-text-align--right"><button onclick="reviewLDP('548392','ADAMS, BENJAMIN')" class="fsa-btn fsa-btn--secondary fsa-btn--small">Review LDP</button></td>
 				</tr>
 				<tr data-ldp-status="pending-approval">
 					<td class="fsa-text-align--right">559211</td>
@@ -102,7 +125,7 @@
 					<td class="fsa-text-align--right"><span class="fsa-label fsa-label--general">PENDING APPROVAL</span></td>
 					<td class="fsa-text-align--right">432,331 BU</td>
 					<td class="fsa-text-align--right">$767.94</td>
-          <td class="fsa-text-align--right"><button onclick="setLDP('559211','LONGMIRE, HOWARD D')" class="fsa-btn fsa-btn--secondary">Service LDP</button></td>
+          <td class="fsa-text-align--right"><button onclick="serviceLDP('559211','LONGMIRE, HOWARD D')" class="fsa-btn fsa-btn--secondary fsa-btn--small">View Details</button></td>
 				</tr>
 				<tr data-ldp-status="pending-review">
 					<td class="fsa-text-align--right">572991</td>
@@ -113,7 +136,7 @@
 					<td class="fsa-text-align--right"><span class="fsa-label fsa-label--warning">PENDING REVIEW</span></td>
 					<td class="fsa-text-align--right">60,234 BU</td>
 					<td class="fsa-text-align--right">$309.88</td>
-          <td class="fsa-text-align--right"><button onclick="setLDP('572991','JAYNES, WILLIAM T')" class="fsa-btn fsa-btn--secondary">Service LDP</button></td>
+          <td class="fsa-text-align--right"><button onclick="reviewLDP('572991','JAYNES, WILLIAM T')" class="fsa-btn fsa-btn--secondary fsa-btn--small">Review LDP</button></td>
 				</tr>
 				<tr data-ldp-status="draft">
 					<td class="fsa-text-align--right">561029</td>
@@ -124,13 +147,24 @@
 					<td class="fsa-text-align--right"><span class="fsa-label fsa-label--neutral">DRAFT</span></td>
 					<td class="fsa-text-align--right">9,432 BU</td>
 					<td class="fsa-text-align--right">$43.56</td>
-          <td class="fsa-text-align--right"><button onclick="setLDP('561029','REYNOLDS, MALCOLM')" class="fsa-btn fsa-btn--secondary">Service LDP</button></td>
+          <td class="fsa-text-align--right"><button onclick="serviceLDP('561029','REYNOLDS, MALCOLM')" class="fsa-btn fsa-btn--secondary fsa-btn--small">Service LDP</button></td>
+				</tr>
+				<tr data-ldp-status="pending-approval">
+					<td class="fsa-text-align--right">580710</td>
+					<td class="fsa-text-align--right">MCFEE MICHAEL, W</td>
+					<td class="fsa-text-align--right">Flax</td>
+					<td class="fsa-text-align--right">Farm Stored</td>
+					<td class="fsa-text-align--right">11/01/2020</td>
+					<td class="fsa-text-align--right"><span class="fsa-label fsa-label--general">PENDING APPROVAL</span></td>
+					<td class="fsa-text-align--right">83,205 BU</td>
+					<td class="fsa-text-align--right">$549.23</td>
+          <td class="fsa-text-align--right"><button onclick="serviceLDP('580710','MCFEE MICHAEL, W')" class="fsa-btn fsa-btn--secondary fsa-btn--small">View Details</button></td>
 				</tr>
 			</tbody>
 		</table>
 
 		<div class="fsa-m-t--m">
-			<button onclick="Router.to('./county-office/cs-search_ext_')" class="fsa-btn fsa-btn--secondary" type="button">
+			<button onclick="Router.to('../cs-search_ext_')" class="fsa-btn fsa-btn--secondary" type="button">
 				Create New LDP
 			</button>
 		</div>
@@ -159,10 +193,13 @@
 	}
 	function showRow(selectedTab, str){
 		// reset tabs to active row
-		"fsa-content-tabs__label "
 		let tabs = document.querySelectorAll('.fsa-content-tabs__label')
 		tabs.forEach( (item) => {
+			
 			if(item == selectedTab){
+				console.log('true')
+				console.log('x',selectedTab)
+				console.log('y',item)
 				selectedTab.classList.add('fsa-content-tabs__label--active')
 			} else {
 				item.classList.remove('fsa-content-tabs__label--active');
@@ -179,10 +216,15 @@
 		})
 	}
 
-	function setLDP(ldpNumber, name){
+	function serviceLDP(ldpNumber, name){
 		//Store.actions.setPrimaryContact(name);
 		Store.actions.setAppNumber(ldpNumber);
 		Router.to('details_ext_')
+	}
+
+	function reviewLDP(ldpNumber, name){
+		Store.actions.setAppNumber(ldpNumber);
+		Router.to('review_ext_')
 	}
 </script>
 <!-- /page-level scripts -->

@@ -1,0 +1,207 @@
+{{#> ../layouts/base TITLE='LDP - Application - Quantity' NAV_USER_COU=true NAV4_ACTIVE=true BASE_ROOT='../../../' }}
+
+{{#*inline "main-block"}}
+
+<div class="fsa-section">
+  <div class="fsa-section__bd">
+
+    {{> ../components/stepped-tabs/stepped-tabs-application-cou STEP4=true }}
+
+    <h1>Warehouse Stored Quantity</h1>
+
+    {{> ../includes/application-data
+          PRIMARY_CONTACT=''
+          COMMODITY=''
+          COMMODITY_CLASS=''
+          APP_NUMBER=''
+          APP_STATUS=''
+          APP_TYPE=''
+        }}
+
+    <table class="fsa-table fsa-table--borderless">
+      <caption class="sr-only">Caption that is hidden visually, but read by screenreader</caption>
+      <thead>
+        <tr>
+          <th scope="col" class="fsa-text-align--right">Locations Receipt Number</th>
+          <th scope="col" class="fsa-text-align--right">Issue Date</th>
+          <th scope="col" class="fsa-text-align--right">Requested Quantity</th>
+          <th scope="col" class="fsa-text-align--right">Quantity Adjustment</th>
+          <th scope="col" class="fsa-text-align--right">Net Quantity</th>
+          <th scope="col" class="fsa-text-align--right">LDP Rate</th>
+          <th scope="col" class="fsa-text-align--right">Payment Amount</th>
+          <th scope="col" class="fsa-text-align--right">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr id="row1">
+          <td class="fsa-text-align--right">87239812</td>
+          <td class="fsa-text-align--right">06/15/2020</td>
+          <td class="fsa-text-align--right">2,420.17 BU</td>
+          <td class="fsa-text-align--right">-23.15 BU</td>
+          <td class="fsa-text-align--right">2,397.02 BU</td>
+          <td class="fsa-text-align--right">0.72</td>
+          <td class="fsa-text-align--right">$1,725.85</td>
+          <td class="fsa-table__cell fsa-text-align--right">
+            <button onclick="openModal('Edit')" role="button" type="button" aria-behavior="modal-show" data-behavior="open-modal"
+              aria-controls="modal__storage" aria-expanded="false"
+              class="fsa-btn fsa-btn--secondary fsa-btn--small">
+              Edit
+            </button>
+          </td>
+        </tr>
+        <tr id="row2">
+          <td class="fsa-text-align--right">97237541</td>
+          <td class="fsa-text-align--right">06/19/2020</td>
+          <td class="fsa-text-align--right">1,410.34 BU</td>
+          <td class="fsa-text-align--right">-49.32</td>
+          <td class="fsa-text-align--right">1,361.02 BU</td>
+          <td class="fsa-text-align--right">0.91</td>
+          <td class="fsa-text-align--right">$1,238.53</td>
+          <td class="fsa-table__cell fsa-text-align--right">
+            <button onclick="openModal('Edit')" role="button" type="button" aria-behavior="modal-show" data-behavior="open-modal"
+              aria-controls="modal__storage" aria-expanded="false"
+              class="fsa-btn fsa-btn--secondary fsa-btn--small">
+              Edit
+            </button>
+          </td>
+        </tr>
+        <tr id="row3">
+          <td class="fsa-text-align--right">97237212</td>
+          <td class="fsa-text-align--right">06/17/2020</td>
+          <td class="fsa-text-align--right">4,201.10 BU</td>
+          <td class="fsa-text-align--right"></td>
+          <td class="fsa-text-align--right">4,201.10 BU</td>
+          <td class="fsa-text-align--right">1.08</td>
+          <td class="fsa-text-align--right">$4,537.19</td>
+          <td class="fsa-table__cell fsa-text-align--right">
+            <button onclick="openModal('Edit')" role="button" type="button" aria-behavior="modal-show" data-behavior="open-modal"
+              aria-controls="modal__storage" aria-expanded="false"
+              class="fsa-btn fsa-btn--secondary fsa-btn--small">
+              Edit
+            </button>
+          </td>
+        </tr>
+
+      </tbody>
+    </table>
+
+    <div class="fsa-m-t--m">
+
+      <div class="fsa-grid">
+        <div class="fsa-grid__1/1 fsa-grid__1/3@m">
+          <div class="fsa-m-t--s">
+            <div class="ldp-data-box">
+              <div class="ldp-data-box__title">Available Quantity</div>
+              <div id="available-quantity-text" class="ldp-data-box__bd ldp-data-box__bd--md"></div>
+            </div>
+          </div>
+        </div>
+        <div class="fsa-grid__1/1 fsa-grid__1/3@m">
+          <div class="fsa-m-t--s">
+            <div class="ldp-data-box">
+              <div class="ldp-data-box__title">Total Requested Quantity</div>
+              <div id="requested-quantity-text" class="ldp-data-box__bd ldp-data-box__bd--md"></div>
+            </div>
+          </div>
+        </div>
+        <div class="fsa-grid__1/1 fsa-grid__1/3@m">
+          <div class="fsa-m-t--s">
+            <div class="ldp-data-box">
+              <div class="ldp-data-box__title">Total Payment</div>
+              <div id="total-payment-text" class="ldp-data-box__bd ldp-data-box__bd--md"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+
+  </div>
+</div>
+
+
+<div class="fsa-section">
+  <div class="fsa-section__bd">
+
+    {{> ../components/stepped-control/stepped-control-application-cou
+          CURRENT_STEP="7"
+          TOTAL_STEPS="8"
+          BACK_URL=""
+          BACK_LABEL="Back"
+          DISABLED=true
+          CONTINUE_LABEL="Continue"
+          USE_GROWL_ON_CANCEL=true  
+          GROWL_ID="growl__cancel-application"      
+        }}
+
+  </div>
+</div>
+
+
+{{/inline}}
+
+{{#*inline "hidden-block"}}
+<!-- HIDDEN - FOR MODALS/GROWL CONTENT -->
+{{> ../components/growl/growl-cancel-application GROWL_ID="growl__cancel-application" BASE_ROOT="../../../" }}
+
+<!-- EDIT STORAGE MODAL -->
+
+<div tabindex="0" id="modal__storage" class="fsa-modal fsa-modal--top" role="dialog" aria-hidden="true">
+  <div class="fsa-modal__dialog">
+    <div class="fsa-modal__content">
+      <button class="fsa-modal__close" data-behavior="close-modal" aria-controls="modal__edit-storage">
+        <img class="fsa-modal__close-icon" src="{{ "../../../" }}/img/close.svg" alt="close">
+      </button>
+      
+      <h1 id="add-edit-modal" class="fsa-modal__title">Update Warehouse Stored</h1>
+        
+        <div class="fsa-m-t--s">
+
+          <div class="fsa-level fsa-m-t--m">
+            <div class="fsa-level__item--align-top">
+              <span>
+                <input class="fsa-radio" id="g2a" type="radio" name="g2" value="yes">
+                <label for="g2a">Yes</label>
+              </span>
+              <span>
+                <input class="fsa-radio" id="g2b" type="radio" name="g2" value="no">
+                <label for="g2b">No</label>
+              </span>
+            </div>
+            <div class="fsa-level__item--grow-even fsa-level__item--align-top fsa-text-size--4">
+              Has a KC-350 been provided?
+            </div>
+          </div>
+
+
+          <div class="fsa-m-t--l">
+            <button id="modal-add-update" disabled="disabled" role="button" data-behavior="close-modal" type="button" class="fsa-btn fsa-btn--primary">Update</button>   
+            <button role="button" data-behavior="close-modal" type="button" class="fsa-btn fsa-btn--secondary">Cancel</button>
+          </div>
+
+
+        </div>
+    </div>
+  </div>
+</div>
+
+<!-- / EDIT STORAGE MODAL -->
+
+
+<!-- /HIDDEN -->
+{{/inline}}
+
+{{#*inline "scripts-block"}}
+
+<script>
+  window.addEventListener('load', (evt) => {
+    setNextPage('index_ext');
+    enableButton('sc-continue')
+  });
+</script>
+
+{{> ../includes/js/js-warehouse-stored }}
+
+{{/inline}}
+
+{{/../layouts/base }}

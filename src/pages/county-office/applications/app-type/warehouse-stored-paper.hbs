@@ -1,0 +1,283 @@
+{{#> ../layouts/base TITLE='LDP - Application - Quantity' NAV_USER_COU=true NAV4_ACTIVE=true BASE_ROOT='../../../' }}
+
+{{#*inline "main-block"}}
+
+<div class="fsa-section">
+  <div class="fsa-section__bd">
+
+    {{> ../components/stepped-tabs/stepped-tabs-application-cou STEP4=true }}
+
+    <h1>Warehouse Stored Quantity</h1>
+
+    {{> ../includes/application-data
+          PRIMARY_CONTACT=''
+          COMMODITY=''
+          COMMODITY_CLASS=''
+          APP_NUMBER=''
+          APP_STATUS=''
+          APP_TYPE=''
+        }}
+
+    <table class="fsa-table fsa-table--borderless">
+      <caption class="sr-only">Caption that is hidden visually, but read by screenreader</caption>
+      <thead>
+        <tr>
+          <th scope="col" class="fsa-text-align--right">Locations Receipt Number</th>
+          <th scope="col" class="fsa-text-align--right">Issue Date</th>
+          <th scope="col" class="fsa-text-align--right">Requested Quantity</th>
+          <th scope="col" class="fsa-text-align--right">Quantity Adjustment</th>
+          <th scope="col" class="fsa-text-align--right">Net Quantity</th>
+          <th scope="col" class="fsa-text-align--right">LDP Rate</th>
+          <th scope="col" class="fsa-text-align--right">Payment Amount</th>
+          <th scope="col" class="fsa-text-align--right">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr id="row1">
+          <td class="fsa-text-align--right">87239812</td>
+          <td class="fsa-text-align--right">06/15/2020</td>
+          <td class="fsa-text-align--right">2,420.17 BU</td>
+          <td class="fsa-text-align--right">-23.15 BU</td>
+          <td class="fsa-text-align--right">2,397.02 BU</td>
+          <td class="fsa-text-align--right">0.72</td>
+          <td class="fsa-text-align--right">$1,725.85</td>
+          <td class="fsa-table__cell fsa-text-align--right">
+            <button onclick="openModal('Edit')" role="button" type="button" aria-behavior="modal-show" data-behavior="open-modal"
+              aria-controls="modal__storage" aria-expanded="false"
+              class="fsa-btn fsa-btn--secondary fsa-btn--small">
+              Edit
+            </button>
+          </td>
+        </tr>
+        <tr id="row2">
+          <td class="fsa-text-align--right">97237541</td>
+          <td class="fsa-text-align--right">06/19/2020</td>
+          <td class="fsa-text-align--right">1,410.34 BU</td>
+          <td class="fsa-text-align--right">-49.32</td>
+          <td class="fsa-text-align--right">1,361.02 BU</td>
+          <td class="fsa-text-align--right">0.91</td>
+          <td class="fsa-text-align--right">$1,238.53</td>
+          <td class="fsa-table__cell fsa-text-align--right">
+            <button onclick="openModal('Edit')" role="button" type="button" aria-behavior="modal-show" data-behavior="open-modal"
+              aria-controls="modal__storage" aria-expanded="false"
+              class="fsa-btn fsa-btn--secondary fsa-btn--small">
+              Edit
+            </button>
+          </td>
+        </tr>
+        <tr id="row3">
+          <td class="fsa-text-align--right">97237212</td>
+          <td class="fsa-text-align--right">06/17/2020</td>
+          <td class="fsa-text-align--right">4,201.10 BU</td>
+          <td class="fsa-text-align--right"></td>
+          <td class="fsa-text-align--right">4,201.10 BU</td>
+          <td class="fsa-text-align--right">1.08</td>
+          <td class="fsa-text-align--right">$4,537.19</td>
+          <td class="fsa-table__cell fsa-text-align--right">
+            <button onclick="openModal('Edit')" role="button" type="button" aria-behavior="modal-show" data-behavior="open-modal"
+              aria-controls="modal__storage" aria-expanded="false"
+              class="fsa-btn fsa-btn--secondary fsa-btn--small">
+              Edit
+            </button>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="8">
+            <button onclick="openModal('Add')" role="button" type="button" aria-behavior="modal-show" data-behavior="open-modal"
+              aria-controls="modal__storage" aria-expanded="false"
+              class="fsa-btn fsa-btn--secondary fsa-btn--small">
+              Add Storage
+            </button>
+          </td>
+        </tr>
+
+
+      </tbody>
+    </table>
+
+    <div class="fsa-m-t--m">
+
+      <div class="fsa-grid">
+        <div class="fsa-grid__1/1 fsa-grid__1/3@m">
+          <div class="fsa-m-t--s">
+            <div class="ldp-data-box">
+              <div class="ldp-data-box__title">Available Quantity</div>
+              <div id="available-quantity-text" class="ldp-data-box__bd ldp-data-box__bd--md"></div>
+            </div>
+          </div>
+        </div>
+        <div class="fsa-grid__1/1 fsa-grid__1/3@m">
+          <div class="fsa-m-t--s">
+            <div class="ldp-data-box">
+              <div class="ldp-data-box__title">Total Requested Quantity</div>
+              <div id="requested-quantity-text" class="ldp-data-box__bd ldp-data-box__bd--md"></div>
+            </div>
+          </div>
+        </div>
+        <div class="fsa-grid__1/1 fsa-grid__1/3@m">
+          <div class="fsa-m-t--s">
+            <div class="ldp-data-box">
+              <div class="ldp-data-box__title">Total Payment</div>
+              <div id="total-payment-text" class="ldp-data-box__bd ldp-data-box__bd--md"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</div>
+
+
+<div class="fsa-section">
+  <div class="fsa-section__bd">
+
+    {{> ../components/stepped-control/stepped-control-application-cou
+          CURRENT_STEP="7"
+          TOTAL_STEPS="8"
+          BACK_URL=""
+          BACK_LABEL="Back"
+          DISABLED=true
+          CONTINUE_LABEL="Continue"
+          USE_GROWL_ON_CANCEL=true  
+          GROWL_ID="growl__cancel-application"      
+        }}
+
+  </div>
+</div>
+
+
+{{/inline}}
+
+{{#*inline "hidden-block"}}
+<!-- HIDDEN - FOR MODALS/GROWL CONTENT -->
+{{> ../components/growl/growl-cancel-application GROWL_ID="growl__cancel-application" BASE_ROOT="../../../" }}
+
+<!-- EDIT STORAGE MODAL -->
+
+<div tabindex="0" id="modal__storage" class="fsa-modal fsa-modal--top" role="dialog" aria-hidden="true">
+  <div class="fsa-modal__dialog">
+    <div class="fsa-modal__content">
+      <button class="fsa-modal__close" data-behavior="close-modal" aria-controls="modal__edit-storage">
+        <img class="fsa-modal__close-icon" src="{{ "../../../" }}/img/close.svg" alt="close">
+      </button>
+      
+      <h1 id="add-edit-modal" class="fsa-modal__title">Add Warehouse Stored</h1>
+        
+
+        <div class="fsa-m-t--s">
+          <div class="fsa-field">
+            <label class="fsa-field__label" for="UNIQUE-ID-receipt-number">Receipt Number: </label>
+            <input onchange="setRef(this.value)" class="fsa-input fsa-field__item" id="UNIQUE-ID-receipt-number" aria-describedby="UNIQUE-ID-receipt-number-help" aria-required="true" name="UNIQUE-ID-receipt-number" type="text" value="">
+          </div>
+        </div>
+
+        <div class="fsa-m-t--s">
+          <div class="fsa-field">
+            <label class="fsa-field__label" for="requested-quantity">Requested Quantity: <span class="fsa-field__label-desc">Required</span></label>
+            <input id="requested-quantity" oninput="setQuantity(this.value); return false;" class="fsa-input fsa-field__item"
+              aria-describedby="requested-quantity-help" aria-required="true" name="requested-quantity" type="text" value="">
+          </div>
+        </div>
+
+        <div class="fsa-field">
+          <label class="fsa-field__label" for="UNIQUE-ID-select-uom">Unit of Measure <span class="fsa-field__label-desc">Required</span></label>
+          <select onchange="setUOM(this.value)" class="fsa-select fsa-field__item " id="UNIQUE-ID-select-uom"
+            aria-describedby="UNIQUE-ID-select-uom-help" aria-required="true"
+            name="UNIQUE-ID-select-uom">
+            <option value="x">Select Unit</option>
+            <option value="bu">BU</option>
+            <option value="lbs">LBS</option>
+          </select>
+          <!--<span class="fsa-field__help" id="UNIQUE-ID-select-uom-help">Instructional message here</span>-->
+        </div>
+
+        
+        <div class="fsa-field">
+          <label class="fsa-field__label" for="UNIQUE-ID-sold-date">Date Commodity Sold <span
+              class="fsa-field__label-desc">Required</span></label>
+          <input class="fsa-input fsa-field__item" id="UNIQUE-ID-sold-date" placeholder="MM/DD/YYYY"
+            aria-describedby="UNIQUE-ID-sold-date-help" aria-required="true" name="UNIQUE-ID-sold-date"
+            type="text" value="">
+        </div>
+
+        <div class="fsa-m-t--s">
+          <div class="fsa-level">
+            <div>
+              <p class="fsa-text-size--3"><input onchange="toggleMoisture()" class="fsa-checkbox" id="moisture-toggle" type="checkbox" name="moisture-toggle" value="moisture-toggle">
+                  <label for="moisture-toggle">Reduce for Moisture</label>
+              </p>
+            </div>
+
+            <div>
+              <div id="moisture-percentage" class="fsa-field">
+                <label class="fsa-field__label" for="moisture-perc">Moisture % <span class="fsa-field__label-desc">Required</span></label>
+                <div class="fsa-field__item">
+                  <div class="fsa-spinbox">
+                    <div class="fsa-spinbox__number">
+                      <input class="fsa-input fsa-spinbox__input" id="moisture-perc" aria-describedby="moisture-perc-help" name="moisture-perc" type="number" value="" step="0.01">
+                    </div>
+                    <div class="fsa-spinbox__actions" aria-hidden="true">
+                      <button tabindex="-1" class="fsa-spinbox__btn fsa-spinbox__btn--increment" type="button" data-behavior="spinbox-spin" title="Increase"></button>
+                      <button tabindex="-1" class="fsa-spinbox__btn fsa-spinbox__btn--decrement" type="button" data-behavior="spinbox-spin" title="Decrease"></button>
+                    </div>
+                  </div>
+                </div>
+                <span class="fsa-field__help" id="edit-storage-ldp-rate-help">This value is a Percent</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="fsa-m-t--s">
+
+          <div class="fsa-level fsa-m-t--m">
+            <div class="fsa-level__item--align-top">
+              <span>
+                <input class="fsa-radio" id="g2a" type="radio" name="g2" value="yes">
+                <label for="g2a">Yes</label>
+              </span>
+              <span>
+                <input class="fsa-radio" id="g2b" type="radio" name="g2" value="no">
+                <label for="g2b">No</label>
+              </span>
+            </div>
+            <div class="fsa-level__item--grow-even fsa-level__item--align-top fsa-text-size--4">
+              Has a KC-350 been provided?
+            </div>
+          </div>
+
+
+          <div class="fsa-m-t--l">
+            <button id="modal-add-update" disabled="disabled" role="button" data-behavior="close-modal" type="button" class="fsa-btn fsa-btn--primary">Update</button>   
+            <button role="button" data-behavior="close-modal" type="button" class="fsa-btn fsa-btn--secondary">Cancel</button>
+          </div>
+
+
+        </div>
+    </div>
+  </div>
+</div>
+
+<!-- / EDIT STORAGE MODAL -->
+
+
+<!-- /HIDDEN -->
+{{/inline}}
+
+{{#*inline "scripts-block"}}
+
+<script>
+  window.addEventListener('load', (evt) => {
+    setNextPage('index_ext');
+    enableButton('sc-continue')
+  });
+</script>
+
+{{> ../includes/js/js-warehouse-stored }}
+
+{{/inline}}
+
+{{/../layouts/base }}

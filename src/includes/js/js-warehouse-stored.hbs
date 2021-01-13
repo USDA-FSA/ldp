@@ -2,21 +2,111 @@
   let source = 'x';
   let uom = 'bu';
   let uomConst = 40;
+  let requestedQuantity = '';
+  let isNRQvisible = false;
+  let isMoistureVisible = false;
+  let availableQuantityText = "45,252.72 BU";
+  let requestedQuantityText = "7,611.44 BU";
+  let totalPaymentText = "$7,505.93";
 
   window.addEventListener('load', (evt) => {
-
+    hideMoisture('ewr');
+    hideMoisture('paper');
+    hideAllRows();
+    //setNextPage('warehouse-stored-2_ext_');
+  });
+  
+  window.addEventListener('load', (evt) => {
+    hideAllRows();
   });
 
+  function hideAllRows(){
+    document.getElementById("row1").style.display = "none";
+    document.getElementById("row2").style.display = "none";
+    document.getElementById("row3").style.display = "none";
+  }
+
+  function showAllRows(){
+    document.getElementById("row1").style.display = "inline";
+    document.getElementById("row2").style.display = "inline";
+    document.getElementById("row3").style.display = "inline";
+  }
+
+  function showRow(row){
+    document.getElementById(row).style.display = "none";
+  }
+
+  function hideRow(row){
+    document.getElementById(row).style.display = "inline";
+  }
+
+  function showTotals(){
+    document.getElementById('available-quantity-text').textContent = availableQuantityText;
+    document.getElementById('requested-quantity-text').textContent = requestedQuantityText;
+    document.getElementById('total-payment-text').textContent = totalPaymentText;
+  }
+
+  function openModal(val) {
+    hideSources();
+    document.getElementById('UNIQUE-ID-select-source').value = 'x';
+    document.getElementById("add-edit-modal").textContent = val + " Storage";
+    if (val == 'Add') {
+      document.getElementById('modal-delete').style.display = "none";
+      document.getElementById('modal-add-update').textContent = 'Add';
+    } else {
+      document.getElementById('modal-delete').style.display = "inline";
+      document.getElementById('modal-add-update').textContent = 'Update';
+    }
+    showAllRows();
+    showTotals();
+    enableButton('sc-continue')
+  }
+
+  /*
   function setSource(src) {
     hideSources();
     source = src;
     if (src != 'x'){
       document.getElementById(src).style.display = "inline";
-      enableButton('modal-add-update')
+			
     } else {
-      disableButton('modal-add-update')
+			
     }
-    setQuantity(getRQ());
+    //setQuantity(getRQ());
+  }  
+
+  function hideSources() {
+    document.getElementById("source-certified").style.display = "none";
+    document.getElementById("source-evidence-ewr").style.display = "none";
+    document.getElementById("source-evidence-paper").style.display = "none";
+    document.getElementById("source-evidence-other").style.display = "none";
+  }
+  */
+
+  function toggleMoisture(src) {
+    if (isMoistureVisible) {
+      isMoistureVisible = false;
+      hideMoisture(src);
+    } else {
+      showMoisture(src);
+      isMoistureVisible = true;
+    }
+  }
+
+  function showNRQ() {
+    document.getElementById("net-requested-quantity").style.display = "inline";
+  }
+
+  function hideNRQ() {
+    document.getElementById("net-requested-quantity").style.display = "none";
+  }
+
+  function showMoisture(src) {
+    document.getElementById("moisture-percentage-"+src).style.display = "inline";
+  }
+
+  function hideMoisture(src) {
+    document.getElementById("moisture-percentage-"+src).style.display = "none";
   }
   
 

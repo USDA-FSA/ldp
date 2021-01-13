@@ -7,32 +7,151 @@
 
     {{> ../components/stepped-tabs/stepped-tabs-application-cou STEP4=true }}
 
-    <h1>Warehouse Quantity</h1>
+    <h1>Warehouse Stored Quantity</h1>
 
     {{> ../includes/application-data
-          PRIMARY_CONTACT=''
-          COMMODITY=''
-          COMMODITY_CLASS=''
-          APP_NUMBER=''
-          APP_STATUS=''
-          APP_TYPE=''
-        }}
+      PRIMARY_CONTACT=''
+      COMMODITY=''
+      COMMODITY_CLASS=''
+      APP_NUMBER=''
+      APP_STATUS=''
+      APP_TYPE=''
+    }}
 
-    <div class="fsa-m-t--m">
-      <div class="fsa-field">
-        <label class="fsa-field__label" for="UNIQUE-ID-select-source">Source of Quantity <span
-            class="fsa-field__label-desc">Required</span></label>
-        <select onchange="setSource(this.value)" class="fsa-select fsa-field__item " id="UNIQUE-ID-select-source"
-          aria-describedby="UNIQUE-ID-select-source-help" aria-required="true"
-          name="UNIQUE-ID-select-source">
-          <option value="x">Select Source</option>
-          <option value="source-certified">Certified</option>
-          <option value="source-evidence">Production Evidence</option>
-        </select>
-        <!--<span class="fsa-field__help" id="UNIQUE-ID-select-source-help">Instructional message here</span>-->
+
+    <span class="fsa-divider fsa-m-t--m fsa-m-b--m"></span>
+
+    <div class="fsa-field">
+      <label class="fsa-field__label" for="UNIQUE-ID-select-source">Source of Quantity <span
+          class="fsa-field__label-desc">Required</span></label>
+      <select onchange="setSource(this.value)" class="fsa-select fsa-field__item " id="UNIQUE-ID-select-source"
+        aria-describedby="UNIQUE-ID-select-source-help" aria-required="true"
+        name="UNIQUE-ID-select-source">
+        <option value="x">Select Source</option>
+        <option value="source-certified">Certified</option>
+        <option value="source-evidence-ewr">Production Evidence - EWR</option>
+        <option value="source-evidence-paper">Production Evidence - Paper</option>
+        <option value="source-evidence-other">Production Evidence - Other</option>
+      </select>
+      <!--<span class="fsa-field__help" id="UNIQUE-ID-select-source-help">Instructional message here</span>-->
+    </div>
+
+
+    <!-- CERTIFIED -->
+    <div id="source-certified">
+      <div class="fsa-m-t--s">Click the Continue button to Proceed.</div>
+    </div>
+    <!-- /CERTIFIED -->
+
+
+    <!-- EVIDENCE EWR-->
+    <div id="source-evidence-ewr">      
+      
+      <div class="fsa-m-t--s fsa-level">
+        <div class="fsa-field">
+          <label class="fsa-field__label" for="UNIQUE-ID-ewr-file-sequence">EWR File Sequence: </label>
+          <input class="fsa-input fsa-field__item" id="UNIQUE-ID-ewr-file-sequence"
+            aria-describedby="UNIQUE-ID-ewr-file-sequence-help"
+            aria-required="true"
+            name="UNIQUE-ID-ewr-file-sequence"
+            type="text" value="">
+        </div>
+        <div class="">
+          <button aria-behavior="modal-show" data-behavior="open-modal"	aria-controls="modal__ewr" aria-expanded="false" class="fsa-btn fsa-btn--secondary" type="button">
+            Search
+          </button>
+        </div>
       </div>
 
     </div>
+    <!-- /EVIDENCE EWR-->
+
+    <!-- EVIDENCE PAPER-->
+    <div id="source-evidence-paper">
+
+      <div class="fsa-field">
+        <label class="fsa-field__label" for="UNIQUE-ID-select-search-by">Search by <span
+            class="fsa-field__label-desc">Required</span></label>
+        <select onchange="setSearchBy(this.value)" class="fsa-select fsa-field__item " id="UNIQUE-ID-select-search-by"
+          aria-describedby="UNIQUE-ID-select-search-by-help" aria-required="true"
+          name="UNIQUE-ID-select-search-by">
+          <option value="x">Select Option</option>
+          <option value="warehouse-name">Warehouse Name</option>
+          <option value="warehouse-code">Warehouse Code</option>
+          <option value="user-favorites">User Favorites</option>
+        </select>
+        <!--<span class="fsa-field__help" id="UNIQUE-ID-select-search-by-help">Instructional message here</span>-->
+      </div>          
+      
+      <div id="warehouse-search">
+        <div class="fsa-m-t--s fsa-level">
+          <div class="fsa-field">
+            <label class="fsa-field__label" for="UNIQUE-ID-paper-search">Warehouse Search: </label>
+            <input class="fsa-input fsa-field__item" id="UNIQUE-ID-paper-search"
+              aria-describedby="UNIQUE-ID-paper-search-help"
+              aria-required="true"
+              name="UNIQUE-ID-paper-search"
+              type="text" value="">
+          </div>
+          <div class="">
+            <button onclick="showLocationName()" class="fsa-btn fsa-btn--secondary">Search</button>
+          </div>
+        </div>
+      </div>
+
+      <div id="location-name">
+        <div  class="fsa-field">
+          <label class="fsa-field__label" for="select-location-name">Location Name <span
+              class="fsa-field__label-desc">Required</span></label>
+          <select onchange="showDetails(this.value)" class="fsa-select fsa-field__item " id="select-location-name"
+            aria-describedby="select-location-name-help" aria-required="true"
+            name="select-location-name">
+            <option value="x">Select Option</option>
+            <option value="warehouse-name">SUNSHINE GRAIN INC</option>
+            <option value="warehouse-code">WESTERN SUNSHINE STORAGE</option>
+          </select>
+          <!--<span class="fsa-field__help" id="select-location-name-help">Instructional message here</span>-->
+        </div>
+      </div>
+
+      
+
+      <span class="fsa-divider"></span>
+
+      <div id="details">
+        <div class="fsa-m-t--s">
+          <p class="fsa-text-size--3">Code: <strong><span id="warehouse-code" class="fsa-text-allcaps">429371</span></strong></p>
+        </div>
+        <div class="fsa-m-t--s">
+          <p class="fsa-text-size--3">Location State: <strong><span id="warehouse-state" class="fsa-text-allcaps">Kansas</span></strong></p>
+        </div>
+        <div class="fsa-m-t--s">
+          <p class="fsa-text-size--3">Location County: <strong><span id="warehouse-county" class="fsa-text-allcaps">Miami</span></strong></p>
+        </div>
+      </div>
+      
+
+      
+
+    </div>
+    <!-- /EVIDENCE PAPER -->
+
+    <!-- EVIDENCE OTHER -->
+    <div id="source-evidence-other">          
+
+      <div class="fsa-field">
+        <label class="fsa-field__label" for="UNIQUE-ID-1">Additional Documentation</label>
+        <input class="fsa-input fsa-field__item" id="UNIQUE-ID-1" aria-describedby="UNIQUE-ID-1-help" aria-required="true" name="UNIQUE-ID-1" type="text" value="">
+      </div>
+
+      <div class="fsa-field">
+        <label class="fsa-field__label" for="UNIQUE-ID-3">Issue Date <span class="fsa-field__label-desc">Required</span></label>
+        <input class="fsa-input fsa-field__item" id="UNIQUE-ID-3" placeholder="MM/DD/YYYY" aria-describedby="UNIQUE-ID-3-help" aria-required="true" name="UNIQUE-ID-3" type="text" value="">
+      </div>  
+
+    </div>
+
+
 
   </div>
 </div>
@@ -52,8 +171,6 @@
           GROWL_ID="growl__cancel-application"      
         }}
 
-
-
   </div>
 </div>
 
@@ -63,13 +180,86 @@
 {{#*inline "hidden-block"}}
 <!-- HIDDEN - FOR MODALS/GROWL CONTENT -->
 {{> ../components/growl/growl-cancel-application GROWL_ID="growl__cancel-application" BASE_ROOT="../../../" }}
-
+{{> ../components/modal/modal-ewr BASE_ROOT="../../../" }}
 <!-- /HIDDEN -->
 {{/inline}}
 
 {{#*inline "scripts-block"}}
 
-{{> ../includes/js/js-warehouse-stored }}
+<script>
+  let source = 'x';
+  window.addEventListener('load', (evt) => {
+    hideSources();
+  });
+
+  function setSource(src) {
+    hideSources();
+    source = src;
+    if (src != 'x'){
+      document.getElementById(src).style.display = "inline";
+      
+      if(src == 'source-certified') setNextPage('warehouse-stored-certified_ext_')
+      if(src == 'source-evidence-ewr') setNextPage('warehouse-stored-ewr_ext_')
+      if(src == 'source-evidence-paper') setNextPage('warehouse-stored-paper_ext_')
+      if(src == 'source-evidence-other') setNextPage('warehouse-stored-other_ext_')
+
+      enableButton('sc-continue')
+
+    } else {
+      disableButton('sc-continue')
+    }
+  }
+
+  function hideSources() {
+    document.getElementById("source-certified").style.display = "none";
+    document.getElementById("source-evidence-ewr").style.display = "none";
+    document.getElementById("source-evidence-paper").style.display = "none";
+    document.getElementById("source-evidence-other").style.display = "none";
+    document.getElementById('location-name').style.display = "none";
+    document.getElementById('details').style.display = "none";
+  }
+
+  function showWarehouseSearch(){
+    document.getElementById('warehouse-search').style.display = "inline";
+  }
+
+  function hideWarehouseSearch(){
+    document.getElementById('warehouse-search').style.display = "none";
+  }
+
+  function showLocationName(){
+    document.getElementById('select-location-name').value = 'x';
+    document.getElementById('location-name').style.display = "inline";
+  }
+
+  function hideLocationName(){
+    document.getElementById('location-name').style.display = "none";
+  }
+
+  function showDetails(src=null){
+    if(src=='x'){
+      hideDetails();
+    } else {
+      document.getElementById('details').style.display = "inline";
+    }
+  }
+
+  function hideDetails(){
+    document.getElementById('details').style.display = "none";
+  }
+
+  function setSearchBy(val){
+    hideDetails();
+
+    if(val=='user-favorites'){
+      hideWarehouseSearch();
+      showLocationName();
+    } else {
+      hideLocationName();
+      showWarehouseSearch();
+    }
+  }
+</script>
 
 {{/inline}}
 

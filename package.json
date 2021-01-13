@@ -59,7 +59,7 @@
   },
   "dependencies": {
     "@epegzz/sass-vars-loader": "^4.3.0",
-    "axios": "^0.20.0",
+    "axios": "^0.21.1",
     "html-beautify-webpack-plugin": "^1.0.5",
     "pixrem": "^4.0.1",
     "sass-resources-loader": "^2.0.0"

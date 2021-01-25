@@ -1,4 +1,4 @@
-{{#> ../layouts/base TITLE='LDP - Applications' NAV_USER_COU=true NAV3_ACTIVE=true BASE_ROOT='../' }}
+{{#> ../layouts/base TITLE='LDP - Applications' NAV_USER_COU=true NAV3_ACTIVE=true BASE_ROOT='../../' }}
 
 {{#*inline "main-block"}}
 
@@ -14,45 +14,44 @@
         <li class="fsa-box fsa-box--bw-0 fsa-box--br-2 fsa-p--s">
           <div class="fsa-text--h6">LDP Number</div>
           <div class="fsa-text-size--4">
-            <strong>593827</strong>
+            <strong>553299</strong>
           </div>
         </li>
         <li class="fsa-box fsa-box--bw-0 fsa-box--br-2 fsa-p--s">
           <div class="fsa-text--h6">Primary Contact</div>
           <div class="fsa-text-size--4">
-            <div title="Johnson County, Missouri">JEREMY T WILSON</div>
+            <div title="Johnson County, Missouri">FRANKLIN FRANK, T</div>
           </div>
         </li>
         <li class="fsa-box fsa-box--bw-0 fsa-box--br-2 fsa-p--s">
           <div class="fsa-text--h6">Commodity</div>
-          <div class="fsa-text-size--4">Flax</div>
+          <div class="fsa-text-size--4">Oats</div>
         </li>
         <li class="fsa-box fsa-box--bw-0 fsa-box--br-2 fsa-p--s">
           <div class="fsa-text--h6">LDP Type</div>
-          <div class="fsa-text-size--4">Farm Stored</div>
+          <div class="fsa-text-size--4">Sold/Fed/Delivered</div>
         </li>
       </ul>
       <ul class="fsa-m-t--m fsa-level fsa-level--justify-between fsa-level--align-stretch fsa-level--grow-even">
         <li class="fsa-box fsa-box--bw-0 fsa-box--br-2 fsa-p--s">
           <div class="fsa-text--h6">Status</div>
           <div class="fsa-text-size--4">
-            <span class="fsa-label fsa-label--large fsa-label--neutral">DRAFT</span>
+            <span class="fsa-label fsa-label--large fsa-label--neutral">Pending Review</span>
           </div>
         </li>
         <li class="fsa-box fsa-box--bw-0 fsa-box--br-2 fsa-p--s">
           <div class="fsa-text--h6">Request Date</div>
           <div class="fsa-text-size--4">
-            <div title="Johnson County, Missouri">8/15/2020</div>
+            <div title="Johnson County, Missouri">02/15/2020</div>
           </div>
         </li>
         <li class="fsa-box fsa-box--bw-0 fsa-box--br-2 fsa-p--s">
           <div class="fsa-text--h6">Total Quantity</div>
-          <div class="fsa-text-size--4">487 BU
-          </div>
+          <div class="fsa-text-size--4">693,012 BU</div>
         </li>
         <li class="fsa-box fsa-box--bw-0 fsa-box--br-2 fsa-p--s">
           <div class="fsa-text--h6">Total Disbursement</div>
-          <div class="fsa-text-size--4"><span class="fsa-label fsa-label--large fsa-label--success"><strong>$767.94</strong></span></div>
+          <div class="fsa-text-size--4"><span class="fsa-label fsa-label--large fsa-label--success"><strong>$6,902.93</strong></span></div>
         </li>
       </ul>
 
@@ -64,9 +63,11 @@
             <span class="fsa-switch__track"></span>
           </label>
         </span>
+        <!--
         <span class="">
           <button class="fsa-btn fsa-btn--secondary fsa-btn--small">Edit</button>
         </span>
+        -->
       </span>
 
     </div>
@@ -76,8 +77,8 @@
 
       <div class="fsa-m-t--m fsa-grid">
         <div class="fsa-grid__1/1 fsa-grid__1/3@m">
-          <p class="fsa-text-size--3">Producer Name: <strong><span class="fsa-text-allcaps">Anderson Farms Inc</span></strong></p>
-          <p class="fsa-text-size--3">Email: <strong><span class="fsa-text-allcaps">john.smith@yahoo.com</span></strong></p>
+          <p class="fsa-text-size--3">Producer Name: <strong><span class="fsa-text-allcaps">FRANKLIN FRANK, T</span></strong></p>
+          <p class="fsa-text-size--3">Email: <strong><span class="fsa-text-allcaps">farmerfranky@yahoo.com</span></strong></p>
           <p class="fsa-text-size--3">Reference Info: Storage pending hold summary</p>
         </div>
         <div class="fsa-grid__1/1 fsa-grid__1/3@m">
@@ -87,8 +88,8 @@
         </div>
         <div class="fsa-grid__1/1 fsa-grid__1/3@m">
           <p class="fsa-text-size--3">Crop Year: <strong><span class="fsa-text-allcaps">2020</span></strong></p>
-          <p class="fsa-text-size--3">Commodity: <strong><span class="fsa-text-allcaps">Flax</span></strong></p>
-          <p class="fsa-text-size--3">Class: <strong><span class="fsa-text-allcaps">Linola</span></strong></p>
+          <p class="fsa-text-size--3">Commodity: <strong><span class="fsa-text-allcaps">Oats</span></strong></p>
+          <p class="fsa-text-size--3">Class: <strong><span class="fsa-text-allcaps">Oats (with Hull)</span></strong></p>
         </div>
       </div>
 
@@ -101,7 +102,7 @@
           </label>
         </span>
         <span class="">
-          <button class="fsa-btn fsa-btn--secondary fsa-btn--small">Edit</button>
+          <button onclick="Router.to('../applications/select-commodity_ext_')" class="fsa-btn fsa-btn--secondary fsa-btn--small">Edit</button>
         </span>
       </span>
 
@@ -157,22 +158,22 @@
             <span class="fsa-switch__track"></span>
           </label>
         </span>
+        <!--
         <span class="">
           <button class="fsa-btn fsa-btn--secondary fsa-btn--small">Edit</button>
         </span>
+        -->
       </span>
 
     </div>
 
 		<div class="fsa-m-t--m fsa-level">
-      <button class="fsa-btn fsa-btn--secondary" type="button">
-				Review Completed 
+      <button id="certify-review" role="button" type="button" aria-behavior="modal-show" data-behavior="open-modal"
+        aria-controls="modal__review-certify" aria-expanded="false" class="fsa-btn fsa-btn--secondary" type="button">
+				Complete Review 
 			</button>
-			<button onclick="Router.to('./applications/select-producer_ext_')" class="fsa-btn fsa-btn--secondary" type="button">
-				Withdraw 
-			</button>
-			<button onclick="Router.to('./applications/select-producer_ext_')" class="fsa-btn fsa-btn--tertiary" type="button">
-				Delete
+			<button onclick="Router.to('index_ext_')" class="fsa-btn fsa-btn--secondary" type="button">
+				Withdraw LDP 
 			</button>
 		</div>
 
@@ -181,12 +182,29 @@
 </div>
 
 
+
 {{/inline}}
+
+{{#*inline "hidden-block"}}
+<!-- HIDDEN - FOR MODALS/GROWL CONTENT -->
+{{> ../components/modal/modal-certify-review BASE_ROOT="../../" }}
+<!-- /HIDDEN -->
+{{/inline}}
+
 
 {{#*inline "scripts-block"}}
 <!-- page-level scripts -->
 <script>
-  let 
+  let approvalCount = 0;
+  window.addEventListener("load", (evt) => {
+		disableButton('certify-review');
+
+    Store.actions.setPrimaryContact('FRANKLIN FRANK, T')
+    Store.actions.setCommodity('Oats');
+    Store.actions.setCommodityClass('Oats (with Hull)')
+    
+	});
+
 	function setApplication(name, ldpNumber){
 		//Store.actions.setPrimaryContact(name);
 		Store.actions.setAppNumber(ldpNumber);
@@ -195,12 +213,16 @@
   function toggleReview(id, cb){
     console.log('cb',cb.checked)
     if(cb.checked){
+      approvalCount++;
       document.getElementById(id).classList.add('fsa-box--bg-2', 'fsa-box--bw-3')
       document.getElementById(id).classList.remove('fsa-box--bg-0', 'fsa-box--bw-0')
     } else {
+      approvalCount--;
       document.getElementById(id).classList.add('fsa-box--bg-0', 'fsa-box--bw-0')
       document.getElementById(id).classList.remove('fsa-box--bg-2', 'fsa-box--bw-3')
     }
+    if(approvalCount>=3) enableButton('certify-review')
+    else disableButton('certify-review')
   }
 </script>
 <!-- /page-level scripts -->

@@ -14,22 +14,22 @@
     <!-- <div class="fsa-m-t--l fsa-content-tabs"> -->
       <ul class="fsa-content-tabs__list">
         <li class="fsa-content-tabs__item">
-          <a role="button" onclick="showRow(this, 'draft'); return false;" class="fsa-content-tabs__label fsa-content-tabs__label--active" href="">
+          <a role="button" onclick="selectTab(this, 'draft'); return false;" class="fsa-content-tabs__label fsa-content-tabs__label--active" href="">
             <span class="fsa-content-tabs__label-text">Draft LDPs</span>
           </a>
         </li>
         <li class="fsa-content-tabs__item">
-          <a role="button" onclick="showRow(this, 'pending-review'); return false;" class="fsa-content-tabs__label" aria-current="step" href="">
+          <a role="button" onclick="selectTab(this, 'pending-review'); return false;" class="fsa-content-tabs__label" aria-current="step" href="">
             <span class="fsa-content-tabs__label-text">Pending Review</span>
           </a>
         </li>
         <li class="fsa-content-tabs__item">
-          <a role="button" onclick="showRow(this, 'pending-approval'); return false;" class="fsa-content-tabs__label" aria-current="step" href="">
+          <a role="button" onclick="selectTab(this, 'pending-approval'); return false;" class="fsa-content-tabs__label" aria-current="step" href="">
             <span class="fsa-content-tabs__label-text">Pending Approval</span>
           </a>
         </li>
         <li class="fsa-content-tabs__item">
-          <a role="button" onclick="showRow(this, 'disbursed'); return false;" class="fsa-content-tabs__label" aria-current="step" href="">
+          <a role="button" onclick="selectTab(this, 'disbursed'); return false;" class="fsa-content-tabs__label" aria-current="step" href="">
             <span class="fsa-content-tabs__label-text">Disbursed LDPs</span>
           </a>
         </li>
@@ -43,6 +43,62 @@
 			-->
       
     </div>
+
+		<div data-ldp-controls="draft" class="fsa-m-t--l fsa-m-b--l">
+			<ul class="fsa-m-t--m fsa-level fsa-level--justify-between fsa-level--align-stretch fsa-level--grow-even">
+				<li class="fsa-box fsa-box--bw-0 fsa-box--br-2 fsa-p--s">
+					<div class="fsa-text--h6">Total Drafts</div>
+					<div class="fsa-text-size--4">
+						<strong>149</strong>
+					</div>
+				</li>
+				<li class="fsa-box fsa-box--bw-0 fsa-box--br-2 fsa-p--s">
+					<div class="fsa-text--h6">Delayed LDPs</div>
+					<div class="fsa-text-size--4">
+						<strong>12</strong>
+					</div>
+				</li>
+				<li class="fsa-box fsa-box--bw-0 fsa-box--br-2 fsa-p--s">
+					<div class="fsa-text--h6">Average LDP Amount</div>
+					<div class="fsa-text-size--4">$7,850.42</div>
+				</li>
+				<li class="fsa-box fsa-box--bw-0 fsa-box--br-2 fsa-p--s">
+					<button class="fsa-btn fsa-btn--secondary" type="button">
+						Search Draft LDPs
+					</button>
+				</li>
+			</ul>
+		</div>		
+
+		<div data-ldp-controls="pending-review" class="fsa-m-t--l fsa-m-b--l"></div>
+
+		<div data-ldp-controls="pending-approval" class="fsa-m-t--l fsa-m-b--l"></div>
+
+		<div data-ldp-controls="disbursed" class="fsa-m-t--l fsa-m-b--l">
+			<ul class="fsa-level fsa-level--justify-between fsa-level--align-stretch fsa-level--grow-even">
+				<li class="fsa-box fsa-box--bw-0 fsa-box--br-2 fsa-p--s">
+					<div class="fsa-text--h6">Monthly Rate</div>
+					<div class="fsa-text-size--4">
+						<strong>38%</strong>
+					</div>
+				</li>
+				<li class="fsa-box fsa-box--bw-0 fsa-box--br-2 fsa-p--s">
+					<div class="fsa-text--h6">Largest LDP Quantity</div>
+					<div class="fsa-text-size--4">
+						<strong>105,203 BU</strong>
+					</div>
+				</li>
+				<li class="fsa-box fsa-box--bw-0 fsa-box--br-2 fsa-p--s">
+					<div class="fsa-text--h6">Largest LDP Dispursement</div>
+					<div class="fsa-text-size--4">$87,019.29</div>
+				</li>
+				<li class="fsa-box fsa-box--bw-0 fsa-box--br-2 fsa-p--s">
+					<button class="fsa-btn fsa-btn--secondary" type="button">
+						Generate Report
+					</button>
+				</li>
+			</ul>
+		</div>
 		
 
 		<table class="fsa-table fsa-table--borderless">
@@ -182,36 +238,56 @@
 
 	window.addEventListener('load', (evt) =>{
 		hideRows();
+		hideControls();
 		let tab = document.querySelectorAll('.fsa-content-tabs__label--active')[0];
-		showRow(tab,'draft');
+		selectTab(tab,'draft');
 	});
+
+	function selectTab(selectedTab, str){
+		console.log('tab',selectedTab);
+		console.log('str',str)
+		let tabs = document.querySelectorAll('.fsa-content-tabs__label')
+		tabs.forEach( (item) => {
+			if(item == selectedTab){
+				selectedTab.classList.add('fsa-content-tabs__label--active')
+			} else {
+				item.classList.remove('fsa-content-tabs__label--active');
+			}
+		})
+		showRow(str);
+		showControl(str);
+	}
+
 	function hideRows(){
 		let rows = document.querySelectorAll('[data-ldp-status]');
 		rows.forEach( (item) => {
 			item.style.display = "none";
 		})
 	}
-	function showRow(selectedTab, str){
-		// reset tabs to active row
-		let tabs = document.querySelectorAll('.fsa-content-tabs__label')
-		tabs.forEach( (item) => {
-			
-			if(item == selectedTab){
-				console.log('true')
-				console.log('x',selectedTab)
-				console.log('y',item)
-				selectedTab.classList.add('fsa-content-tabs__label--active')
-			} else {
-				item.classList.remove('fsa-content-tabs__label--active');
-			}
-		})
 
+	function hideControls(){
+		let controls = document.querySelectorAll('[data-ldp-controls]');
+		controls.forEach( (item) => {
+			item.style.display = "none";
+		})
+	}
+
+	function showRow(str){		
 		// hide all rows
 		hideRows();
-
 		// show selected rows
 		let rows = document.querySelectorAll('[data-ldp-status="'+str+'"]');
 		rows.forEach( (item) => {
+			item.style.display = "";
+		})
+	}
+
+	function showControl(str){
+		// hide all controls
+		hideControls();
+		// show selected controls
+		let controls = document.querySelectorAll('[data-ldp-controls="'+str+'"]');
+		controls.forEach( (item) => {
 			item.style.display = "";
 		})
 	}

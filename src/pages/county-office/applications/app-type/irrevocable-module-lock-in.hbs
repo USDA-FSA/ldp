@@ -18,17 +18,55 @@
           APP_TYPE=''
         }}
 				
-				<div class="fsa-divider fsa-m-b--s"></div>
+				<div class="fsa-divider fsa-m-b--m"></div>
+          <span class="fsa-text-size--4">Other Stuff Goes Here</span>
+        <div class="fsa-divider fsa-m-t--s fsa-m-b--m"></div>
 
 				<div class="fsa-m-t--m">
-          <span class="fsa-m-r--l fsa-text-size--4">
-						<input class="fsa-radio" id="a1" type="radio" name="g1" value="1">
-						<label for="t2-1">Farm Stored</label>
-					</span>
+          <div class="fsa-m-t--m fsa-level fsa-level--gutter-l">
+            <div class="fsa-field">
+              <label class="fsa-field__label" for="new-module-input">Module Number <span class="fsa-field__label-desc">Required</span></label>
+              <input onchange="moduleChange(this)" class="fsa-input fsa-field__item" id="new-module-input" aria-describedby="lorem-1234-help-2" aria-required="true" name="new-module-input" type="text" value="">
+              <span class="fsa-field__help" id="lorem-1234-help-2">Type ENTER key to Add Module</span>
+            </div>
+            <div class="fsa-level__item--align-top fsa-box fsa-box--bw-1 fsa-box--br-2 fsa-p--m">
+              <div class="fsa-text--h6">Previous Entry</div>
+              <div class="fsa-text-size--4">
+                <strong><span id="prev-module" class="fsa-text-allcaps"></span></strong>
+              </div>
+            </div>
+          </div>
 				</div>
 
-        
+        <h3>Modules to Add</h3>
+        <div class="fsa-m-t--s fsa-box">
+          <div id="new-modules-container" class="fsa-m-t--s fsa-level fsa-level--wrap">
+            
 
+          </div>
+        </div>
+
+        <div class="fsa-m-t--s">
+          <button id="add-modules-btn" onclick="addModules()" role="button" type="button" class="fsa-btn fsa-btn--secondary">Add New Modules</button>
+        </div>
+
+
+
+        <div class="fsa-divider fsa-m-t--l fsa-m-b--l"></div>
+
+
+
+        <h3>Previously Added Modules</h3>
+        <div class="fsa-m-t--s fsa-box">
+          <div id="prev-modules-container" class="fsa-m-t--s fsa-level fsa-level--wrap">
+            
+
+          </div>
+        </div>
+
+        <div class="fsa-m-t--s">
+          <button id="update-modules-btn" role="button" type="button" class="fsa-btn fsa-btn--secondary">Update Modules</button>
+        </div>
 
 			</div>
     </div>
@@ -62,7 +100,102 @@
 
   {{#*inline "scripts-block"}}
   <script>
-    window.addEventListener('load', (evt) =>{ setNextPage('link_ext_') } );    
+    window.addEventListener('load', (evt) =>{
+      disableButton('add-modules-btn');
+      disableButton('update-modules-btn');
+      setNextPage('link_ext_');
+      setPreviousModules();
+    });
+
+    let newModulesArray =[];
+    let prevModulesArray =['AC101','AC102'];
+
+    function moduleChange(inp){
+      let val = inp.value.toUpperCase();
+
+      let nArr = newModulesArray.find( (item) => item === val);
+      let pArr = prevModulesArray.find( (item) => item === val);
+      if (nArr) {
+        // trigger error modal
+        alert(val + ' has already been added to NEW Modules.')
+      } else if(pArr){
+        // trigger error modal
+        alert(val + ' has already been added to PREVIOUS Modules.')
+      } else {
+        inp.value = '';
+        newModulesArray.push(val);
+        addNewModuleField(val);
+        document.getElementById('prev-module').textContent = val
+        enableButton('add-modules-btn');
+      }
+      
+    }
+
+    function addModules(){
+      let newInputs = document.getElementById('new-modules-container').getElementsByTagName('input');
+      [].forEach.call(newInputs, (inp) => {
+        prevModulesArray.push( inp.value )
+        addPreviousModuleField(inp.value)
+      });
+      document.getElementById('new-modules-container').innerHTML = "";
+      newModulesArray = [];
+      disableButton('add-modules-btn');
+    }
+
+
+    function addNewModuleField(val){
+      let dv = document.createElement('div')
+      dv.className = "fsa-m--s";
+      let inp = document.createElement('input');
+      inp.id = 'new-module-input-'+val;
+      inp.type = "text";
+      inp.name = "module-input-"+val
+      inp.className = "fsa-input fsa-input--small"
+      inp.value = val;
+      inp.onchange = onNewModulesUpdate;
+      dv.appendChild(inp);
+      document.getElementById('new-modules-container').appendChild(dv);
+    }
+
+    function addPreviousModuleField(val){
+      let dv = document.createElement('div')
+      dv.className = "fsa-m--s";
+      let inp = document.createElement('input');
+      inp.id = 'prev-module-input-'+val;
+      inp.type = "text";
+      inp.name = "module-input-"+val
+      inp.className = "fsa-input fsa-input--small"
+      inp.value = val;
+      inp.onchange = onPrevModulesUpdate;
+      dv.appendChild(inp);
+      document.getElementById('prev-modules-container').appendChild(dv);
+    }
+
+
+    function onNewModulesUpdate(){
+      console.log("new~ "+this.id + " : " + this.value)
+      let val = this.value;
+      this.id = 'new-module-input-'+val;
+      console.log(this.id + " : " + val)
+      enableButton('add-modules-btn');
+    }
+
+    function onPrevModulesUpdate(){
+      console.log("prev~ "+this.id + " : " + this.value)
+      let val = this.value;
+      this.id = 'prev-module-input-'+val;
+      console.log(this.id + " : " + val)
+      enableButton('update-modules-btn');
+    }
+
+    function setPreviousModules(){
+      document.getElementById('prev-modules-container').innerHTML = "";
+      prevModulesArray.forEach( (item) => {
+        addPreviousModuleField(item)
+      })
+    }
+
+
   </script>
   {{/inline}}
 

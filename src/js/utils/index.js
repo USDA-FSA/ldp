@@ -4,6 +4,7 @@ const Utils = (() => {
   const getAppRoot = () => {       
     let appRoot = localStorage.getItem('appRoot');
     if(appRoot === null) {
+      console.log('appRoot set')
       appRoot = document.URL.substr(0,document.URL.lastIndexOf('/'));
       localStorage.setItem('appRoot', appRoot)
     } 
